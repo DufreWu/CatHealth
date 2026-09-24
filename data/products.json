@@ -1,0 +1,3122 @@
+[
+  {
+    "schema_version": "1.0.0",
+    "source_site": "zooplus",
+    "source_url": "https://www.zooplus.fi/shop/kissat/kuivaruoka/royal_canin/erikoisravinto/142053",
+    "fetched_at": "2026-09-24T13:28:36+00:00",
+    "product_id": "142053",
+    "name": "Royal Canin Sterilised 37",
+    "brand": "Royal Canin",
+    "images": [
+      "https://media.zooplus.com/bilder/0/400/rc_fhn_sterilised37_mv_eretailkit_fi_fi_0.jpg",
+      "https://media.zooplus.com/bilder/1/400/61245_pla_royalcanin_sterilised37_1.jpg",
+      "https://media.zooplus.com/bilder/3/400/rc_fhn_sterilised37_cv_eretailkit_1_fi_fi_3.jpg",
+      "https://media.zooplus.com/bilder/2/400/rc_fhn_sterilised37_cv_eretailkit_2_fi_fi_2.jpg",
+      "https://media.zooplus.com/bilder/3/400/rc_fhn_sterilised37_cv_eretailkit_3_fi_fi_3.jpg",
+      "https://media.zooplus.com/bilder/5/400/rc_fhn_sterilised37_cv_eretailkit_4_fi_fi_5.jpg",
+      "https://media.zooplus.com/bilder/6/400/rc_fhn_sterilised37_cv_eretailkit_5_fi_fi_6.jpg",
+      "https://media.zooplus.com/bilder/2/400/rc_fhn_sterilised37_cv_eretailkit_7_fi_fi_2.jpg"
+    ],
+    "breadcrumbs": [
+      "zooplus.fi",
+      "Kissat",
+      "Kissan kuivaruoka",
+      "Royal Canin",
+      "Royal Canin Sterilised 37"
+    ],
+    "variants": [
+      {
+        "sku": "142053.13",
+        "name": "Royal Canin Sterilised 37 400 g",
+        "url": "https://www.zooplus.fi/shop/kissat/kuivaruoka/royal_canin/erikoisravinto/142053?activeVariant=142053.13",
+        "gtin": "3182550737555",
+        "size_raw": "< 1,4 kg",
+        "offers": [
+          {
+            "@type": "Offer",
+            "url": "https://www.zooplus.fi/shop/kissat/kuivaruoka/royal_canin/erikoisravinto/142053?activeVariant=142053.13",
+            "price": 5.94,
+            "priceCurrency": "EUR",
+            "availability": "https://schema.org/InStock",
+            "priceValidUntil": "2026-10-01T13:28:36.518Z",
+            "priceSpecification": [
+              {
+                "@type": "UnitPriceSpecification",
+                "priceType": "https://schema.org/StrikethroughPrice",
+                "price": 6.99,
+                "priceCurrency": "EUR"
+              },
+              {
+                "@type": "UnitPriceSpecification",
+                "priceType": "https://schema.org/SalePrice",
+                "price": 5.94,
+                "priceCurrency": "EUR"
+              },
+              {
+                "@type": "UnitPriceSpecification",
+                "price": 5.94,
+                "priceCurrency": "EUR",
+                "validForMemberTier": {
+                  "@id": "https://www.zooplus.fi/autoshipment/central-hub",
+                  "@type": "MemberProgramTier",
+                  "name": "autoshipment"
+                }
+              },
+              {
+                "@type": "UnitPriceSpecification",
+                "price": 5.94,
+                "priceCurrency": "EUR",
+                "validForMemberTier": {
+                  "@type": "MemberProgramTier",
+                  "@id": "https://www.zooplus.fi/zooclub/overview#tier-standard"
+                },
+                "membershipPointsEarned": 7
+              },
+              {
+                "@type": "UnitPriceSpecification",
+                "priceType": "https://schema.org/UnitPrice",
+                "price": 17.47,
+                "priceCurrency": "EUR",
+                "referenceQuantity": {
+                  "@type": "QuantitativeValue",
+                  "value": 1,
+                  "unitCode": "KGM"
+                },
+                "unitText": "kg"
+              }
+            ],
+            "price_source": "jsonld:offers; verify checkout conditions"
+          }
+        ],
+        "attributes": {
+          "dry_food_packaging_size_per_unit assortment": "< 1,4 kg",
+          "flavour assortment": "Siipikarja",
+          "health_specialcare_cat assortment": "Steriloiduille",
+          "packaging assortment": "Säkki",
+          "phase_of_life_cat assortment": "Aikuinen",
+          "specificity_food assortment": "GMO-vapaa",
+          "type_food assortment": "Kuivaruoka",
+          "animal_types assortment": "cat",
+          "product_type assortment": "food"
+        }
+      },
+      {
+        "sku": "142053.11",
+        "name": "Royal Canin Sterilised 37 2 kg",
+        "url": "https://www.zooplus.fi/shop/kissat/kuivaruoka/royal_canin/erikoisravinto/142053?activeVariant=142053.11",
+        "gtin": "3182550737593",
+        "size_raw": "1,5 - 2,9 kg",
+        "offers": [
+          {
+            "@type": "Offer",
+            "url": "https://www.zooplus.fi/shop/kissat/kuivaruoka/royal_canin/erikoisravinto/142053?activeVariant=142053.11",
+            "price": 16.99,
+            "priceCurrency": "EUR",
+            "availability": "https://schema.org/InStock",
+            "priceValidUntil": "2026-10-01T13:28:36.518Z",
+            "priceSpecification": [
+              {
+                "@type": "UnitPriceSpecification",
+                "priceType": "https://schema.org/StrikethroughPrice",
+                "price": 19.99,
+                "priceCurrency": "EUR"
+              },
+              {
+                "@type": "UnitPriceSpecification",
+                "priceType": "https://schema.org/SalePrice",
+                "price": 16.99,
+                "priceCurrency": "EUR"
+              },
+              {
+                "@type": "UnitPriceSpecification",
+                "price": 16.99,
+                "priceCurrency": "EUR",
+                "validForMemberTier": {
+                  "@id": "https://www.zooplus.fi/autoshipment/central-hub",
+                  "@type": "MemberProgramTier",
+                  "name": "autoshipment"
+                }
+              },
+              {
+                "@type": "UnitPriceSpecification",
+                "price": 16.99,
+                "priceCurrency": "EUR",
+                "validForMemberTier": {
+                  "@type": "MemberProgramTier",
+                  "@id": "https://www.zooplus.fi/zooclub/overview#tier-standard"
+                },
+                "membershipPointsEarned": 20
+              },
+              {
+                "@type": "UnitPriceSpecification",
+                "priceType": "https://schema.org/UnitPrice",
+                "price": 10,
+                "priceCurrency": "EUR",
+                "referenceQuantity": {
+                  "@type": "QuantitativeValue",
+                  "value": 1,
+                  "unitCode": "KGM"
+                },
+                "unitText": "kg"
+              }
+            ],
+            "price_source": "jsonld:offers; verify checkout conditions"
+          }
+        ],
+        "attributes": {
+          "dry_food_packaging_size_per_unit assortment": "1,5 - 2,9 kg",
+          "flavour assortment": "Siipikarja",
+          "health_specialcare_cat assortment": "Steriloiduille",
+          "packaging assortment": "Säkki",
+          "phase_of_life_cat assortment": "Aikuinen",
+          "specificity_food assortment": "GMO-vapaa",
+          "type_food assortment": "Kuivaruoka",
+          "animal_types assortment": "cat",
+          "product_type assortment": "food"
+        }
+      },
+      {
+        "sku": "142053.14",
+        "name": "Royal Canin Sterilised 37 4 kg",
+        "url": "https://www.zooplus.fi/shop/kissat/kuivaruoka/royal_canin/erikoisravinto/142053?activeVariant=142053.14",
+        "gtin": "3182550737616",
+        "size_raw": "3 - 4,9 kg",
+        "offers": [
+          {
+            "@type": "Offer",
+            "url": "https://www.zooplus.fi/shop/kissat/kuivaruoka/royal_canin/erikoisravinto/142053?activeVariant=142053.14",
+            "price": 34.64,
+            "priceCurrency": "EUR",
+            "availability": "https://schema.org/InStock",
+            "priceValidUntil": "2026-10-01T13:28:36.518Z",
+            "priceSpecification": [
+              {
+                "@type": "UnitPriceSpecification",
+                "priceType": "https://schema.org/StrikethroughPrice",
+                "price": 38.49,
+                "priceCurrency": "EUR"
+              },
+              {
+                "@type": "UnitPriceSpecification",
+                "priceType": "https://schema.org/SalePrice",
+                "price": 34.64,
+                "priceCurrency": "EUR"
+              },
+              {
+                "@type": "UnitPriceSpecification",
+                "price": 32.72,
+                "priceCurrency": "EUR",
+                "validForMemberTier": {
+                  "@id": "https://www.zooplus.fi/autoshipment/central-hub",
+                  "@type": "MemberProgramTier",
+                  "name": "autoshipment"
+                }
+              },
+              {
+                "@type": "UnitPriceSpecification",
+                "price": 34.64,
+                "priceCurrency": "EUR",
+                "validForMemberTier": {
+                  "@type": "MemberProgramTier",
+                  "@id": "https://www.zooplus.fi/zooclub/overview#tier-standard"
+                },
+                "membershipPointsEarned": 38
+              },
+              {
+                "@type": "UnitPriceSpecification",
+                "priceType": "https://schema.org/UnitPrice",
+                "price": 9.62,
+                "priceCurrency": "EUR",
+                "referenceQuantity": {
+                  "@type": "QuantitativeValue",
+                  "value": 1,
+                  "unitCode": "KGM"
+                },
+                "unitText": "kg"
+              }
+            ],
+            "price_source": "jsonld:offers; verify checkout conditions"
+          }
+        ],
+        "attributes": {
+          "dry_food_packaging_size_per_unit assortment": "3 - 4,9 kg",
+          "flavour assortment": "Siipikarja",
+          "health_specialcare_cat assortment": "Steriloiduille",
+          "packaging assortment": "Säkki",
+          "phase_of_life_cat assortment": "Aikuinen",
+          "specificity_food assortment": "GMO-vapaa",
+          "type_food assortment": "Kuivaruoka",
+          "animal_types assortment": "cat",
+          "product_type assortment": "food"
+        }
+      },
+      {
+        "sku": "142053.12",
+        "name": "Royal Canin Sterilised 37 10 kg",
+        "url": "https://www.zooplus.fi/shop/kissat/kuivaruoka/royal_canin/erikoisravinto/142053?activeVariant=142053.12",
+        "gtin": "3182550737623",
+        "size_raw": "> 10 kg",
+        "offers": [
+          {
+            "@type": "Offer",
+            "url": "https://www.zooplus.fi/shop/kissat/kuivaruoka/royal_canin/erikoisravinto/142053?activeVariant=142053.12",
+            "price": 71.99,
+            "priceCurrency": "EUR",
+            "availability": "https://schema.org/InStock",
+            "priceValidUntil": "2026-10-01T13:28:36.518Z",
+            "priceSpecification": [
+              {
+                "@type": "UnitPriceSpecification",
+                "priceType": "https://schema.org/StrikethroughPrice",
+                "price": 79.99,
+                "priceCurrency": "EUR"
+              },
+              {
+                "@type": "UnitPriceSpecification",
+                "priceType": "https://schema.org/SalePrice",
+                "price": 71.99,
+                "priceCurrency": "EUR"
+              },
+              {
+                "@type": "UnitPriceSpecification",
+                "price": 67.99,
+                "priceCurrency": "EUR",
+                "validForMemberTier": {
+                  "@id": "https://www.zooplus.fi/autoshipment/central-hub",
+                  "@type": "MemberProgramTier",
+                  "name": "autoshipment"
+                }
+              },
+              {
+                "@type": "UnitPriceSpecification",
+                "price": 71.99,
+                "priceCurrency": "EUR",
+                "validForMemberTier": {
+                  "@type": "MemberProgramTier",
+                  "@id": "https://www.zooplus.fi/zooclub/overview#tier-standard"
+                },
+                "membershipPointsEarned": 80
+              },
+              {
+                "@type": "UnitPriceSpecification",
+                "priceType": "https://schema.org/UnitPrice",
+                "price": 8,
+                "priceCurrency": "EUR",
+                "referenceQuantity": {
+                  "@type": "QuantitativeValue",
+                  "value": 1,
+                  "unitCode": "KGM"
+                },
+                "unitText": "kg"
+              }
+            ],
+            "price_source": "jsonld:offers; verify checkout conditions"
+          }
+        ],
+        "attributes": {
+          "dry_food_packaging_size_per_unit assortment": "> 10 kg",
+          "flavour assortment": "Siipikarja",
+          "health_specialcare_cat assortment": "Steriloiduille",
+          "packaging assortment": "Säkki",
+          "phase_of_life_cat assortment": "Aikuinen",
+          "specificity_food assortment": "GMO-vapaa",
+          "type_food assortment": "Kuivaruoka",
+          "animal_types assortment": "cat",
+          "product_type assortment": "food"
+        }
+      },
+      {
+        "sku": "142053.15",
+        "name": "Royal Canin Sterilised 37 säästöpakkaus: 2 x 10 kg",
+        "url": "https://www.zooplus.fi/shop/kissat/kuivaruoka/royal_canin/erikoisravinto/142053?activeVariant=142053.15",
+        "gtin": null,
+        "size_raw": "> 10 kg",
+        "offers": [
+          {
+            "@type": "Offer",
+            "url": "https://www.zooplus.fi/shop/kissat/kuivaruoka/royal_canin/erikoisravinto/142053?activeVariant=142053.15",
+            "price": 157.99,
+            "priceCurrency": "EUR",
+            "availability": "https://schema.org/InStock",
+            "priceValidUntil": "2026-10-01T13:28:36.518Z",
+            "priceSpecification": [
+              {
+                "@type": "UnitPriceSpecification",
+                "priceType": "https://schema.org/SalePrice",
+                "price": 157.99,
+                "priceCurrency": "EUR"
+              },
+              {
+                "@type": "UnitPriceSpecification",
+                "price": 137.99,
+                "priceCurrency": "EUR",
+                "validForMemberTier": {
+                  "@id": "https://www.zooplus.fi/autoshipment/central-hub",
+                  "@type": "MemberProgramTier",
+                  "name": "autoshipment"
+                }
+              },
+              {
+                "@type": "UnitPriceSpecification",
+                "price": 157.99,
+                "priceCurrency": "EUR",
+                "validForMemberTier": {
+                  "@type": "MemberProgramTier",
+                  "@id": "https://www.zooplus.fi/zooclub/overview#tier-standard"
+                },
+                "membershipPointsEarned": 158
+              },
+              {
+                "@type": "UnitPriceSpecification",
+                "price": 159.98,
+                "priceCurrency": "EUR",
+                "priceType": "https://schema.org/ListPrice"
+              },
+              {
+                "@type": "UnitPriceSpecification",
+                "priceType": "https://schema.org/UnitPrice",
+                "price": 7.9,
+                "priceCurrency": "EUR",
+                "referenceQuantity": {
+                  "@type": "QuantitativeValue",
+                  "value": 1,
+                  "unitCode": "KGM"
+                },
+                "unitText": "kg"
+              }
+            ],
+            "price_source": "jsonld:offers; verify checkout conditions"
+          }
+        ],
+        "attributes": {
+          "dry_food_packaging_size_per_unit assortment": "> 10 kg",
+          "flavour assortment": "Siipikarja",
+          "health_specialcare_cat assortment": "Steriloiduille",
+          "packaging assortment": "Säkki",
+          "phase_of_life_cat assortment": "Aikuinen",
+          "specificity_food assortment": "GMO-vapaa",
+          "type_food assortment": "Kuivaruoka",
+          "animal_types assortment": "cat",
+          "product_type assortment": "food"
+        }
+      },
+      {
+        "sku": "142053.20",
+        "name": "Royal Canin Sterilised 37 oheen märkäruoka: 12 x 85 g Royal Canin Sterilised Mousse",
+        "url": "https://www.zooplus.fi/shop/kissat/kuivaruoka/royal_canin/erikoisravinto/142053?activeVariant=142053.20",
+        "gtin": "9003579003916",
+        "size_raw": "80 - 99 g",
+        "offers": [
+          {
+            "@type": "Offer",
+            "url": "https://www.zooplus.fi/shop/kissat/kuivaruoka/royal_canin/erikoisravinto/142053?activeVariant=142053.20",
+            "price": 18.27,
+            "priceCurrency": "EUR",
+            "availability": "https://schema.org/InStock",
+            "priceValidUntil": "2026-10-01T13:28:36.518Z",
+            "priceSpecification": [
+              {
+                "@type": "UnitPriceSpecification",
+                "priceType": "https://schema.org/StrikethroughPrice",
+                "price": 21.49,
+                "priceCurrency": "EUR"
+              },
+              {
+                "@type": "UnitPriceSpecification",
+                "priceType": "https://schema.org/SalePrice",
+                "price": 18.27,
+                "priceCurrency": "EUR"
+              },
+              {
+                "@type": "UnitPriceSpecification",
+                "price": 18.27,
+                "priceCurrency": "EUR",
+                "validForMemberTier": {
+                  "@id": "https://www.zooplus.fi/autoshipment/central-hub",
+                  "@type": "MemberProgramTier",
+                  "name": "autoshipment"
+                }
+              },
+              {
+                "@type": "UnitPriceSpecification",
+                "price": 18.27,
+                "priceCurrency": "EUR",
+                "validForMemberTier": {
+                  "@type": "MemberProgramTier",
+                  "@id": "https://www.zooplus.fi/zooclub/overview#tier-standard"
+                },
+                "membershipPointsEarned": 21
+              },
+              {
+                "@type": "UnitPriceSpecification",
+                "priceType": "https://schema.org/UnitPrice",
+                "price": 21.07,
+                "priceCurrency": "EUR",
+                "referenceQuantity": {
+                  "@type": "QuantitativeValue",
+                  "value": 1,
+                  "unitCode": "KGM"
+                },
+                "unitText": "kg"
+              }
+            ],
+            "price_source": "jsonld:offers; verify checkout conditions"
+          }
+        ],
+        "attributes": {
+          "health_specialcare_cat assortment": "Steriloiduille",
+          "packaging assortment": "Pussi",
+          "phase_of_life_cat assortment": "Aikuinen",
+          "specificity_food assortment": "GMO-vapaa",
+          "texture assortment": "Mousse",
+          "type_food assortment": "Märkäruoka",
+          "wet_food_packaging_size_per_unit assortment": "80 - 99 g",
+          "animal_types assortment": "cat",
+          "product_type assortment": "food"
+        }
+      },
+      {
+        "sku": "142053.22",
+        "name": "Royal Canin Sterilised 37 oheen märkäruoka: 12 x 85 g Royal Canin Sterilised in Jelly",
+        "url": "https://www.zooplus.fi/shop/kissat/kuivaruoka/royal_canin/erikoisravinto/142053?activeVariant=142053.22",
+        "gtin": "9003579311844",
+        "size_raw": "80 - 99 g",
+        "offers": [
+          {
+            "@type": "Offer",
+            "url": "https://www.zooplus.fi/shop/kissat/kuivaruoka/royal_canin/erikoisravinto/142053?activeVariant=142053.22",
+            "price": 14.27,
+            "priceCurrency": "EUR",
+            "availability": "https://schema.org/InStock",
+            "priceValidUntil": "2026-10-01T13:28:36.518Z",
+            "priceSpecification": [
+              {
+                "@type": "UnitPriceSpecification",
+                "priceType": "https://schema.org/StrikethroughPrice",
+                "price": 16.79,
+                "priceCurrency": "EUR"
+              },
+              {
+                "@type": "UnitPriceSpecification",
+                "priceType": "https://schema.org/SalePrice",
+                "price": 14.27,
+                "priceCurrency": "EUR"
+              },
+              {
+                "@type": "UnitPriceSpecification",
+                "price": 14.27,
+                "priceCurrency": "EUR",
+                "validForMemberTier": {
+                  "@id": "https://www.zooplus.fi/autoshipment/central-hub",
+                  "@type": "MemberProgramTier",
+                  "name": "autoshipment"
+                }
+              },
+              {
+                "@type": "UnitPriceSpecification",
+                "price": 14.27,
+                "priceCurrency": "EUR",
+                "validForMemberTier": {
+                  "@type": "MemberProgramTier",
+                  "@id": "https://www.zooplus.fi/zooclub/overview#tier-standard"
+                },
+                "membershipPointsEarned": 17
+              },
+              {
+                "@type": "UnitPriceSpecification",
+                "priceType": "https://schema.org/UnitPrice",
+                "price": 16.46,
+                "priceCurrency": "EUR",
+                "referenceQuantity": {
+                  "@type": "QuantitativeValue",
+                  "value": 1,
+                  "unitCode": "KGM"
+                },
+                "unitText": "kg"
+              }
+            ],
+            "price_source": "jsonld:offers; verify checkout conditions"
+          }
+        ],
+        "attributes": {
+          "health_specialcare_cat assortment": "Steriloiduille",
+          "made_in assortment": "Itävalta",
+          "packaging assortment": "Pussi",
+          "phase_of_life_cat assortment": [
+            "Aikuinen",
+            "Ikääntyvä"
+          ],
+          "texture assortment": "Jelly",
+          "type_food assortment": "Märkäruoka",
+          "wet_food_packaging_size_per_unit assortment": "80 - 99 g",
+          "animal_types assortment": "cat",
+          "product_type assortment": "food"
+        }
+      },
+      {
+        "sku": "142053.23",
+        "name": "Royal Canin Sterilised 37 15 kg",
+        "url": "https://www.zooplus.fi/shop/kissat/kuivaruoka/royal_canin/erikoisravinto/142053?activeVariant=142053.23",
+        "gtin": "3182550777308",
+        "size_raw": "> 10 kg",
+        "offers": [
+          {
+            "@type": "Offer",
+            "url": "https://www.zooplus.fi/shop/kissat/kuivaruoka/royal_canin/erikoisravinto/142053?activeVariant=142053.23",
+            "price": 123.29,
+            "priceCurrency": "EUR",
+            "availability": "https://schema.org/InStock",
+            "priceValidUntil": "2026-10-01T13:28:36.518Z",
+            "priceSpecification": [
+              {
+                "@type": "UnitPriceSpecification",
+                "priceType": "https://schema.org/StrikethroughPrice",
+                "price": 136.99,
+                "priceCurrency": "EUR"
+              },
+              {
+                "@type": "UnitPriceSpecification",
+                "priceType": "https://schema.org/SalePrice",
+                "price": 123.29,
+                "priceCurrency": "EUR"
+              },
+              {
+                "@type": "UnitPriceSpecification",
+                "price": 116.99,
+                "priceCurrency": "EUR",
+                "validForMemberTier": {
+                  "@id": "https://www.zooplus.fi/autoshipment/central-hub",
+                  "@type": "MemberProgramTier",
+                  "name": "autoshipment"
+                }
+              },
+              {
+                "@type": "UnitPriceSpecification",
+                "price": 123.29,
+                "priceCurrency": "EUR",
+                "validForMemberTier": {
+                  "@type": "MemberProgramTier",
+                  "@id": "https://www.zooplus.fi/zooclub/overview#tier-standard"
+                },
+                "membershipPointsEarned": 137
+              },
+              {
+                "@type": "UnitPriceSpecification",
+                "priceType": "https://schema.org/UnitPrice",
+                "price": 9.13,
+                "priceCurrency": "EUR",
+                "referenceQuantity": {
+                  "@type": "QuantitativeValue",
+                  "value": 1,
+                  "unitCode": "KGM"
+                },
+                "unitText": "kg"
+              }
+            ],
+            "price_source": "jsonld:offers; verify checkout conditions"
+          }
+        ],
+        "attributes": {
+          "dry_food_packaging_size_per_unit assortment": "> 10 kg",
+          "health_specialcare_cat assortment": "Steriloiduille",
+          "packaging assortment": "Säkki",
+          "phase_of_life_cat assortment": "Aikuinen",
+          "type_food assortment": "Kuivaruoka",
+          "animal_types assortment": "cat",
+          "product_type assortment": "food"
+        }
+      }
+    ],
+    "ingredient_blocks": [
+      {
+        "scope": "page_description",
+        "variant": null,
+        "raw": "siipikarjaproteiini (kuivattu), maissi, kasviproteiini-isolaatti*, lignoselluloosa, eläinrasva, eläinproteiini (hydrolysoitu), riisi, vehnä, kuivattu juurikasmassa, maissigluteenirehu, hiivat ja niiden osat, kivennäisaineet, kalaöljy, frukto-oligosakkaridit, soijaöljy.\n* L.I.P.: hyvin sulavia valittuja proteiineja, joilla on suuri biologinen arvo.",
+        "source": "html:#ingredients"
+      }
+    ],
+    "nutrition_blocks": [
+      {
+        "scope": "page_description",
+        "variant": null,
+        "source": "page",
+        "raw": "Raakaproteiini: 37 %\nRaakarasva: 12 %\nRaakakuitu: 6,2 %",
+        "observations": [
+          {
+            "nutrient": "protein",
+            "value": 37.0,
+            "unit": "%",
+            "value_type": "unspecified",
+            "qualifier_raw": null,
+            "raw": "Raakaproteiini: 37 %",
+            "location": "html:analytical_text",
+            "needs_review": false
+          },
+          {
+            "nutrient": "fat",
+            "value": 12.0,
+            "unit": "%",
+            "value_type": "unspecified",
+            "qualifier_raw": null,
+            "raw": "Raakarasva: 12 %",
+            "location": "html:analytical_text",
+            "needs_review": false
+          },
+          {
+            "nutrient": "fiber",
+            "value": 6.2,
+            "unit": "%",
+            "value_type": "unspecified",
+            "qualifier_raw": null,
+            "raw": "Raakakuitu: 6,2 %",
+            "location": "html:analytical_text",
+            "needs_review": false
+          }
+        ]
+      },
+      {
+        "scope": "rendered_table_variant",
+        "variant": "400 g",
+        "source": "page",
+        "raw": "raakaproteiini 37.0 %\nraakarasva 12.0 %\nraakakuitu 6.1 %\nraakatuhka 8.1 %\nkalsium 1.11 %\nfosfori 1.0 %\nmagnesium 0.08 %\narakidonihappo 0.06 %\nbiotiini (H-vitamiini) 1.8 mg\nkloridi 0.81 %\nkoliini 2.1 mg\nrauta 221.0 mg\nkosteus 5.5 %\nfoolihappo 28.1 mg\njodi 2.7 mg\nkalium 0.7 %\nkupari 15.0 mg\nL-Karnitiini 100.0 mg\nlinolihappo 2.79 %\nlysiini 1.28 g\nmangaani 62.0 mg\nkystiini 0.57 g\nmetioniini 0.96 g\nnatrium 0.7 %\nniasiini (B3-vitamiini) 194.5 mg\nomega-3-rasvahapot 0.49 %\nomega-6-rasvahapot 2.95 %\npantoteenihappo 57.1 mg\nkasvikuidut 14.6 %\nseleeni 0.31 mg\ntärkkelys 22.8 %\ntauriini 2.4 %\nsinkki 200.0 mg\nA-vitamiini 22.0 IU\nB1-vitamiini (tiamiini) 17.1 mg\nB12-vitamiini (kobalamiini) 0.18 mg\nB2-vitamiini (riboflaviini) 61.4 mg\nB6-vitamiini (pyridoksiini) 28.1 mg\nC-vitamiini (askorbiinihappo) 200.0 mg\nD3-vitamiini 1.0 mg\nE-vitamiini (tokoferoli) 500.0 mg\nenergiamäärä 3.64 kcal\nDiätetische Faser 14.6 %\nEPA / DHA 0.23 mg\nLutein 5.0 mg\nArginin 1.9 %\nMethionin/Cystin 1.53 %\nStickstofffreie Extraktstoffe 31.3 mg",
+        "observations": [
+          {
+            "nutrient": "protein",
+            "value": 37.0,
+            "unit": "%",
+            "value_type": "unspecified",
+            "qualifier_raw": null,
+            "raw": "raakaproteiini 37.0 %",
+            "location": "html:constituentsTable:0",
+            "needs_review": false
+          },
+          {
+            "nutrient": "fat",
+            "value": 12.0,
+            "unit": "%",
+            "value_type": "unspecified",
+            "qualifier_raw": null,
+            "raw": "raakarasva 12.0 %",
+            "location": "html:constituentsTable:0",
+            "needs_review": false
+          },
+          {
+            "nutrient": "fiber",
+            "value": 6.1,
+            "unit": "%",
+            "value_type": "unspecified",
+            "qualifier_raw": null,
+            "raw": "raakakuitu 6.1 %",
+            "location": "html:constituentsTable:0",
+            "needs_review": false
+          },
+          {
+            "nutrient": "ash",
+            "value": 8.1,
+            "unit": "%",
+            "value_type": "unspecified",
+            "qualifier_raw": null,
+            "raw": "raakatuhka 8.1 %",
+            "location": "html:constituentsTable:0",
+            "needs_review": false
+          },
+          {
+            "nutrient": "moisture",
+            "value": 5.5,
+            "unit": "%",
+            "value_type": "unspecified",
+            "qualifier_raw": null,
+            "raw": "kosteus 5.5 %",
+            "location": "html:constituentsTable:0",
+            "needs_review": false
+          },
+          {
+            "nutrient": "calcium",
+            "value": 1.11,
+            "unit": "%",
+            "value_type": "unspecified",
+            "qualifier_raw": null,
+            "raw": "kalsium 1.11 %",
+            "location": "html:constituentsTable:0",
+            "needs_review": false
+          },
+          {
+            "nutrient": "phosphorus",
+            "value": 1.0,
+            "unit": "%",
+            "value_type": "unspecified",
+            "qualifier_raw": null,
+            "raw": "fosfori 1.0 %",
+            "location": "html:constituentsTable:0",
+            "needs_review": false
+          },
+          {
+            "nutrient": "magnesium",
+            "value": 0.08,
+            "unit": "%",
+            "value_type": "unspecified",
+            "qualifier_raw": null,
+            "raw": "magnesium 0.08 %",
+            "location": "html:constituentsTable:0",
+            "needs_review": false
+          },
+          {
+            "nutrient": "taurine",
+            "value": 2.4,
+            "unit": "%",
+            "value_type": "unspecified",
+            "qualifier_raw": null,
+            "raw": "tauriini 2.4 %",
+            "location": "html:constituentsTable:0",
+            "needs_review": false
+          }
+        ],
+        "variant_selection_note": "selected HTML option; first option if no selected attribute"
+      }
+    ],
+    "warnings": [
+      "fiber: different values/qualifiers across blocks or variants; inspect scope",
+      "zooplus_table_is_rendered_variant_only; not automatically valid for all offers"
+    ],
+    "review_status": "unreviewed",
+    "market": "FI",
+    "source_html_sha256": "84eb20eefc825ef72c98dcecc22e7e92c7b092e6c2e62223929721cf92567c55"
+  },
+  {
+    "schema_version": "1.0.0",
+    "source_site": "zooplus",
+    "source_url": "https://www.zooplus.fi/shop/kissat/kuivaruoka/applaws/applaws/142108",
+    "fetched_at": "2026-09-24T13:28:42+00:00",
+    "product_id": "142108",
+    "name": "Applaws Adult kana",
+    "brand": "Applaws",
+    "images": [
+      "https://media.zooplus.com/bilder/1/400/26660_pla_applaws_huhnchen_katzenfutter__400g_hs_01_1.jpg",
+      "https://media.zooplus.com/bilder/5/400/26661_pla_applaws_huhnchen_katzenfutter_2kg_hs_01_5.jpg",
+      "https://media.zooplus.com/bilder/9/400/26662_pla_applaws_huhnchen_katzenfutter_7_5kg_hs_01_9.jpg",
+      "https://media.zooplus.com/bilder/8/400/26662_3__ingredients_dry_en_2400px_8.jpg",
+      "https://media.zooplus.com/bilder/6/400/26662_4__claims_dry_en_2400px_6.jpg"
+    ],
+    "breadcrumbs": [
+      "zooplus.fi",
+      "Kissat",
+      "Kissan kuivaruoka",
+      "Applaws",
+      "Applaws Adult kana"
+    ],
+    "variants": [
+      {
+        "sku": "142108.0",
+        "name": "Applaws Adult kana 400 g",
+        "url": "https://www.zooplus.fi/shop/kissat/kuivaruoka/applaws/applaws/142108?activeVariant=142108.0",
+        "gtin": "5060122491365",
+        "size_raw": "< 1,4 kg",
+        "offers": [
+          {
+            "@type": "Offer",
+            "url": "https://www.zooplus.fi/shop/kissat/kuivaruoka/applaws/applaws/142108?activeVariant=142108.0",
+            "price": 3.99,
+            "priceCurrency": "EUR",
+            "availability": "https://schema.org/InStock",
+            "priceValidUntil": "2026-10-01T13:28:41.807Z",
+            "priceSpecification": [
+              {
+                "@type": "UnitPriceSpecification",
+                "priceType": "https://schema.org/StrikethroughPrice",
+                "price": 4.99,
+                "priceCurrency": "EUR"
+              },
+              {
+                "@type": "UnitPriceSpecification",
+                "priceType": "https://schema.org/SalePrice",
+                "price": 3.99,
+                "priceCurrency": "EUR"
+              },
+              {
+                "@type": "UnitPriceSpecification",
+                "price": 4.24,
+                "priceCurrency": "EUR",
+                "validForMemberTier": {
+                  "@id": "https://www.zooplus.fi/autoshipment/central-hub",
+                  "@type": "MemberProgramTier",
+                  "name": "autoshipment"
+                }
+              },
+              {
+                "@type": "UnitPriceSpecification",
+                "price": 3.99,
+                "priceCurrency": "EUR",
+                "validForMemberTier": {
+                  "@type": "MemberProgramTier",
+                  "@id": "https://www.zooplus.fi/zooclub/overview#tier-standard"
+                },
+                "membershipPointsEarned": 5
+              },
+              {
+                "@type": "UnitPriceSpecification",
+                "priceType": "https://schema.org/UnitPrice",
+                "price": 12.48,
+                "priceCurrency": "EUR",
+                "referenceQuantity": {
+                  "@type": "QuantitativeValue",
+                  "value": 1,
+                  "unitCode": "KGM"
+                },
+                "unitText": "kg"
+              }
+            ],
+            "price_source": "jsonld:offers; verify checkout conditions"
+          }
+        ],
+        "attributes": {
+          "dry_food_packaging_size_per_unit assortment": "< 1,4 kg",
+          "flavour assortment": "Kana",
+          "health_specialcare_cat assortment": "Sensitive",
+          "packaging assortment": "Säkki",
+          "phase_of_life_cat assortment": "Aikuinen",
+          "specificity_food assortment": [
+            "Korkea lihapitoisuus",
+            "Luonnollinen",
+            "Ei keinotekoisia lisäaineita",
+            "Gluteeniton",
+            "GMO-vapaa",
+            "Viljaton",
+            "Sokeriton",
+            "Vain yksi proteiininlähde"
+          ],
+          "type_food assortment": "Kuivaruoka",
+          "animal_types assortment": "cat",
+          "product_type assortment": "food"
+        }
+      },
+      {
+        "sku": "142108.1",
+        "name": "Applaws Adult kana 2 kg",
+        "url": "https://www.zooplus.fi/shop/kissat/kuivaruoka/applaws/applaws/142108?activeVariant=142108.1",
+        "gtin": "5060122491426",
+        "size_raw": "1,5 - 2,9 kg",
+        "offers": [
+          {
+            "@type": "Offer",
+            "url": "https://www.zooplus.fi/shop/kissat/kuivaruoka/applaws/applaws/142108?activeVariant=142108.1",
+            "price": 12.39,
+            "priceCurrency": "EUR",
+            "availability": "https://schema.org/InStock",
+            "priceValidUntil": "2026-10-01T13:28:41.807Z",
+            "priceSpecification": [
+              {
+                "@type": "UnitPriceSpecification",
+                "priceType": "https://schema.org/StrikethroughPrice",
+                "price": 15.49,
+                "priceCurrency": "EUR"
+              },
+              {
+                "@type": "UnitPriceSpecification",
+                "priceType": "https://schema.org/SalePrice",
+                "price": 12.39,
+                "priceCurrency": "EUR"
+              },
+              {
+                "@type": "UnitPriceSpecification",
+                "price": 13.17,
+                "priceCurrency": "EUR",
+                "validForMemberTier": {
+                  "@id": "https://www.zooplus.fi/autoshipment/central-hub",
+                  "@type": "MemberProgramTier",
+                  "name": "autoshipment"
+                }
+              },
+              {
+                "@type": "UnitPriceSpecification",
+                "price": 12.39,
+                "priceCurrency": "EUR",
+                "validForMemberTier": {
+                  "@type": "MemberProgramTier",
+                  "@id": "https://www.zooplus.fi/zooclub/overview#tier-standard"
+                },
+                "membershipPointsEarned": 15
+              },
+              {
+                "@type": "UnitPriceSpecification",
+                "priceType": "https://schema.org/UnitPrice",
+                "price": 7.75,
+                "priceCurrency": "EUR",
+                "referenceQuantity": {
+                  "@type": "QuantitativeValue",
+                  "value": 1,
+                  "unitCode": "KGM"
+                },
+                "unitText": "kg"
+              }
+            ],
+            "price_source": "jsonld:offers; verify checkout conditions"
+          }
+        ],
+        "attributes": {
+          "dry_food_packaging_size_per_unit assortment": "1,5 - 2,9 kg",
+          "flavour assortment": "Kana",
+          "health_specialcare_cat assortment": "Sensitive",
+          "packaging assortment": "Säkki",
+          "phase_of_life_cat assortment": "Aikuinen",
+          "specificity_food assortment": [
+            "Korkea lihapitoisuus",
+            "Luonnollinen",
+            "Ei keinotekoisia lisäaineita",
+            "Gluteeniton",
+            "GMO-vapaa",
+            "Viljaton",
+            "Sokeriton",
+            "Vain yksi proteiininlähde"
+          ],
+          "type_food assortment": "Kuivaruoka",
+          "animal_types assortment": "cat",
+          "product_type assortment": "food"
+        }
+      },
+      {
+        "sku": "142108.4",
+        "name": "Applaws Adult kana 2 x 2 kg",
+        "url": "https://www.zooplus.fi/shop/kissat/kuivaruoka/applaws/applaws/142108?activeVariant=142108.4",
+        "gtin": null,
+        "size_raw": "1,5 - 2,9 kg",
+        "offers": [
+          {
+            "@type": "Offer",
+            "url": "https://www.zooplus.fi/shop/kissat/kuivaruoka/applaws/applaws/142108?activeVariant=142108.4",
+            "price": 22.39,
+            "priceCurrency": "EUR",
+            "availability": "https://schema.org/InStock",
+            "priceValidUntil": "2026-10-01T13:28:41.807Z",
+            "priceSpecification": [
+              {
+                "@type": "UnitPriceSpecification",
+                "priceType": "https://schema.org/StrikethroughPrice",
+                "price": 27.99,
+                "priceCurrency": "EUR"
+              },
+              {
+                "@type": "UnitPriceSpecification",
+                "priceType": "https://schema.org/SalePrice",
+                "price": 22.39,
+                "priceCurrency": "EUR"
+              },
+              {
+                "@type": "UnitPriceSpecification",
+                "price": 23.79,
+                "priceCurrency": "EUR",
+                "validForMemberTier": {
+                  "@id": "https://www.zooplus.fi/autoshipment/central-hub",
+                  "@type": "MemberProgramTier",
+                  "name": "autoshipment"
+                }
+              },
+              {
+                "@type": "UnitPriceSpecification",
+                "price": 22.39,
+                "priceCurrency": "EUR",
+                "validForMemberTier": {
+                  "@type": "MemberProgramTier",
+                  "@id": "https://www.zooplus.fi/zooclub/overview#tier-standard"
+                },
+                "membershipPointsEarned": 28
+              },
+              {
+                "@type": "UnitPriceSpecification",
+                "priceType": "https://schema.org/UnitPrice",
+                "price": 7,
+                "priceCurrency": "EUR",
+                "referenceQuantity": {
+                  "@type": "QuantitativeValue",
+                  "value": 1,
+                  "unitCode": "KGM"
+                },
+                "unitText": "kg"
+              }
+            ],
+            "price_source": "jsonld:offers; verify checkout conditions"
+          }
+        ],
+        "attributes": {
+          "dry_food_packaging_size_per_unit assortment": "1,5 - 2,9 kg",
+          "flavour assortment": "Kana",
+          "health_specialcare_cat assortment": "Sensitive",
+          "packaging assortment": "Säkki",
+          "phase_of_life_cat assortment": "Aikuinen",
+          "specificity_food assortment": [
+            "Korkea lihapitoisuus",
+            "Luonnollinen",
+            "Ei keinotekoisia lisäaineita",
+            "Gluteeniton",
+            "GMO-vapaa",
+            "Viljaton",
+            "Sokeriton",
+            "Vain yksi proteiininlähde"
+          ],
+          "type_food assortment": "Kuivaruoka",
+          "animal_types assortment": "cat",
+          "product_type assortment": "food"
+        }
+      },
+      {
+        "sku": "142108.2",
+        "name": "Applaws Adult kana 7,5 kg",
+        "url": "https://www.zooplus.fi/shop/kissat/kuivaruoka/applaws/applaws/142108?activeVariant=142108.2",
+        "gtin": "5060122491372",
+        "size_raw": "5 - 9,9 kg",
+        "offers": [
+          {
+            "@type": "Offer",
+            "url": "https://www.zooplus.fi/shop/kissat/kuivaruoka/applaws/applaws/142108?activeVariant=142108.2",
+            "price": 34.79,
+            "priceCurrency": "EUR",
+            "availability": "https://schema.org/InStock",
+            "priceValidUntil": "2026-10-01T13:28:41.807Z",
+            "priceSpecification": [
+              {
+                "@type": "UnitPriceSpecification",
+                "priceType": "https://schema.org/StrikethroughPrice",
+                "price": 43.49,
+                "priceCurrency": "EUR"
+              },
+              {
+                "@type": "UnitPriceSpecification",
+                "priceType": "https://schema.org/SalePrice",
+                "price": 34.79,
+                "priceCurrency": "EUR"
+              },
+              {
+                "@type": "UnitPriceSpecification",
+                "price": 36.97,
+                "priceCurrency": "EUR",
+                "validForMemberTier": {
+                  "@id": "https://www.zooplus.fi/autoshipment/central-hub",
+                  "@type": "MemberProgramTier",
+                  "name": "autoshipment"
+                }
+              },
+              {
+                "@type": "UnitPriceSpecification",
+                "price": 34.79,
+                "priceCurrency": "EUR",
+                "validForMemberTier": {
+                  "@type": "MemberProgramTier",
+                  "@id": "https://www.zooplus.fi/zooclub/overview#tier-standard"
+                },
+                "membershipPointsEarned": 43
+              },
+              {
+                "@type": "UnitPriceSpecification",
+                "priceType": "https://schema.org/UnitPrice",
+                "price": 5.8,
+                "priceCurrency": "EUR",
+                "referenceQuantity": {
+                  "@type": "QuantitativeValue",
+                  "value": 1,
+                  "unitCode": "KGM"
+                },
+                "unitText": "kg"
+              }
+            ],
+            "price_source": "jsonld:offers; verify checkout conditions"
+          }
+        ],
+        "attributes": {
+          "dry_food_packaging_size_per_unit assortment": "5 - 9,9 kg",
+          "flavour assortment": "Kana",
+          "health_specialcare_cat assortment": "Sensitive",
+          "packaging assortment": "Säkki",
+          "phase_of_life_cat assortment": "Aikuinen",
+          "specificity_food assortment": [
+            "Korkea lihapitoisuus",
+            "Luonnollinen",
+            "Ei keinotekoisia lisäaineita",
+            "Gluteeniton",
+            "GMO-vapaa",
+            "Viljaton",
+            "Sokeriton",
+            "Vain yksi proteiininlähde"
+          ],
+          "type_food assortment": "Kuivaruoka",
+          "animal_types assortment": "cat",
+          "product_type assortment": "food"
+        }
+      },
+      {
+        "sku": "142108.3",
+        "name": "Applaws Adult kana säästöpakkaus: 2 x 7,5 kg",
+        "url": "https://www.zooplus.fi/shop/kissat/kuivaruoka/applaws/applaws/142108?activeVariant=142108.3",
+        "gtin": null,
+        "size_raw": "5 - 9,9 kg",
+        "offers": [
+          {
+            "@type": "Offer",
+            "url": "https://www.zooplus.fi/shop/kissat/kuivaruoka/applaws/applaws/142108?activeVariant=142108.3",
+            "price": 68.39,
+            "priceCurrency": "EUR",
+            "availability": "https://schema.org/InStock",
+            "priceValidUntil": "2026-10-01T13:28:41.807Z",
+            "priceSpecification": [
+              {
+                "@type": "UnitPriceSpecification",
+                "priceType": "https://schema.org/StrikethroughPrice",
+                "price": 85.49,
+                "priceCurrency": "EUR"
+              },
+              {
+                "@type": "UnitPriceSpecification",
+                "priceType": "https://schema.org/SalePrice",
+                "price": 68.39,
+                "priceCurrency": "EUR"
+              },
+              {
+                "@type": "UnitPriceSpecification",
+                "price": 72.67,
+                "priceCurrency": "EUR",
+                "validForMemberTier": {
+                  "@id": "https://www.zooplus.fi/autoshipment/central-hub",
+                  "@type": "MemberProgramTier",
+                  "name": "autoshipment"
+                }
+              },
+              {
+                "@type": "UnitPriceSpecification",
+                "price": 68.39,
+                "priceCurrency": "EUR",
+                "validForMemberTier": {
+                  "@type": "MemberProgramTier",
+                  "@id": "https://www.zooplus.fi/zooclub/overview#tier-standard"
+                },
+                "membershipPointsEarned": 85
+              },
+              {
+                "@type": "UnitPriceSpecification",
+                "priceType": "https://schema.org/UnitPrice",
+                "price": 5.7,
+                "priceCurrency": "EUR",
+                "referenceQuantity": {
+                  "@type": "QuantitativeValue",
+                  "value": 1,
+                  "unitCode": "KGM"
+                },
+                "unitText": "kg"
+              }
+            ],
+            "price_source": "jsonld:offers; verify checkout conditions"
+          }
+        ],
+        "attributes": {
+          "dry_food_packaging_size_per_unit assortment": "5 - 9,9 kg",
+          "flavour assortment": "Kana",
+          "health_specialcare_cat assortment": "Sensitive",
+          "packaging assortment": "Säkki",
+          "phase_of_life_cat assortment": "Aikuinen",
+          "specificity_food assortment": [
+            "Korkea lihapitoisuus",
+            "Luonnollinen",
+            "Ei keinotekoisia lisäaineita",
+            "Gluteeniton",
+            "GMO-vapaa",
+            "Viljaton",
+            "Sokeriton",
+            "Vain yksi proteiininlähde"
+          ],
+          "type_food assortment": "Kuivaruoka",
+          "animal_types assortment": "cat",
+          "product_type assortment": "food"
+        }
+      }
+    ],
+    "ingredient_blocks": [
+      {
+        "scope": "page_description",
+        "variant": null,
+        "raw": "kana (49,5%), kananliha (46%, tuoreena käsitelty kana* 3,5%), peruna*, siipikarjanrasva (8%), kuivattu juurikasleike*, kuivattu oluthiiva*, vitamiinit ja kivennäisaineet, siipikarjakastike (1,5%), lohiöljy, kananmunajauho*, sikuriuute* (0,2%, prebioottinen FOS-lähde), levät*, Yucca schidigera -uute*, karpalojauho.\n*Luonnolliset raaka-aineet.",
+        "source": "html:#ingredients"
+      }
+    ],
+    "nutrition_blocks": [
+      {
+        "scope": "rendered_table_variant",
+        "variant": "400 g",
+        "source": "page",
+        "raw": "raakaproteiini 37.0 %\nraakarasva 16.5 %\nraakakuitu 2.0 %\nraakatuhka 8.0 %\nkalsium 2.2 %\nfosfori 1.4 %\nomega-3-rasvahapot 0.5 %\nomega-6-rasvahapot 3.85 %\nenergiamäärä 4046.0 kcal/kg",
+        "observations": [
+          {
+            "nutrient": "protein",
+            "value": 37.0,
+            "unit": "%",
+            "value_type": "unspecified",
+            "qualifier_raw": null,
+            "raw": "raakaproteiini 37.0 %",
+            "location": "html:constituentsTable:0",
+            "needs_review": false
+          },
+          {
+            "nutrient": "fat",
+            "value": 16.5,
+            "unit": "%",
+            "value_type": "unspecified",
+            "qualifier_raw": null,
+            "raw": "raakarasva 16.5 %",
+            "location": "html:constituentsTable:0",
+            "needs_review": false
+          },
+          {
+            "nutrient": "fiber",
+            "value": 2.0,
+            "unit": "%",
+            "value_type": "unspecified",
+            "qualifier_raw": null,
+            "raw": "raakakuitu 2.0 %",
+            "location": "html:constituentsTable:0",
+            "needs_review": false
+          },
+          {
+            "nutrient": "ash",
+            "value": 8.0,
+            "unit": "%",
+            "value_type": "unspecified",
+            "qualifier_raw": null,
+            "raw": "raakatuhka 8.0 %",
+            "location": "html:constituentsTable:0",
+            "needs_review": false
+          },
+          {
+            "nutrient": "calcium",
+            "value": 2.2,
+            "unit": "%",
+            "value_type": "unspecified",
+            "qualifier_raw": null,
+            "raw": "kalsium 2.2 %",
+            "location": "html:constituentsTable:0",
+            "needs_review": false
+          },
+          {
+            "nutrient": "phosphorus",
+            "value": 1.4,
+            "unit": "%",
+            "value_type": "unspecified",
+            "qualifier_raw": null,
+            "raw": "fosfori 1.4 %",
+            "location": "html:constituentsTable:0",
+            "needs_review": false
+          }
+        ],
+        "variant_selection_note": "selected HTML option; first option if no selected attribute"
+      }
+    ],
+    "warnings": [
+      "zooplus_table_is_rendered_variant_only; not automatically valid for all offers"
+    ],
+    "review_status": "unreviewed",
+    "market": "FI",
+    "source_html_sha256": "eeebfc58ac9e19fcbd7c6bb3bede6001237e3c74c1c66b418d33dae3d178a932"
+  },
+  {
+    "schema_version": "1.0.0",
+    "source_site": "zooplus",
+    "source_url": "https://www.zooplus.fi/shop/kissat/kuivaruoka/royal_canin/sisakissat/142054",
+    "fetched_at": "2026-09-24T13:28:47+00:00",
+    "product_id": "142054",
+    "name": "Royal Canin Indoor",
+    "brand": "Royal Canin",
+    "images": [
+      "https://media.zooplus.com/bilder/8/400/rc_fhn_indoor27_mv_eretailkit_fi_fi_8.jpg",
+      "https://media.zooplus.com/bilder/1/400/61198_pla_royalcanin_indoor27_1.jpg",
+      "https://media.zooplus.com/bilder/1/400/rc_fhn_indoor27_cv_eretailkit_1_fi_fi_1.jpg",
+      "https://media.zooplus.com/bilder/0/400/rc_fhn_indoor27_cv_eretailkit_2_fi_fi_0.jpg",
+      "https://media.zooplus.com/bilder/0/400/rc_fhn_indoor27_cv_eretailkit_3_fi_fi_0.jpg",
+      "https://media.zooplus.com/bilder/9/400/rc_fhn_indoor27_cv_eretailkit_4_fi_fi_9.jpg",
+      "https://media.zooplus.com/bilder/8/400/rc_fhn_indoor27_cv_eretailkit_7_fi_fi_8.jpg"
+    ],
+    "breadcrumbs": [
+      "zooplus.fi",
+      "Kissat",
+      "Kissan kuivaruoka",
+      "Royal Canin",
+      "Royal Canin Indoor"
+    ],
+    "variants": [
+      {
+        "sku": "142054.14",
+        "name": "Royal Canin Indoor 400 g",
+        "url": "https://www.zooplus.fi/shop/kissat/kuivaruoka/royal_canin/sisakissat/142054?activeVariant=142054.14",
+        "gtin": "3182550704618",
+        "size_raw": "< 1,4 kg",
+        "offers": [
+          {
+            "@type": "Offer",
+            "url": "https://www.zooplus.fi/shop/kissat/kuivaruoka/royal_canin/sisakissat/142054?activeVariant=142054.14",
+            "price": 5.94,
+            "priceCurrency": "EUR",
+            "availability": "https://schema.org/InStock",
+            "priceValidUntil": "2026-10-01T13:28:46.493Z",
+            "priceSpecification": [
+              {
+                "@type": "UnitPriceSpecification",
+                "priceType": "https://schema.org/StrikethroughPrice",
+                "price": 6.99,
+                "priceCurrency": "EUR"
+              },
+              {
+                "@type": "UnitPriceSpecification",
+                "priceType": "https://schema.org/SalePrice",
+                "price": 5.94,
+                "priceCurrency": "EUR"
+              },
+              {
+                "@type": "UnitPriceSpecification",
+                "price": 5.94,
+                "priceCurrency": "EUR",
+                "validForMemberTier": {
+                  "@id": "https://www.zooplus.fi/autoshipment/central-hub",
+                  "@type": "MemberProgramTier",
+                  "name": "autoshipment"
+                }
+              },
+              {
+                "@type": "UnitPriceSpecification",
+                "price": 5.94,
+                "priceCurrency": "EUR",
+                "validForMemberTier": {
+                  "@type": "MemberProgramTier",
+                  "@id": "https://www.zooplus.fi/zooclub/overview#tier-standard"
+                },
+                "membershipPointsEarned": 7
+              },
+              {
+                "@type": "UnitPriceSpecification",
+                "priceType": "https://schema.org/UnitPrice",
+                "price": 17.47,
+                "priceCurrency": "EUR",
+                "referenceQuantity": {
+                  "@type": "QuantitativeValue",
+                  "value": 1,
+                  "unitCode": "KGM"
+                },
+                "unitText": "kg"
+              }
+            ],
+            "price_source": "jsonld:offers; verify checkout conditions"
+          }
+        ],
+        "attributes": {
+          "dry_food_packaging_size_per_unit assortment": "< 1,4 kg",
+          "flavour assortment": "Siipikarja",
+          "health_specialcare_cat assortment": "Sisäkäyttöön",
+          "packaging assortment": "Säkki",
+          "phase_of_life_cat assortment": "Aikuinen",
+          "specificity_food assortment": "GMO-vapaa",
+          "type_food assortment": "Kuivaruoka",
+          "animal_types assortment": "cat",
+          "product_type assortment": "food"
+        }
+      },
+      {
+        "sku": "142054.13",
+        "name": "Royal Canin Indoor 2 kg",
+        "url": "https://www.zooplus.fi/shop/kissat/kuivaruoka/royal_canin/sisakissat/142054?activeVariant=142054.13",
+        "gtin": "3182550704625",
+        "size_raw": "1,5 - 2,9 kg",
+        "offers": [
+          {
+            "@type": "Offer",
+            "url": "https://www.zooplus.fi/shop/kissat/kuivaruoka/royal_canin/sisakissat/142054?activeVariant=142054.13",
+            "price": 25.92,
+            "priceCurrency": "EUR",
+            "availability": "https://schema.org/InStock",
+            "priceValidUntil": "2026-10-01T13:28:46.493Z",
+            "priceSpecification": [
+              {
+                "@type": "UnitPriceSpecification",
+                "priceType": "https://schema.org/StrikethroughPrice",
+                "price": 30.49,
+                "priceCurrency": "EUR"
+              },
+              {
+                "@type": "UnitPriceSpecification",
+                "priceType": "https://schema.org/SalePrice",
+                "price": 25.92,
+                "priceCurrency": "EUR"
+              },
+              {
+                "@type": "UnitPriceSpecification",
+                "price": 25.92,
+                "priceCurrency": "EUR",
+                "validForMemberTier": {
+                  "@id": "https://www.zooplus.fi/autoshipment/central-hub",
+                  "@type": "MemberProgramTier",
+                  "name": "autoshipment"
+                }
+              },
+              {
+                "@type": "UnitPriceSpecification",
+                "price": 25.92,
+                "priceCurrency": "EUR",
+                "validForMemberTier": {
+                  "@type": "MemberProgramTier",
+                  "@id": "https://www.zooplus.fi/zooclub/overview#tier-standard"
+                },
+                "membershipPointsEarned": 30
+              },
+              {
+                "@type": "UnitPriceSpecification",
+                "priceType": "https://schema.org/UnitPrice",
+                "price": 15.25,
+                "priceCurrency": "EUR",
+                "referenceQuantity": {
+                  "@type": "QuantitativeValue",
+                  "value": 1,
+                  "unitCode": "KGM"
+                },
+                "unitText": "kg"
+              }
+            ],
+            "price_source": "jsonld:offers; verify checkout conditions"
+          }
+        ],
+        "attributes": {
+          "dry_food_packaging_size_per_unit assortment": "1,5 - 2,9 kg",
+          "flavour assortment": "Siipikarja",
+          "health_specialcare_cat assortment": "Sisäkäyttöön",
+          "packaging assortment": "Säkki",
+          "phase_of_life_cat assortment": "Aikuinen",
+          "specificity_food assortment": "GMO-vapaa",
+          "type_food assortment": "Kuivaruoka",
+          "animal_types assortment": "cat",
+          "product_type assortment": "food"
+        }
+      },
+      {
+        "sku": "142054.11",
+        "name": "Royal Canin Indoor 4 kg",
+        "url": "https://www.zooplus.fi/shop/kissat/kuivaruoka/royal_canin/sisakissat/142054?activeVariant=142054.11",
+        "gtin": "3182550706933",
+        "size_raw": "3 - 4,9 kg",
+        "offers": [
+          {
+            "@type": "Offer",
+            "url": "https://www.zooplus.fi/shop/kissat/kuivaruoka/royal_canin/sisakissat/142054?activeVariant=142054.11",
+            "price": 35.99,
+            "priceCurrency": "EUR",
+            "availability": "https://schema.org/InStock",
+            "priceValidUntil": "2026-10-01T13:28:46.493Z",
+            "priceSpecification": [
+              {
+                "@type": "UnitPriceSpecification",
+                "priceType": "https://schema.org/StrikethroughPrice",
+                "price": 39.99,
+                "priceCurrency": "EUR"
+              },
+              {
+                "@type": "UnitPriceSpecification",
+                "priceType": "https://schema.org/SalePrice",
+                "price": 35.99,
+                "priceCurrency": "EUR"
+              },
+              {
+                "@type": "UnitPriceSpecification",
+                "price": 33.99,
+                "priceCurrency": "EUR",
+                "validForMemberTier": {
+                  "@id": "https://www.zooplus.fi/autoshipment/central-hub",
+                  "@type": "MemberProgramTier",
+                  "name": "autoshipment"
+                }
+              },
+              {
+                "@type": "UnitPriceSpecification",
+                "price": 35.99,
+                "priceCurrency": "EUR",
+                "validForMemberTier": {
+                  "@type": "MemberProgramTier",
+                  "@id": "https://www.zooplus.fi/zooclub/overview#tier-standard"
+                },
+                "membershipPointsEarned": 40
+              },
+              {
+                "@type": "UnitPriceSpecification",
+                "priceType": "https://schema.org/UnitPrice",
+                "price": 10,
+                "priceCurrency": "EUR",
+                "referenceQuantity": {
+                  "@type": "QuantitativeValue",
+                  "value": 1,
+                  "unitCode": "KGM"
+                },
+                "unitText": "kg"
+              }
+            ],
+            "price_source": "jsonld:offers; verify checkout conditions"
+          }
+        ],
+        "attributes": {
+          "dry_food_packaging_size_per_unit assortment": "3 - 4,9 kg",
+          "flavour assortment": "Siipikarja",
+          "health_specialcare_cat assortment": "Sisäkäyttöön",
+          "packaging assortment": "Säkki",
+          "phase_of_life_cat assortment": "Aikuinen",
+          "specificity_food assortment": "GMO-vapaa",
+          "type_food assortment": "Kuivaruoka",
+          "animal_types assortment": "cat",
+          "product_type assortment": "food"
+        }
+      },
+      {
+        "sku": "142054.10",
+        "name": "Royal Canin Indoor 10 kg",
+        "url": "https://www.zooplus.fi/shop/kissat/kuivaruoka/royal_canin/sisakissat/142054?activeVariant=142054.10",
+        "gtin": "3182550706940",
+        "size_raw": "> 10 kg",
+        "offers": [
+          {
+            "@type": "Offer",
+            "url": "https://www.zooplus.fi/shop/kissat/kuivaruoka/royal_canin/sisakissat/142054?activeVariant=142054.10",
+            "price": 78.74,
+            "priceCurrency": "EUR",
+            "availability": "https://schema.org/InStock",
+            "priceValidUntil": "2026-10-01T13:28:46.493Z",
+            "priceSpecification": [
+              {
+                "@type": "UnitPriceSpecification",
+                "priceType": "https://schema.org/StrikethroughPrice",
+                "price": 87.49,
+                "priceCurrency": "EUR"
+              },
+              {
+                "@type": "UnitPriceSpecification",
+                "priceType": "https://schema.org/SalePrice",
+                "price": 78.74,
+                "priceCurrency": "EUR"
+              },
+              {
+                "@type": "UnitPriceSpecification",
+                "price": 74.37,
+                "priceCurrency": "EUR",
+                "validForMemberTier": {
+                  "@id": "https://www.zooplus.fi/autoshipment/central-hub",
+                  "@type": "MemberProgramTier",
+                  "name": "autoshipment"
+                }
+              },
+              {
+                "@type": "UnitPriceSpecification",
+                "price": 78.74,
+                "priceCurrency": "EUR",
+                "validForMemberTier": {
+                  "@type": "MemberProgramTier",
+                  "@id": "https://www.zooplus.fi/zooclub/overview#tier-standard"
+                },
+                "membershipPointsEarned": 87
+              },
+              {
+                "@type": "UnitPriceSpecification",
+                "priceType": "https://schema.org/UnitPrice",
+                "price": 8.75,
+                "priceCurrency": "EUR",
+                "referenceQuantity": {
+                  "@type": "QuantitativeValue",
+                  "value": 1,
+                  "unitCode": "KGM"
+                },
+                "unitText": "kg"
+              }
+            ],
+            "price_source": "jsonld:offers; verify checkout conditions"
+          }
+        ],
+        "attributes": {
+          "dry_food_packaging_size_per_unit assortment": "> 10 kg",
+          "flavour assortment": "Siipikarja",
+          "health_specialcare_cat assortment": "Sisäkäyttöön",
+          "packaging assortment": "Säkki",
+          "phase_of_life_cat assortment": "Aikuinen",
+          "specificity_food assortment": "GMO-vapaa",
+          "type_food assortment": "Kuivaruoka",
+          "animal_types assortment": "cat",
+          "product_type assortment": "food"
+        }
+      },
+      {
+        "sku": "142054.12",
+        "name": "Royal Canin Indoor säästöpakkaus: 2 x 10 kg",
+        "url": "https://www.zooplus.fi/shop/kissat/kuivaruoka/royal_canin/sisakissat/142054?activeVariant=142054.12",
+        "gtin": null,
+        "size_raw": "> 10 kg",
+        "offers": [
+          {
+            "@type": "Offer",
+            "url": "https://www.zooplus.fi/shop/kissat/kuivaruoka/royal_canin/sisakissat/142054?activeVariant=142054.12",
+            "price": 172.99,
+            "priceCurrency": "EUR",
+            "availability": "https://schema.org/InStock",
+            "priceValidUntil": "2026-10-01T13:28:46.493Z",
+            "priceSpecification": [
+              {
+                "@type": "UnitPriceSpecification",
+                "priceType": "https://schema.org/SalePrice",
+                "price": 172.99,
+                "priceCurrency": "EUR"
+              },
+              {
+                "@type": "UnitPriceSpecification",
+                "price": 152.99,
+                "priceCurrency": "EUR",
+                "validForMemberTier": {
+                  "@id": "https://www.zooplus.fi/autoshipment/central-hub",
+                  "@type": "MemberProgramTier",
+                  "name": "autoshipment"
+                }
+              },
+              {
+                "@type": "UnitPriceSpecification",
+                "price": 172.99,
+                "priceCurrency": "EUR",
+                "validForMemberTier": {
+                  "@type": "MemberProgramTier",
+                  "@id": "https://www.zooplus.fi/zooclub/overview#tier-standard"
+                },
+                "membershipPointsEarned": 173
+              },
+              {
+                "@type": "UnitPriceSpecification",
+                "price": 174.98,
+                "priceCurrency": "EUR",
+                "priceType": "https://schema.org/ListPrice"
+              },
+              {
+                "@type": "UnitPriceSpecification",
+                "priceType": "https://schema.org/UnitPrice",
+                "price": 8.65,
+                "priceCurrency": "EUR",
+                "referenceQuantity": {
+                  "@type": "QuantitativeValue",
+                  "value": 1,
+                  "unitCode": "KGM"
+                },
+                "unitText": "kg"
+              }
+            ],
+            "price_source": "jsonld:offers; verify checkout conditions"
+          }
+        ],
+        "attributes": {
+          "dry_food_packaging_size_per_unit assortment": "> 10 kg",
+          "flavour assortment": "Siipikarja",
+          "health_specialcare_cat assortment": "Sisäkäyttöön",
+          "packaging assortment": "Säkki",
+          "phase_of_life_cat assortment": "Aikuinen",
+          "specificity_food assortment": "GMO-vapaa",
+          "type_food assortment": "Kuivaruoka",
+          "animal_types assortment": "cat",
+          "product_type assortment": "food"
+        }
+      },
+      {
+        "sku": "142054.16",
+        "name": "Royal Canin Indoor oheen märkäruoka: 12 x 85 g Royal Canin Indoor Sterilised in Gravy",
+        "url": "https://www.zooplus.fi/shop/kissat/kuivaruoka/royal_canin/sisakissat/142054?activeVariant=142054.16",
+        "gtin": "9003579013793",
+        "size_raw": "80 - 99 g",
+        "offers": [
+          {
+            "@type": "Offer",
+            "url": "https://www.zooplus.fi/shop/kissat/kuivaruoka/royal_canin/sisakissat/142054?activeVariant=142054.16",
+            "price": 15.97,
+            "priceCurrency": "EUR",
+            "availability": "https://schema.org/InStock",
+            "priceValidUntil": "2026-10-01T13:28:46.493Z",
+            "priceSpecification": [
+              {
+                "@type": "UnitPriceSpecification",
+                "priceType": "https://schema.org/StrikethroughPrice",
+                "price": 18.79,
+                "priceCurrency": "EUR"
+              },
+              {
+                "@type": "UnitPriceSpecification",
+                "priceType": "https://schema.org/SalePrice",
+                "price": 15.97,
+                "priceCurrency": "EUR"
+              },
+              {
+                "@type": "UnitPriceSpecification",
+                "price": 15.97,
+                "priceCurrency": "EUR",
+                "validForMemberTier": {
+                  "@id": "https://www.zooplus.fi/autoshipment/central-hub",
+                  "@type": "MemberProgramTier",
+                  "name": "autoshipment"
+                }
+              },
+              {
+                "@type": "UnitPriceSpecification",
+                "price": 15.97,
+                "priceCurrency": "EUR",
+                "validForMemberTier": {
+                  "@type": "MemberProgramTier",
+                  "@id": "https://www.zooplus.fi/zooclub/overview#tier-standard"
+                },
+                "membershipPointsEarned": 19
+              },
+              {
+                "@type": "UnitPriceSpecification",
+                "priceType": "https://schema.org/UnitPrice",
+                "price": 18.42,
+                "priceCurrency": "EUR",
+                "referenceQuantity": {
+                  "@type": "QuantitativeValue",
+                  "value": 1,
+                  "unitCode": "KGM"
+                },
+                "unitText": "kg"
+              }
+            ],
+            "price_source": "jsonld:offers; verify checkout conditions"
+          }
+        ],
+        "attributes": {
+          "health_specialcare_cat assortment": [
+            "Sisäkäyttöön",
+            "Steriloiduille"
+          ],
+          "packaging assortment": "Pussi",
+          "phase_of_life_cat assortment": "Aikuinen",
+          "texture assortment": "Kastike",
+          "type_food assortment": "Märkäruoka",
+          "wet_food_packaging_size_per_unit assortment": "80 - 99 g",
+          "animal_types assortment": "cat",
+          "product_type assortment": "food"
+        }
+      },
+      {
+        "sku": "142054.17",
+        "name": "Royal Canin Indoor oheen märkäruoka: 12 x 85 g Royal Canin Indoor Sterilised in Jelly",
+        "url": "https://www.zooplus.fi/shop/kissat/kuivaruoka/royal_canin/sisakissat/142054?activeVariant=142054.17",
+        "gtin": "9003579013861",
+        "size_raw": "80 - 99 g",
+        "offers": [
+          {
+            "@type": "Offer",
+            "url": "https://www.zooplus.fi/shop/kissat/kuivaruoka/royal_canin/sisakissat/142054?activeVariant=142054.17",
+            "price": 14.27,
+            "priceCurrency": "EUR",
+            "availability": "https://schema.org/InStock",
+            "priceValidUntil": "2026-10-01T13:28:46.493Z",
+            "priceSpecification": [
+              {
+                "@type": "UnitPriceSpecification",
+                "priceType": "https://schema.org/StrikethroughPrice",
+                "price": 16.79,
+                "priceCurrency": "EUR"
+              },
+              {
+                "@type": "UnitPriceSpecification",
+                "priceType": "https://schema.org/SalePrice",
+                "price": 14.27,
+                "priceCurrency": "EUR"
+              },
+              {
+                "@type": "UnitPriceSpecification",
+                "price": 14.27,
+                "priceCurrency": "EUR",
+                "validForMemberTier": {
+                  "@id": "https://www.zooplus.fi/autoshipment/central-hub",
+                  "@type": "MemberProgramTier",
+                  "name": "autoshipment"
+                }
+              },
+              {
+                "@type": "UnitPriceSpecification",
+                "price": 14.27,
+                "priceCurrency": "EUR",
+                "validForMemberTier": {
+                  "@type": "MemberProgramTier",
+                  "@id": "https://www.zooplus.fi/zooclub/overview#tier-standard"
+                },
+                "membershipPointsEarned": 17
+              },
+              {
+                "@type": "UnitPriceSpecification",
+                "priceType": "https://schema.org/UnitPrice",
+                "price": 16.46,
+                "priceCurrency": "EUR",
+                "referenceQuantity": {
+                  "@type": "QuantitativeValue",
+                  "value": 1,
+                  "unitCode": "KGM"
+                },
+                "unitText": "kg"
+              }
+            ],
+            "price_source": "jsonld:offers; verify checkout conditions"
+          }
+        ],
+        "attributes": {
+          "health_specialcare_cat assortment": [
+            "Sisäkäyttöön",
+            "Steriloiduille"
+          ],
+          "packaging assortment": "Pussi",
+          "phase_of_life_cat assortment": "Aikuinen",
+          "texture assortment": "Jelly",
+          "type_food assortment": "Märkäruoka",
+          "wet_food_packaging_size_per_unit assortment": "80 - 99 g",
+          "animal_types assortment": "cat",
+          "product_type assortment": "food"
+        }
+      },
+      {
+        "sku": "142054.18",
+        "name": "Royal Canin Indoor oheen märkäruoka: 12 x 85 g Royal Canin Indoor Sterilised Mousse",
+        "url": "https://www.zooplus.fi/shop/kissat/kuivaruoka/royal_canin/sisakissat/142054?activeVariant=142054.18",
+        "gtin": "9003579013908",
+        "size_raw": "80 - 99 g",
+        "offers": [
+          {
+            "@type": "Offer",
+            "url": "https://www.zooplus.fi/shop/kissat/kuivaruoka/royal_canin/sisakissat/142054?activeVariant=142054.18",
+            "price": 15.97,
+            "priceCurrency": "EUR",
+            "availability": "https://schema.org/InStock",
+            "priceValidUntil": "2026-10-01T13:28:46.493Z",
+            "priceSpecification": [
+              {
+                "@type": "UnitPriceSpecification",
+                "priceType": "https://schema.org/StrikethroughPrice",
+                "price": 18.79,
+                "priceCurrency": "EUR"
+              },
+              {
+                "@type": "UnitPriceSpecification",
+                "priceType": "https://schema.org/SalePrice",
+                "price": 15.97,
+                "priceCurrency": "EUR"
+              },
+              {
+                "@type": "UnitPriceSpecification",
+                "price": 15.97,
+                "priceCurrency": "EUR",
+                "validForMemberTier": {
+                  "@id": "https://www.zooplus.fi/autoshipment/central-hub",
+                  "@type": "MemberProgramTier",
+                  "name": "autoshipment"
+                }
+              },
+              {
+                "@type": "UnitPriceSpecification",
+                "price": 15.97,
+                "priceCurrency": "EUR",
+                "validForMemberTier": {
+                  "@type": "MemberProgramTier",
+                  "@id": "https://www.zooplus.fi/zooclub/overview#tier-standard"
+                },
+                "membershipPointsEarned": 19
+              },
+              {
+                "@type": "UnitPriceSpecification",
+                "priceType": "https://schema.org/UnitPrice",
+                "price": 18.42,
+                "priceCurrency": "EUR",
+                "referenceQuantity": {
+                  "@type": "QuantitativeValue",
+                  "value": 1,
+                  "unitCode": "KGM"
+                },
+                "unitText": "kg"
+              }
+            ],
+            "price_source": "jsonld:offers; verify checkout conditions"
+          }
+        ],
+        "attributes": {
+          "health_specialcare_cat assortment": [
+            "Sisäkäyttöön",
+            "Steriloiduille"
+          ],
+          "packaging assortment": "Pussi",
+          "phase_of_life_cat assortment": "Aikuinen",
+          "texture assortment": "Mousse",
+          "type_food assortment": "Märkäruoka",
+          "wet_food_packaging_size_per_unit assortment": "80 - 99 g",
+          "animal_types assortment": "cat",
+          "product_type assortment": "food"
+        }
+      }
+    ],
+    "ingredient_blocks": [
+      {
+        "scope": "page_description",
+        "variant": null,
+        "raw": "siipikarjaproteiini (kuivattu), riisi, vehnä, maissi, kasviproteiini-isolaatti*, eläinrasva, eläinproteiini (hydrolysoitu), vehnärehujauho, lignoselluloosa, kuivattu juurikasleike, hiivat ja niiden osat, soijaöljy, kivennäiset, frukto-oligosakkaridit, kalaöljy, psyllium (siemenet ja kuoret 0,5 %).\n*L.I.P.: valikoituja, hyvin sulavia proteiineja, joilla on suuri biologinen arvo.",
+        "source": "html:#ingredients"
+      }
+    ],
+    "nutrition_blocks": [
+      {
+        "scope": "rendered_table_variant",
+        "variant": "400 g",
+        "source": "page",
+        "raw": "raakaproteiini 27.0 %\nraakarasva 13.0 %\nraakakuitu 4.0 %\nraakatuhka 7.0 %\nkalsium 1.01 %\nfosfori 0.84 %\nmagnesium 0.07 %\narakidonihappo 0.06 %\nbiotiini (H-vitamiini) 1.41 mg\nkloridi 0.7 %\nkoliini 2.5 mg\nrauta 216.0 mg\nkosteus 5.5 %\nfoolihappo 3.6 mg\njodi 5.5 mg\nkalium 0.6 %\nkupari 15.0 mg\nL-Karnitiini 50.0 mg\nlinolihappo 3.31 %\nmangaani 80.0 mg\nkystiini 0.44 g\nmetioniini 0.76 g\nnatrium 0.5 %\nniasiini (B3-vitamiini) 149.3 mg\nomega-3-rasvahapot 0.6 %\nomega-6-rasvahapot 3.37 %\npantoteenihappo 44.9 mg\nkasvikuidut 11.6 %\nseleeni 0.3 mg\ntärkkelys 36.0 %\ntauriini 0.17 %\nsinkki 233.0 mg\nA-vitamiini 17.0 IU\nB1-vitamiini (tiamiini) 13.4 mg\nB12-vitamiini (kobalamiini) 0.14 mg\nB2-vitamiini (riboflaviini) 48.2 mg\nB6-vitamiini (pyridoksiini) 22.1 mg\nC-vitamiini (askorbiinihappo) 200.0 mg\nD3-vitamiini 800.0 mg\nE-vitamiini (tokoferoli) 500.0 mg\nenergiamäärä 3.76 kcal\nDiätetische Faser 11.5 %\nEPA / DHA 0.21 mg\nArginin 1.46 %\nL-Lysin 1.24 %\nDL-Methionin 0.77 %\nMethionin/Cystin 1.2 %\nStickstofffreie Extraktstoffe 43.5 mg",
+        "observations": [
+          {
+            "nutrient": "protein",
+            "value": 27.0,
+            "unit": "%",
+            "value_type": "unspecified",
+            "qualifier_raw": null,
+            "raw": "raakaproteiini 27.0 %",
+            "location": "html:constituentsTable:0",
+            "needs_review": false
+          },
+          {
+            "nutrient": "fat",
+            "value": 13.0,
+            "unit": "%",
+            "value_type": "unspecified",
+            "qualifier_raw": null,
+            "raw": "raakarasva 13.0 %",
+            "location": "html:constituentsTable:0",
+            "needs_review": false
+          },
+          {
+            "nutrient": "fiber",
+            "value": 4.0,
+            "unit": "%",
+            "value_type": "unspecified",
+            "qualifier_raw": null,
+            "raw": "raakakuitu 4.0 %",
+            "location": "html:constituentsTable:0",
+            "needs_review": false
+          },
+          {
+            "nutrient": "ash",
+            "value": 7.0,
+            "unit": "%",
+            "value_type": "unspecified",
+            "qualifier_raw": null,
+            "raw": "raakatuhka 7.0 %",
+            "location": "html:constituentsTable:0",
+            "needs_review": false
+          },
+          {
+            "nutrient": "moisture",
+            "value": 5.5,
+            "unit": "%",
+            "value_type": "unspecified",
+            "qualifier_raw": null,
+            "raw": "kosteus 5.5 %",
+            "location": "html:constituentsTable:0",
+            "needs_review": false
+          },
+          {
+            "nutrient": "calcium",
+            "value": 1.01,
+            "unit": "%",
+            "value_type": "unspecified",
+            "qualifier_raw": null,
+            "raw": "kalsium 1.01 %",
+            "location": "html:constituentsTable:0",
+            "needs_review": false
+          },
+          {
+            "nutrient": "phosphorus",
+            "value": 0.84,
+            "unit": "%",
+            "value_type": "unspecified",
+            "qualifier_raw": null,
+            "raw": "fosfori 0.84 %",
+            "location": "html:constituentsTable:0",
+            "needs_review": false
+          },
+          {
+            "nutrient": "magnesium",
+            "value": 0.07,
+            "unit": "%",
+            "value_type": "unspecified",
+            "qualifier_raw": null,
+            "raw": "magnesium 0.07 %",
+            "location": "html:constituentsTable:0",
+            "needs_review": false
+          },
+          {
+            "nutrient": "taurine",
+            "value": 0.17,
+            "unit": "%",
+            "value_type": "unspecified",
+            "qualifier_raw": null,
+            "raw": "tauriini 0.17 %",
+            "location": "html:constituentsTable:0",
+            "needs_review": false
+          }
+        ],
+        "variant_selection_note": "selected HTML option; first option if no selected attribute"
+      }
+    ],
+    "warnings": [
+      "zooplus_table_is_rendered_variant_only; not automatically valid for all offers"
+    ],
+    "review_status": "unreviewed",
+    "market": "FI",
+    "source_html_sha256": "97e196b9a8ab9dcbfc9855beb06bd7c62e0eb150e876200f21c860169418d51a"
+  },
+  {
+    "schema_version": "1.0.0",
+    "source_site": "peten",
+    "source_url": "https://www.petenkoiratarvike.com/tuote/royal-canin-sterilised-P012378",
+    "fetched_at": "2026-09-24T13:28:53+00:00",
+    "product_id": "P012378",
+    "name": "Royal Canin Sterilised",
+    "brand": "Royal Canin",
+    "images": [
+      "https://www.petenkoiratarvike.com/dw/image/v2/BLRV_PRD/on/demandware.static/-/Sites-musti-master-catalog/default/dwd9bfdfd4/images/products/P012378/pfi/royal-canin-sterilised-ba.jpg"
+    ],
+    "breadcrumbs": [
+      "Home",
+      "Kissat",
+      "Kissanruoka",
+      "Kissan erikoisruoat",
+      "Steriloidun kissan ruoat",
+      "Royal Canin Sterilised"
+    ],
+    "variants": [
+      {
+        "sku": "012378",
+        "name": "Royal Canin Sterilised - 400 g",
+        "url": "https://www.petenkoiratarvike.com/tuote/royal-canin-sterilised-P012378?pid=012378#012378",
+        "gtin": null,
+        "size_raw": "400 g",
+        "offers": [
+          {
+            "@type": "Offer",
+            "url": "https://www.petenkoiratarvike.com/tuote/royal-canin-sterilised-P012378?pid=012378",
+            "price": 7.19,
+            "priceCurrency": "EUR",
+            "availability": "https://schema.org/InStock",
+            "price_source": "jsonld:offers; verify checkout conditions"
+          }
+        ],
+        "attributes": {
+          "grainFree": "no",
+          "fat": "12",
+          "protein": "37",
+          "sellSizeUOM": "g",
+          "sellSizeValue": "400",
+          "foodType": "Complete",
+          "packageDimensionsHeightCm": "13.00",
+          "packageDimensionsWidthCm": "12.00",
+          "packageDimensionsLengthCm": "6.00",
+          "netWeightKg": "0.4"
+        },
+        "additives_raw": "Ravitsemukselliset lisäaineet (kg:ssa): A-vitamiini: 19000 KY, D3-vitamiini: 1000 KY, E1 (Rauta): 31 mg, E2 (Jodi): 3,1 mg, E4 (Kupari): 10 mg, E5 (Mangaani): 41 mg, E6 (Sinkki): 122 mg, E8 (Seleeni): 0,05 mg, L-karnitiini: 100 mg - Teknologiset lisäaineet: Sedimenttiperäinen klinoptiloliitti: 10 g - Eläintuotantoon vaikuttavat lisäaineet: Ammoniumkloridi: 5 g - Säilöntäaineet - Hapettumisenestoaineet."
+      },
+      {
+        "sku": "012379",
+        "name": "Royal Canin Sterilised - 2 kg",
+        "url": "https://www.petenkoiratarvike.com/tuote/royal-canin-sterilised-P012378?pid=012379#012379",
+        "gtin": null,
+        "size_raw": "2 kg",
+        "offers": [
+          {
+            "@type": "Offer",
+            "url": "https://www.petenkoiratarvike.com/tuote/royal-canin-sterilised-P012378?pid=012379",
+            "price": 25.19,
+            "priceCurrency": "EUR",
+            "availability": "https://schema.org/InStock",
+            "price_source": "jsonld:offers; verify checkout conditions"
+          }
+        ],
+        "attributes": {
+          "grainFree": "no",
+          "fat": "12",
+          "protein": "37",
+          "sellSizeUOM": "kg",
+          "sellSizeValue": "2",
+          "foodType": "Complete",
+          "packageDimensionsHeightCm": "13.00",
+          "packageDimensionsWidthCm": "19.50",
+          "packageDimensionsLengthCm": "34.50",
+          "netWeightKg": "2"
+        },
+        "additives_raw": "Ravitsemukselliset lisäaineet (kg:ssa): A-vitamiini: 19000 KY, D3-vitamiini: 1000 KY, E1 (Rauta): 31 mg, E2 (Jodi): 3,1 mg, E4 (Kupari): 10 mg, E5 (Mangaani): 41 mg, E6 (Sinkki): 122 mg, E8 (Seleeni): 0,05 mg, L-karnitiini: 100 mg - Teknologiset lisäaineet: Sedimenttiperäinen klinoptiloliitti: 10 g - Eläintuotantoon vaikuttavat lisäaineet: Ammoniumkloridi: 5 g - Säilöntäaineet - Hapettumisenestoaineet."
+      },
+      {
+        "sku": "012380",
+        "name": "Royal Canin Sterilised - 4 kg",
+        "url": "https://www.petenkoiratarvike.com/tuote/royal-canin-sterilised-P012378?pid=012380#012380",
+        "gtin": null,
+        "size_raw": "4 kg",
+        "offers": [
+          {
+            "@type": "Offer",
+            "url": "https://www.petenkoiratarvike.com/tuote/royal-canin-sterilised-P012378?pid=012380",
+            "price": 43.49,
+            "priceCurrency": "EUR",
+            "availability": "https://schema.org/InStock",
+            "price_source": "jsonld:offers; verify checkout conditions"
+          }
+        ],
+        "attributes": {
+          "grainFree": "no",
+          "fat": "12",
+          "protein": "37",
+          "sellSizeUOM": "kg",
+          "sellSizeValue": "4",
+          "foodType": "Complete",
+          "packageDimensionsHeightCm": "15.30",
+          "packageDimensionsWidthCm": "27.00",
+          "packageDimensionsLengthCm": "35.20",
+          "netWeightKg": "4"
+        },
+        "additives_raw": "Ravitsemukselliset lisäaineet (kg:ssa): A-vitamiini: 19000 KY, D3-vitamiini: 1000 KY, E1 (Rauta): 31 mg, E2 (Jodi): 3,1 mg, E4 (Kupari): 10 mg, E5 (Mangaani): 41 mg, E6 (Sinkki): 122 mg, E8 (Seleeni): 0,05 mg, L-karnitiini: 100 mg - Teknologiset lisäaineet: Sedimenttiperäinen klinoptiloliitti: 10 g - Eläintuotantoon vaikuttavat lisäaineet: Ammoniumkloridi: 5 g - Säilöntäaineet - Hapettumisenestoaineet."
+      },
+      {
+        "sku": "012381",
+        "name": "Royal Canin Sterilised - 10 kg",
+        "url": "https://www.petenkoiratarvike.com/tuote/royal-canin-sterilised-P012378?pid=012381#012381",
+        "gtin": null,
+        "size_raw": "10 kg",
+        "offers": [
+          {
+            "@type": "Offer",
+            "url": "https://www.petenkoiratarvike.com/tuote/royal-canin-sterilised-P012378?pid=012381",
+            "price": 89.99,
+            "priceCurrency": "EUR",
+            "availability": "https://schema.org/InStock",
+            "price_source": "jsonld:offers; verify checkout conditions"
+          }
+        ],
+        "attributes": {
+          "grainFree": "no",
+          "fat": "12",
+          "protein": "37",
+          "sellSizeUOM": "kg",
+          "sellSizeValue": "10",
+          "foodType": "Complete",
+          "packageDimensionsHeightCm": "14.50",
+          "packageDimensionsWidthCm": "38.80",
+          "packageDimensionsLengthCm": "57.70",
+          "netWeightKg": "10"
+        },
+        "additives_raw": "Ravitsemukselliset lisäaineet (kg:ssa): A-vitamiini: 19000 KY, D3-vitamiini: 1000 KY, E1 (Rauta): 31 mg, E2 (Jodi): 3,1 mg, E4 (Kupari): 10 mg, E5 (Mangaani): 41 mg, E6 (Sinkki): 122 mg, E8 (Seleeni): 0,05 mg, L-karnitiini: 100 mg - Teknologiset lisäaineet: Sedimenttiperäinen klinoptiloliitti: 10 g - Eläintuotantoon vaikuttavat lisäaineet: Ammoniumkloridi: 5 g - Säilöntäaineet - Hapettumisenestoaineet."
+      }
+    ],
+    "ingredient_blocks": [
+      {
+        "scope": "variant",
+        "variant": "012378",
+        "raw": "Kuivattu siipikarjanvalkuainen, maissi, kasvivalkuaisuute*, kasvikuidut, eläinrasvat, hydrolysoidut eläinvalkuaiset, riisi, vehnä, juurikaskuitu, maissigluteeni, hiivat ja niiden osat, kivennäisaineet, kalaöljy, frukto-oligosakkaridit, soijaöljy.",
+        "source": "jsonld:ingredients"
+      },
+      {
+        "scope": "variant",
+        "variant": "012379",
+        "raw": "Kuivattu siipikarjanvalkuainen, maissi, kasvivalkuaisuute*, kasvikuidut, eläinrasvat, hydrolysoidut eläinvalkuaiset, riisi, vehnä, juurikaskuitu, maissigluteeni, hiivat ja niiden osat, kivennäisaineet, kalaöljy, frukto-oligosakkaridit, soijaöljy.",
+        "source": "jsonld:ingredients"
+      },
+      {
+        "scope": "variant",
+        "variant": "012380",
+        "raw": "Kuivattu siipikarjanvalkuainen, maissi, kasvivalkuaisuute*, kasvikuidut, eläinrasvat, hydrolysoidut eläinvalkuaiset, riisi, vehnä, juurikaskuitu, maissigluteeni, hiivat ja niiden osat, kivennäisaineet, kalaöljy, frukto-oligosakkaridit, soijaöljy.",
+        "source": "jsonld:ingredients"
+      },
+      {
+        "scope": "variant",
+        "variant": "012381",
+        "raw": "Kuivattu siipikarjanvalkuainen, maissi, kasvivalkuaisuute*, kasvikuidut, eläinrasvat, hydrolysoidut eläinvalkuaiset, riisi, vehnä, juurikaskuitu, maissigluteeni, hiivat ja niiden osat, kivennäisaineet, kalaöljy, frukto-oligosakkaridit, soijaöljy.",
+        "source": "jsonld:ingredients"
+      }
+    ],
+    "nutrition_blocks": [
+      {
+        "scope": "variant",
+        "variant": "012378",
+        "source": "jsonld",
+        "raw": "Raakavalkuainen: 37% - Raakarasva: 12% - Tuhka: 8,2% - Raakakuitu: 6,2%.",
+        "observations": [
+          {
+            "nutrient": "protein",
+            "value": 37.0,
+            "unit": "%",
+            "value_type": "unspecified",
+            "qualifier_raw": null,
+            "raw": "Raakavalkuainen: 37%",
+            "location": "jsonld:additionalProperty:nutrition",
+            "needs_review": false
+          },
+          {
+            "nutrient": "fat",
+            "value": 12.0,
+            "unit": "%",
+            "value_type": "unspecified",
+            "qualifier_raw": null,
+            "raw": "Raakarasva: 12%",
+            "location": "jsonld:additionalProperty:nutrition",
+            "needs_review": false
+          },
+          {
+            "nutrient": "fiber",
+            "value": 6.2,
+            "unit": "%",
+            "value_type": "unspecified",
+            "qualifier_raw": null,
+            "raw": "Raakakuitu: 6,2%",
+            "location": "jsonld:additionalProperty:nutrition",
+            "needs_review": false
+          },
+          {
+            "nutrient": "ash",
+            "value": 8.2,
+            "unit": "%",
+            "value_type": "unspecified",
+            "qualifier_raw": null,
+            "raw": "Tuhka: 8,2%",
+            "location": "jsonld:additionalProperty:nutrition",
+            "needs_review": false
+          }
+        ]
+      },
+      {
+        "scope": "variant",
+        "variant": "012379",
+        "source": "jsonld",
+        "raw": "Raakavalkuainen: 37% - Raakarasva: 12% - Tuhka: 8,2% - Raakakuitu: 6,2%.",
+        "observations": [
+          {
+            "nutrient": "protein",
+            "value": 37.0,
+            "unit": "%",
+            "value_type": "unspecified",
+            "qualifier_raw": null,
+            "raw": "Raakavalkuainen: 37%",
+            "location": "jsonld:additionalProperty:nutrition",
+            "needs_review": false
+          },
+          {
+            "nutrient": "fat",
+            "value": 12.0,
+            "unit": "%",
+            "value_type": "unspecified",
+            "qualifier_raw": null,
+            "raw": "Raakarasva: 12%",
+            "location": "jsonld:additionalProperty:nutrition",
+            "needs_review": false
+          },
+          {
+            "nutrient": "fiber",
+            "value": 6.2,
+            "unit": "%",
+            "value_type": "unspecified",
+            "qualifier_raw": null,
+            "raw": "Raakakuitu: 6,2%",
+            "location": "jsonld:additionalProperty:nutrition",
+            "needs_review": false
+          },
+          {
+            "nutrient": "ash",
+            "value": 8.2,
+            "unit": "%",
+            "value_type": "unspecified",
+            "qualifier_raw": null,
+            "raw": "Tuhka: 8,2%",
+            "location": "jsonld:additionalProperty:nutrition",
+            "needs_review": false
+          }
+        ]
+      },
+      {
+        "scope": "variant",
+        "variant": "012380",
+        "source": "jsonld",
+        "raw": "Raakavalkuainen: 37% - Raakarasva: 12% - Tuhka: 8,2% - Raakakuitu: 6,2%.",
+        "observations": [
+          {
+            "nutrient": "protein",
+            "value": 37.0,
+            "unit": "%",
+            "value_type": "unspecified",
+            "qualifier_raw": null,
+            "raw": "Raakavalkuainen: 37%",
+            "location": "jsonld:additionalProperty:nutrition",
+            "needs_review": false
+          },
+          {
+            "nutrient": "fat",
+            "value": 12.0,
+            "unit": "%",
+            "value_type": "unspecified",
+            "qualifier_raw": null,
+            "raw": "Raakarasva: 12%",
+            "location": "jsonld:additionalProperty:nutrition",
+            "needs_review": false
+          },
+          {
+            "nutrient": "fiber",
+            "value": 6.2,
+            "unit": "%",
+            "value_type": "unspecified",
+            "qualifier_raw": null,
+            "raw": "Raakakuitu: 6,2%",
+            "location": "jsonld:additionalProperty:nutrition",
+            "needs_review": false
+          },
+          {
+            "nutrient": "ash",
+            "value": 8.2,
+            "unit": "%",
+            "value_type": "unspecified",
+            "qualifier_raw": null,
+            "raw": "Tuhka: 8,2%",
+            "location": "jsonld:additionalProperty:nutrition",
+            "needs_review": false
+          }
+        ]
+      },
+      {
+        "scope": "variant",
+        "variant": "012381",
+        "source": "jsonld",
+        "raw": "Raakavalkuainen: 37% - Raakarasva: 12% - Tuhka: 8,2% - Raakakuitu: 6,2%.",
+        "observations": [
+          {
+            "nutrient": "protein",
+            "value": 37.0,
+            "unit": "%",
+            "value_type": "unspecified",
+            "qualifier_raw": null,
+            "raw": "Raakavalkuainen: 37%",
+            "location": "jsonld:additionalProperty:nutrition",
+            "needs_review": false
+          },
+          {
+            "nutrient": "fat",
+            "value": 12.0,
+            "unit": "%",
+            "value_type": "unspecified",
+            "qualifier_raw": null,
+            "raw": "Raakarasva: 12%",
+            "location": "jsonld:additionalProperty:nutrition",
+            "needs_review": false
+          },
+          {
+            "nutrient": "fiber",
+            "value": 6.2,
+            "unit": "%",
+            "value_type": "unspecified",
+            "qualifier_raw": null,
+            "raw": "Raakakuitu: 6,2%",
+            "location": "jsonld:additionalProperty:nutrition",
+            "needs_review": false
+          },
+          {
+            "nutrient": "ash",
+            "value": 8.2,
+            "unit": "%",
+            "value_type": "unspecified",
+            "qualifier_raw": null,
+            "raw": "Tuhka: 8,2%",
+            "location": "jsonld:additionalProperty:nutrition",
+            "needs_review": false
+          }
+        ]
+      }
+    ],
+    "warnings": [],
+    "review_status": "unreviewed",
+    "market": "FI",
+    "source_html_sha256": "eb021b2991ffcf2581538a60e2bd357f9fde31a524ea83d8acf1662ace994696"
+  },
+  {
+    "schema_version": "1.0.0",
+    "source_site": "peten",
+    "source_url": "https://www.petenkoiratarvike.com/tuote/applaws-cat-adult-chicken-P025455",
+    "fetched_at": "2026-09-24T13:28:58+00:00",
+    "product_id": "P025455",
+    "name": "Applaws Cat Adult Chicken",
+    "brand": "Applaws",
+    "images": [
+      "https://www.petenkoiratarvike.com/dw/image/v2/BLRV_PRD/on/demandware.static/-/Sites-musti-master-catalog/default/dwb0f5fa2e/images/products/P025455/shared/applaws-cat-adult-chicken_39011-fb.jpg"
+    ],
+    "breadcrumbs": [
+      "Home",
+      "Kissat",
+      "Kissanruoka",
+      "Viljaton kissanruoka",
+      "Applaws Cat Adult Chicken"
+    ],
+    "variants": [
+      {
+        "sku": "025455",
+        "name": "Applaws Cat Adult Chicken - 400 g",
+        "url": "https://www.petenkoiratarvike.com/tuote/applaws-cat-adult-chicken-P025455?pid=025455#025455",
+        "gtin": null,
+        "size_raw": "400 g",
+        "offers": [
+          {
+            "@type": "Offer",
+            "url": "https://www.petenkoiratarvike.com/tuote/applaws-cat-adult-chicken-P025455?pid=025455",
+            "price": 4.9,
+            "priceCurrency": "EUR",
+            "availability": "https://schema.org/InStock",
+            "price_source": "jsonld:offers; verify checkout conditions"
+          }
+        ],
+        "attributes": {
+          "grainFree": "no",
+          "fat": "16.5",
+          "protein": "37",
+          "sellSizeUOM": "g",
+          "sellSizeValue": "400",
+          "foodType": "Complete",
+          "packageDimensionsHeightCm": "7.50",
+          "packageDimensionsWidthCm": "14.00",
+          "packageDimensionsLengthCm": "13.50",
+          "netWeightKg": "0.4"
+        },
+        "additives_raw": "Ravitsemukselliset lisäaineet / kg: Vitamiinit: A-vitamiini 29 000 IU, D3-vitamiini 1 000 IU, E-vitamiini 640 mg, tauriini 1 000 mg. Aminohapot: DL-metioniini 250 mg. Hivenaineet: jodi (kalsiumjodaatti, vedetön) 1 mg, rauta (rauta(II) sulfaattimonohydraatti) 50 mg, sinkki (sinkkisulfaattimonohydraatti) 100 mg, mangaani (mangaani(II)oksidi) 50 mg, kupari (kupari(II)sulfaattipentahydraatti) 5 mg. Teknologiset lisäaineet: hapettumisenestoaineet: tokoferoliuutteet. Paakkuuntumisenestoaineet: sepioliitti 300 mg. Sensoriset lisäaineet: rosmariiniuute."
+      },
+      {
+        "sku": "025458",
+        "name": "Applaws Cat Adult Chicken - 2 kg",
+        "url": "https://www.petenkoiratarvike.com/tuote/applaws-cat-adult-chicken-P025455?pid=025458#025458",
+        "gtin": null,
+        "size_raw": "2 kg",
+        "offers": [
+          {
+            "@type": "Offer",
+            "url": "https://www.petenkoiratarvike.com/tuote/applaws-cat-adult-chicken-P025455?pid=025458",
+            "price": 16.49,
+            "priceCurrency": "EUR",
+            "availability": "https://schema.org/InStock",
+            "price_source": "jsonld:offers; verify checkout conditions"
+          }
+        ],
+        "attributes": {
+          "grainFree": "no",
+          "fat": "16.5",
+          "protein": "37",
+          "sellSizeUOM": "kg",
+          "sellSizeValue": "2",
+          "foodType": "Complete",
+          "packageDimensionsHeightCm": "9.00",
+          "packageDimensionsWidthCm": "20.50",
+          "packageDimensionsLengthCm": "24.00",
+          "netWeightKg": "2"
+        },
+        "additives_raw": "Ravitsemukselliset lisäaineet / kg: Vitamiinit: A-vitamiini 29 000 IU, D3-vitamiini 1 000 IU, E-vitamiini 640 mg, tauriini 1 000 mg. Aminohapot: DL-metioniini 250 mg. Hivenaineet: jodi (kalsiumjodaatti, vedetön) 1 mg, rauta (rauta(II) sulfaattimonohydraatti) 50 mg, sinkki (sinkkisulfaattimonohydraatti) 100 mg, mangaani (mangaani(II)oksidi) 50 mg, kupari (kupari(II)sulfaattipentahydraatti) 5 mg. Teknologiset lisäaineet: hapettumisenestoaineet: tokoferoliuutteet. Paakkuuntumisenestoaineet: sepioliitti 300 mg. Sensoriset lisäaineet: rosmariiniuute."
+      },
+      {
+        "sku": "025460",
+        "name": "Applaws Cat Adult Chicken - 7,5 kg",
+        "url": "https://www.petenkoiratarvike.com/tuote/applaws-cat-adult-chicken-P025455?pid=025460#025460",
+        "gtin": null,
+        "size_raw": "7,5 kg",
+        "offers": [
+          {
+            "@type": "Offer",
+            "url": "https://www.petenkoiratarvike.com/tuote/applaws-cat-adult-chicken-P025455?pid=025460",
+            "price": 43.9,
+            "priceCurrency": "EUR",
+            "availability": "https://schema.org/InStock",
+            "price_source": "jsonld:offers; verify checkout conditions"
+          }
+        ],
+        "attributes": {
+          "grainFree": "no",
+          "fat": "16.5",
+          "protein": "37",
+          "sellSizeUOM": "kg",
+          "sellSizeValue": "7.5",
+          "foodType": "Complete",
+          "packageDimensionsHeightCm": "9.00",
+          "packageDimensionsWidthCm": "38.00",
+          "packageDimensionsLengthCm": "57.00",
+          "netWeightKg": "7.5"
+        },
+        "additives_raw": "Ravitsemukselliset lisäaineet / kg: Vitamiinit: A-vitamiini 29 000 IU, D3-vitamiini 1 000 IU, E-vitamiini 640 mg, tauriini 1 000 mg. Aminohapot: DL-metioniini 250 mg. Hivenaineet: jodi (kalsiumjodaatti, vedetön) 1 mg, rauta (rauta(II) sulfaattimonohydraatti) 50 mg, sinkki (sinkkisulfaattimonohydraatti) 100 mg, mangaani (mangaani(II)oksidi) 50 mg, kupari (kupari(II)sulfaattipentahydraatti) 5 mg. Teknologiset lisäaineet: hapettumisenestoaineet: tokoferoliuutteet. Paakkuuntumisenestoaineet: sepioliitti 300 mg. Sensoriset lisäaineet: rosmariiniuute."
+      },
+      {
+        "sku": "0254582",
+        "name": "Applaws Cat Adult Chicken - 2 x 2 kg",
+        "url": "https://www.petenkoiratarvike.com/tuote/applaws-cat-adult-chicken-P025455?pid=0254582#0254582",
+        "gtin": null,
+        "size_raw": "2 x 2 kg",
+        "offers": [
+          {
+            "@type": "Offer",
+            "url": "https://www.petenkoiratarvike.com/tuote/applaws-cat-adult-chicken-P025455?pid=0254582",
+            "price": 32.98,
+            "priceCurrency": "EUR",
+            "availability": "https://schema.org/InStock",
+            "price_source": "jsonld:offers; verify checkout conditions"
+          }
+        ],
+        "attributes": {
+          "grainFree": "no",
+          "fat": "16.5",
+          "protein": "37",
+          "sellSizeUOM": "kg",
+          "sellSizeValue": "2",
+          "foodType": "Complete",
+          "packageDimensionsHeightCm": "9.00",
+          "packageDimensionsWidthCm": "20.50",
+          "packageDimensionsLengthCm": "24.00",
+          "netWeightKg": "2"
+        },
+        "additives_raw": "Ravitsemukselliset lisäaineet / kg: Vitamiinit: A-vitamiini 29 000 IU, D3-vitamiini 1 000 IU, E-vitamiini 640 mg, tauriini 1 000 mg. Aminohapot: DL-metioniini 250 mg. Hivenaineet: jodi (kalsiumjodaatti, vedetön) 1 mg, rauta (rauta(II) sulfaattimonohydraatti) 50 mg, sinkki (sinkkisulfaattimonohydraatti) 100 mg, mangaani (mangaani(II)oksidi) 50 mg, kupari (kupari(II)sulfaattipentahydraatti) 5 mg. Teknologiset lisäaineet: hapettumisenestoaineet: tokoferoliuutteet. Paakkuuntumisenestoaineet: sepioliitti 300 mg. Sensoriset lisäaineet: rosmariiniuute."
+      }
+    ],
+    "ingredient_blocks": [
+      {
+        "scope": "variant",
+        "variant": "025455",
+        "raw": "Valmistusaineet: kana 49,5 % (kanajauhe 46 %, tuoreista raaka-aineista valmistettu kana* 3,5 %), peruna*, siipikarjarasva 8%, juurikasmassa*, kuivattu panimohiiva*, vitamiinit ja kivennäisaineet, siipikarjakastike 1,5 %, lohiöljy, munajauhe*, sikuriuute* 0,2 % (prebioottisen FOS:n lähde), merilevä*, yucca schidigera -uute*, karpalojauhe. *Luonnolliset ainesosat.",
+        "source": "jsonld:ingredients"
+      },
+      {
+        "scope": "variant",
+        "variant": "025458",
+        "raw": "Valmistusaineet: kana 49,5 % (kanajauhe 46 %, tuoreista raaka-aineista valmistettu kana* 3,5 %), peruna*, siipikarjarasva 8%, juurikasmassa*, kuivattu panimohiiva*, vitamiinit ja kivennäisaineet, siipikarjakastike 1,5 %, lohiöljy, munajauhe*, sikuriuute* 0,2 % (prebioottisen FOS:n lähde), merilevä*, yucca schidigera -uute*, karpalojauhe. *Luonnolliset ainesosat.",
+        "source": "jsonld:ingredients"
+      },
+      {
+        "scope": "variant",
+        "variant": "025460",
+        "raw": "Valmistusaineet: kana 49,5 % (kanajauhe 46 %, tuoreista raaka-aineista valmistettu kana* 3,5 %), peruna*, siipikarjarasva 8%, juurikasmassa*, kuivattu panimohiiva*, vitamiinit ja kivennäisaineet, siipikarjakastike 1,5 %, lohiöljy, munajauhe*, sikuriuute* 0,2 % (prebioottisen FOS:n lähde), merilevä*, yucca schidigera -uute*, karpalojauhe. *Luonnolliset ainesosat.",
+        "source": "jsonld:ingredients"
+      },
+      {
+        "scope": "variant",
+        "variant": "0254582",
+        "raw": "Valmistusaineet: kana 49,5 % (kanajauhe 46 %, tuoreista raaka-aineista valmistettu kana* 3,5 %), peruna*, siipikarjarasva 8%, juurikasmassa*, kuivattu panimohiiva*, vitamiinit ja kivennäisaineet, siipikarjakastike 1,5 %, lohiöljy, munajauhe*, sikuriuute* 0,2 % (prebioottisen FOS:n lähde), merilevä*, yucca schidigera -uute*, karpalojauhe. *Luonnolliset ainesosat.",
+        "source": "jsonld:ingredients"
+      }
+    ],
+    "nutrition_blocks": [
+      {
+        "scope": "variant",
+        "variant": "025455",
+        "source": "jsonld",
+        "raw": "Ravintoainekoostumus: proteiini 37 %, raakakuitu 2 %, raakarasva 16,5 %, raakatuhka 8 %, omega-6 3,85 %, omega-3 0,5 %, kalsium 2,2 %, fosfori 1,4 %. Muuntokelpoinen energia: 4046 kcal/kg.",
+        "observations": [
+          {
+            "nutrient": "fat",
+            "value": 16.5,
+            "unit": "%",
+            "value_type": "unspecified",
+            "qualifier_raw": null,
+            "raw": "raakarasva 16,5 %",
+            "location": "jsonld:additionalProperty:nutrition",
+            "needs_review": false
+          },
+          {
+            "nutrient": "fiber",
+            "value": 2.0,
+            "unit": "%",
+            "value_type": "unspecified",
+            "qualifier_raw": null,
+            "raw": "raakakuitu 2 %",
+            "location": "jsonld:additionalProperty:nutrition",
+            "needs_review": false
+          },
+          {
+            "nutrient": "ash",
+            "value": 8.0,
+            "unit": "%",
+            "value_type": "unspecified",
+            "qualifier_raw": null,
+            "raw": "raakatuhka 8 %",
+            "location": "jsonld:additionalProperty:nutrition",
+            "needs_review": false
+          },
+          {
+            "nutrient": "calcium",
+            "value": 2.2,
+            "unit": "%",
+            "value_type": "unspecified",
+            "qualifier_raw": null,
+            "raw": "kalsium 2,2 %",
+            "location": "jsonld:additionalProperty:nutrition",
+            "needs_review": false
+          },
+          {
+            "nutrient": "phosphorus",
+            "value": 1.4,
+            "unit": "%",
+            "value_type": "unspecified",
+            "qualifier_raw": null,
+            "raw": "fosfori 1,4 %",
+            "location": "jsonld:additionalProperty:nutrition",
+            "needs_review": false
+          }
+        ]
+      },
+      {
+        "scope": "variant",
+        "variant": "025458",
+        "source": "jsonld",
+        "raw": "Ravintoainekoostumus: proteiini 37 %, raakakuitu 2 %, raakarasva 16,5 %, raakatuhka 8 %, omega-6 3,85 %, omega-3 0,5 %, kalsium 2,2 %, fosfori 1,4 %. Muuntokelpoinen energia: 4046 kcal/kg.",
+        "observations": [
+          {
+            "nutrient": "fat",
+            "value": 16.5,
+            "unit": "%",
+            "value_type": "unspecified",
+            "qualifier_raw": null,
+            "raw": "raakarasva 16,5 %",
+            "location": "jsonld:additionalProperty:nutrition",
+            "needs_review": false
+          },
+          {
+            "nutrient": "fiber",
+            "value": 2.0,
+            "unit": "%",
+            "value_type": "unspecified",
+            "qualifier_raw": null,
+            "raw": "raakakuitu 2 %",
+            "location": "jsonld:additionalProperty:nutrition",
+            "needs_review": false
+          },
+          {
+            "nutrient": "ash",
+            "value": 8.0,
+            "unit": "%",
+            "value_type": "unspecified",
+            "qualifier_raw": null,
+            "raw": "raakatuhka 8 %",
+            "location": "jsonld:additionalProperty:nutrition",
+            "needs_review": false
+          },
+          {
+            "nutrient": "calcium",
+            "value": 2.2,
+            "unit": "%",
+            "value_type": "unspecified",
+            "qualifier_raw": null,
+            "raw": "kalsium 2,2 %",
+            "location": "jsonld:additionalProperty:nutrition",
+            "needs_review": false
+          },
+          {
+            "nutrient": "phosphorus",
+            "value": 1.4,
+            "unit": "%",
+            "value_type": "unspecified",
+            "qualifier_raw": null,
+            "raw": "fosfori 1,4 %",
+            "location": "jsonld:additionalProperty:nutrition",
+            "needs_review": false
+          }
+        ]
+      },
+      {
+        "scope": "variant",
+        "variant": "025460",
+        "source": "jsonld",
+        "raw": "Ravintoainekoostumus: proteiini 37 %, raakakuitu 2 %, raakarasva 16,5 %, raakatuhka 8 %, omega-6 3,85 %, omega-3 0,5 %, kalsium 2,2 %, fosfori 1,4 %. Muuntokelpoinen energia: 4046 kcal/kg.",
+        "observations": [
+          {
+            "nutrient": "fat",
+            "value": 16.5,
+            "unit": "%",
+            "value_type": "unspecified",
+            "qualifier_raw": null,
+            "raw": "raakarasva 16,5 %",
+            "location": "jsonld:additionalProperty:nutrition",
+            "needs_review": false
+          },
+          {
+            "nutrient": "fiber",
+            "value": 2.0,
+            "unit": "%",
+            "value_type": "unspecified",
+            "qualifier_raw": null,
+            "raw": "raakakuitu 2 %",
+            "location": "jsonld:additionalProperty:nutrition",
+            "needs_review": false
+          },
+          {
+            "nutrient": "ash",
+            "value": 8.0,
+            "unit": "%",
+            "value_type": "unspecified",
+            "qualifier_raw": null,
+            "raw": "raakatuhka 8 %",
+            "location": "jsonld:additionalProperty:nutrition",
+            "needs_review": false
+          },
+          {
+            "nutrient": "calcium",
+            "value": 2.2,
+            "unit": "%",
+            "value_type": "unspecified",
+            "qualifier_raw": null,
+            "raw": "kalsium 2,2 %",
+            "location": "jsonld:additionalProperty:nutrition",
+            "needs_review": false
+          },
+          {
+            "nutrient": "phosphorus",
+            "value": 1.4,
+            "unit": "%",
+            "value_type": "unspecified",
+            "qualifier_raw": null,
+            "raw": "fosfori 1,4 %",
+            "location": "jsonld:additionalProperty:nutrition",
+            "needs_review": false
+          }
+        ]
+      },
+      {
+        "scope": "variant",
+        "variant": "0254582",
+        "source": "jsonld",
+        "raw": "Ravintoainekoostumus: proteiini 37 %, raakakuitu 2 %, raakarasva 16,5 %, raakatuhka 8 %, omega-6 3,85 %, omega-3 0,5 %, kalsium 2,2 %, fosfori 1,4 %. Muuntokelpoinen energia: 4046 kcal/kg.",
+        "observations": [
+          {
+            "nutrient": "fat",
+            "value": 16.5,
+            "unit": "%",
+            "value_type": "unspecified",
+            "qualifier_raw": null,
+            "raw": "raakarasva 16,5 %",
+            "location": "jsonld:additionalProperty:nutrition",
+            "needs_review": false
+          },
+          {
+            "nutrient": "fiber",
+            "value": 2.0,
+            "unit": "%",
+            "value_type": "unspecified",
+            "qualifier_raw": null,
+            "raw": "raakakuitu 2 %",
+            "location": "jsonld:additionalProperty:nutrition",
+            "needs_review": false
+          },
+          {
+            "nutrient": "ash",
+            "value": 8.0,
+            "unit": "%",
+            "value_type": "unspecified",
+            "qualifier_raw": null,
+            "raw": "raakatuhka 8 %",
+            "location": "jsonld:additionalProperty:nutrition",
+            "needs_review": false
+          },
+          {
+            "nutrient": "calcium",
+            "value": 2.2,
+            "unit": "%",
+            "value_type": "unspecified",
+            "qualifier_raw": null,
+            "raw": "kalsium 2,2 %",
+            "location": "jsonld:additionalProperty:nutrition",
+            "needs_review": false
+          },
+          {
+            "nutrient": "phosphorus",
+            "value": 1.4,
+            "unit": "%",
+            "value_type": "unspecified",
+            "qualifier_raw": null,
+            "raw": "fosfori 1,4 %",
+            "location": "jsonld:additionalProperty:nutrition",
+            "needs_review": false
+          }
+        ]
+      }
+    ],
+    "warnings": [],
+    "review_status": "unreviewed",
+    "market": "FI",
+    "source_html_sha256": "e44cd25db202cf052a5dcc8ef10c45fd686a2a321d683c0c154bfad206112511"
+  },
+  {
+    "schema_version": "1.0.0",
+    "source_site": "peten",
+    "source_url": "https://www.petenkoiratarvike.com/tuote/royal-canin-indoor-P001189",
+    "fetched_at": "2026-09-24T13:29:03+00:00",
+    "product_id": "P001189",
+    "name": "Royal Canin Indoor",
+    "brand": "Royal Canin",
+    "images": [
+      "https://www.petenkoiratarvike.com/dw/image/v2/BLRV_PRD/on/demandware.static/-/Sites-musti-master-catalog/default/dwca284d96/images/products/P001189/pfi/royal-canin-indoor-61.jpg"
+    ],
+    "breadcrumbs": [
+      "Home",
+      "Kissat",
+      "Kissanruoka",
+      "Kissan erikoisruoat",
+      "Sisäkissan ruoka",
+      "Royal Canin Indoor"
+    ],
+    "variants": [
+      {
+        "sku": "001189",
+        "name": "Royal Canin Indoor - 400 g",
+        "url": "https://www.petenkoiratarvike.com/tuote/royal-canin-indoor-P001189?pid=001189#001189",
+        "gtin": null,
+        "size_raw": "400 g",
+        "offers": [
+          {
+            "@type": "Offer",
+            "url": "https://www.petenkoiratarvike.com/tuote/royal-canin-indoor-P001189?pid=001189",
+            "price": 7.19,
+            "priceCurrency": "EUR",
+            "availability": "https://schema.org/InStock",
+            "price_source": "jsonld:offers; verify checkout conditions"
+          }
+        ],
+        "attributes": {
+          "grainFree": "no",
+          "fat": "13",
+          "protein": "27",
+          "sellSizeUOM": "g",
+          "sellSizeValue": "400",
+          "foodType": "Complete",
+          "sustainable": "no",
+          "packageDimensionsHeightCm": "13.00",
+          "packageDimensionsWidthCm": "12.00",
+          "packageDimensionsLengthCm": "6.00",
+          "warrantyPeriodMonths": "0,00",
+          "netWeightKg": "0.4"
+        },
+        "additives_raw": "Ravitsemukselliset lisäaineet (kg:ssa): A-vitamiini: 13500 KY, D3-vitamiini: 700 KY, E1 (Rauta): 42 mg, E2 (Jodi): 4,2 mg, E4 (Kupari): 13 mg, E5 (Mangaani): 55 mg, E6 (Sinkki): 164 mg, E8 (Seleeni): 0,09 mg - Teknologiset lisäaineet: Sedimenttiperäinen klinoptiloliitti: 10 g - Säilöntäaineet - Hapettumisenestoaineet."
+      },
+      {
+        "sku": "001209",
+        "name": "Royal Canin Indoor - 2 kg",
+        "url": "https://www.petenkoiratarvike.com/tuote/royal-canin-indoor-P001189?pid=001209#001209",
+        "gtin": null,
+        "size_raw": "2 kg",
+        "offers": [
+          {
+            "@type": "Offer",
+            "url": "https://www.petenkoiratarvike.com/tuote/royal-canin-indoor-P001189?pid=001209",
+            "price": 30.79,
+            "priceCurrency": "EUR",
+            "availability": "https://schema.org/InStock",
+            "price_source": "jsonld:offers; verify checkout conditions"
+          }
+        ],
+        "attributes": {
+          "grainFree": "no",
+          "fat": "13",
+          "protein": "27",
+          "sellSizeUOM": "kg",
+          "sellSizeValue": "2",
+          "foodType": "Complete",
+          "sustainable": "no",
+          "packageDimensionsHeightCm": "13.00",
+          "packageDimensionsWidthCm": "19.50",
+          "packageDimensionsLengthCm": "34.50",
+          "warrantyPeriodMonths": "0,00",
+          "netWeightKg": "2"
+        },
+        "additives_raw": "Ravitsemukselliset lisäaineet (kg:ssa): A-vitamiini: 13500 KY, D3-vitamiini: 700 KY, E1 (Rauta): 42 mg, E2 (Jodi): 4,2 mg, E4 (Kupari): 13 mg, E5 (Mangaani): 55 mg, E6 (Sinkki): 164 mg, E8 (Seleeni): 0,09 mg - Teknologiset lisäaineet: Sedimenttiperäinen klinoptiloliitti: 10 g - Säilöntäaineet - Hapettumisenestoaineet."
+      },
+      {
+        "sku": "001248",
+        "name": "Royal Canin Indoor - 10 kg",
+        "url": "https://www.petenkoiratarvike.com/tuote/royal-canin-indoor-P001189?pid=001248#001248",
+        "gtin": null,
+        "size_raw": "10 kg",
+        "offers": [
+          {
+            "@type": "Offer",
+            "url": "https://www.petenkoiratarvike.com/tuote/royal-canin-indoor-P001189?pid=001248",
+            "price": 88.59,
+            "priceCurrency": "EUR",
+            "availability": "https://schema.org/InStock",
+            "price_source": "jsonld:offers; verify checkout conditions"
+          }
+        ],
+        "attributes": {
+          "grainFree": "no",
+          "fat": "13",
+          "protein": "27",
+          "sellSizeUOM": "kg",
+          "sellSizeValue": "10",
+          "foodType": "Complete",
+          "sustainable": "no",
+          "packageDimensionsHeightCm": "12.00",
+          "packageDimensionsWidthCm": "37.50",
+          "packageDimensionsLengthCm": "57.50",
+          "warrantyPeriodMonths": "0,00",
+          "netWeightKg": "10"
+        },
+        "additives_raw": "Ravitsemukselliset lisäaineet (kg:ssa): A-vitamiini: 13500 KY, D3-vitamiini: 700 KY, E1 (Rauta): 42 mg, E2 (Jodi): 4,2 mg, E4 (Kupari): 13 mg, E5 (Mangaani): 55 mg, E6 (Sinkki): 164 mg, E8 (Seleeni): 0,09 mg - Teknologiset lisäaineet: Sedimenttiperäinen klinoptiloliitti: 10 g - Säilöntäaineet - Hapettumisenestoaineet."
+      }
+    ],
+    "ingredient_blocks": [
+      {
+        "scope": "variant",
+        "variant": "001189",
+        "raw": "Kuivattu siipikarjanvalkuainen, riisi, vehnä, maissi, kasvivalkuaisuute*, eläinrasvat, hydrolysoidut eläinvalkuaiset, vehnäjauho, kasvikuidut, juurikaskuitu, hiivat ja niiden osat, soijaöljy, kivennäisaineet, frukto-oligosakkaridit, kalaöljy, psylliumin kuoret ja siemenet (0,5%).",
+        "source": "jsonld:ingredients"
+      },
+      {
+        "scope": "variant",
+        "variant": "001209",
+        "raw": "Kuivattu siipikarjanvalkuainen, riisi, vehnä, maissi, kasvivalkuaisuute*, eläinrasvat, hydrolysoidut eläinvalkuaiset, vehnäjauho, kasvikuidut, juurikaskuitu, hiivat ja niiden osat, soijaöljy, kivennäisaineet, frukto-oligosakkaridit, kalaöljy, psylliumin kuoret ja siemenet (0,5%).",
+        "source": "jsonld:ingredients"
+      },
+      {
+        "scope": "variant",
+        "variant": "001248",
+        "raw": "Kuivattu siipikarjanvalkuainen, riisi, vehnä, maissi, kasvivalkuaisuute*, eläinrasvat, hydrolysoidut eläinvalkuaiset, vehnäjauho, kasvikuidut, juurikaskuitu, hiivat ja niiden osat, soijaöljy, kivennäisaineet, frukto-oligosakkaridit, kalaöljy, psylliumin kuoret ja siemenet (0,5%).",
+        "source": "jsonld:ingredients"
+      }
+    ],
+    "nutrition_blocks": [
+      {
+        "scope": "variant",
+        "variant": "001189",
+        "source": "jsonld",
+        "raw": "Raakavalkuainen: 27% - Raakarasva: 13% - Tuhka: 7,3% - Raakakuitu: 4%.",
+        "observations": [
+          {
+            "nutrient": "protein",
+            "value": 27.0,
+            "unit": "%",
+            "value_type": "unspecified",
+            "qualifier_raw": null,
+            "raw": "Raakavalkuainen: 27%",
+            "location": "jsonld:additionalProperty:nutrition",
+            "needs_review": false
+          },
+          {
+            "nutrient": "fat",
+            "value": 13.0,
+            "unit": "%",
+            "value_type": "unspecified",
+            "qualifier_raw": null,
+            "raw": "Raakarasva: 13%",
+            "location": "jsonld:additionalProperty:nutrition",
+            "needs_review": false
+          },
+          {
+            "nutrient": "fiber",
+            "value": 4.0,
+            "unit": "%",
+            "value_type": "unspecified",
+            "qualifier_raw": null,
+            "raw": "Raakakuitu: 4%",
+            "location": "jsonld:additionalProperty:nutrition",
+            "needs_review": false
+          },
+          {
+            "nutrient": "ash",
+            "value": 7.3,
+            "unit": "%",
+            "value_type": "unspecified",
+            "qualifier_raw": null,
+            "raw": "Tuhka: 7,3%",
+            "location": "jsonld:additionalProperty:nutrition",
+            "needs_review": false
+          }
+        ]
+      },
+      {
+        "scope": "variant",
+        "variant": "001209",
+        "source": "jsonld",
+        "raw": "Raakavalkuainen: 27% - Raakarasva: 13% - Tuhka: 7,3% - Raakakuitu: 4%.",
+        "observations": [
+          {
+            "nutrient": "protein",
+            "value": 27.0,
+            "unit": "%",
+            "value_type": "unspecified",
+            "qualifier_raw": null,
+            "raw": "Raakavalkuainen: 27%",
+            "location": "jsonld:additionalProperty:nutrition",
+            "needs_review": false
+          },
+          {
+            "nutrient": "fat",
+            "value": 13.0,
+            "unit": "%",
+            "value_type": "unspecified",
+            "qualifier_raw": null,
+            "raw": "Raakarasva: 13%",
+            "location": "jsonld:additionalProperty:nutrition",
+            "needs_review": false
+          },
+          {
+            "nutrient": "fiber",
+            "value": 4.0,
+            "unit": "%",
+            "value_type": "unspecified",
+            "qualifier_raw": null,
+            "raw": "Raakakuitu: 4%",
+            "location": "jsonld:additionalProperty:nutrition",
+            "needs_review": false
+          },
+          {
+            "nutrient": "ash",
+            "value": 7.3,
+            "unit": "%",
+            "value_type": "unspecified",
+            "qualifier_raw": null,
+            "raw": "Tuhka: 7,3%",
+            "location": "jsonld:additionalProperty:nutrition",
+            "needs_review": false
+          }
+        ]
+      },
+      {
+        "scope": "variant",
+        "variant": "001248",
+        "source": "jsonld",
+        "raw": "Raakavalkuainen: 27% - Raakarasva: 13% - Tuhka: 7,3% - Raakakuitu: 4%.",
+        "observations": [
+          {
+            "nutrient": "protein",
+            "value": 27.0,
+            "unit": "%",
+            "value_type": "unspecified",
+            "qualifier_raw": null,
+            "raw": "Raakavalkuainen: 27%",
+            "location": "jsonld:additionalProperty:nutrition",
+            "needs_review": false
+          },
+          {
+            "nutrient": "fat",
+            "value": 13.0,
+            "unit": "%",
+            "value_type": "unspecified",
+            "qualifier_raw": null,
+            "raw": "Raakarasva: 13%",
+            "location": "jsonld:additionalProperty:nutrition",
+            "needs_review": false
+          },
+          {
+            "nutrient": "fiber",
+            "value": 4.0,
+            "unit": "%",
+            "value_type": "unspecified",
+            "qualifier_raw": null,
+            "raw": "Raakakuitu: 4%",
+            "location": "jsonld:additionalProperty:nutrition",
+            "needs_review": false
+          },
+          {
+            "nutrient": "ash",
+            "value": 7.3,
+            "unit": "%",
+            "value_type": "unspecified",
+            "qualifier_raw": null,
+            "raw": "Tuhka: 7,3%",
+            "location": "jsonld:additionalProperty:nutrition",
+            "needs_review": false
+          }
+        ]
+      }
+    ],
+    "warnings": [],
+    "review_status": "unreviewed",
+    "market": "FI",
+    "source_html_sha256": "22bc90bf0fe23c637521c2120261561a4696a029d4e237d5d4b32348647c70f5"
+  }
+]

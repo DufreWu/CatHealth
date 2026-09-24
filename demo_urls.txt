@@ -1,0 +1,8 @@
+# 每行一个猫粮商品链接。默认每站最多3个商品组。
+# 同一商品的包装规格由页面JSON-LD提取，不需要逐个填写。
+https://www.zooplus.fi/shop/kissat/kuivaruoka/royal_canin/erikoisravinto/142053
+https://www.zooplus.fi/shop/kissat/kuivaruoka/applaws/applaws/142108
+https://www.zooplus.fi/shop/kissat/kuivaruoka/royal_canin/sisakissat/142054
+https://www.petenkoiratarvike.com/tuote/royal-canin-sterilised-P012378
+https://www.petenkoiratarvike.com/tuote/applaws-cat-adult-chicken-P025455
+https://www.petenkoiratarvike.com/tuote/royal-canin-indoor-P001189
