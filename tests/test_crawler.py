@@ -108,6 +108,17 @@ class AccessTests(unittest.TestCase):
                     client.get(P)
                 self.assertEqual(req.call_count, 1)  # robots only
 
+    def test_robots_change_stops_next_run(self):
+        with tempfile.TemporaryDirectory() as d:
+            first = c.Client(d)
+            with patch.object(first, 'request', return_value=(200, {}, 'User-agent: *\nAllow: /')):
+                first.rules_for(P)
+            second = c.Client(d)
+            with patch.object(second, 'request', return_value=(200, {}, 'User-agent: *\nDisallow: /')):
+                with self.assertRaises(c.HostStopped):
+                    second.rules_for(P)
+            self.assertIn('peten', second.stopped)
+
     def test_cache_keeps_original_timestamp(self):
         with tempfile.TemporaryDirectory() as d:
             client = c.Client(d)

@@ -1,0 +1,36 @@
+{
+  "framework_version": "2.1",
+  "source": "产品需求 v2.1 引用 FEDIAF Nutritional Guidelines 2025",
+  "last_reviewed": null,
+  "verification_note": "本演示按产品经理提供的边界实现；原始文献尚未逐条核验，不代表医疗适用性或完整营养合规认证。",
+  "life_stage_groups": {
+    "adult": {"note": "成猫参照"},
+    "kitten": {"protein_minimum": 28.0, "note": "蛋白采用幼猫最低参照；其余对照标准为成猫，幼猫需求更高"},
+    "senior": {"note": "暂用成猫参照；老年猫的个体需求请咨询兽医"},
+    "all": {"note": "全阶段产品暂用成猫参照，不能据此判断满足生长阶段需求"},
+    "unknown": {"note": "生命阶段未提供，暂用成猫参照"}
+  },
+  "dimensions": {
+    "protein_dm_pct": {
+      "name": "蛋白质", "unit": "% DM", "domain": [0, 60],
+      "basis": "产品需求引用 FEDIAF 2025 成猫不同能量摄入水平的最低值；40% 为 PawBase 分类边界。",
+      "authority": "指南参照 + PawBase 分档",
+      "fediaf_lines": [{"value":25,"label":"成猫最低 25%","basis":"FEDIAF 2025 adult, 100 kcal/kg^0.67；待原文核对"},{"value":33.3,"label":"低能量摄入 33.3%","basis":"FEDIAF 2025 adult, 75 kcal/kg^0.67；待原文核对"}],
+      "bands": [{"label":"below_minimum","name":"低于参照最低值","max":25},{"label":"meets_minimum","name":"达到基础参照","max":33.3},{"label":"moderate","name":"中等区间","max":40,"inclusive":true},{"label":"high","name":"较高区间"}]
+    },
+    "phosphorus_dm_pct": {
+      "name":"磷","unit":"% DM","domain":[0,2.5],"authority":"指南参照 + 研究启发分档",
+      "basis":"FEDIAF 最低参照 0.5%；0.8/1.4% 为 PRD 中基于研究的分类边界，不是安全上限或肾病适用性判定。",
+      "fediaf_lines":[{"value":0.5,"label":"最低参照 0.5%","basis":"产品需求引用 FEDIAF 2025；待原文核对"}],
+      "bands":[{"label":"lower","name":"较低区间","max":0.8},{"label":"moderate","name":"中等区间","max":1.4,"inclusive":true},{"label":"higher","name":"较高区间"}]
+    },
+    "carbs_est_dm_pct": {
+      "name":"碳水（估算）","unit":"% DM","domain":[0,60],"applicable_to":"dry_only","authority":"PawBase 研究启发分档",
+      "basis":"FEDIAF 未对碳水设限，本分档基于食性研究；标签减法估算存在累积误差。",
+      "wet_note":"湿粮碳水无法从标签可靠估算",
+      "fediaf_lines":[],"bands":[{"label":"lower","name":"较低区间","max":15},{"label":"moderate","name":"中等区间","max":30,"inclusive":true},{"label":"higher","name":"较高区间"}]
+    },
+    "ca_p_ratio": {"name":"钙磷比","unit":"","domain":[0,3],"authority":"PawBase 常见区间参照","basis":"产品需求采用 1:1–2:1 常见区间，不构成疾病或安全判断。","fediaf_lines":[],"normal_range":{"min":1,"max":2}}
+  },
+  "context_rules": [{"field":"phosphorus_dm_pct","op":"gt","value":1.2,"text":"若猫有肾脏问题或年龄较大，可关注磷含量并咨询兽医。"},{"field":"ca_p_ratio","op":"outside","min":1,"max":2,"text":"钙磷比超出本框架常见区间；请结合完整配方咨询兽医。"},{"field":"taurine_declared","op":"eq","value":false,"text":"已提取文本未见添加牛磺酸声明，不等于产品不含牛磺酸；请核对包装并咨询兽医。"}]
+}

@@ -1,128 +1,141 @@
-# CatFood 猫粮信息爬虫
+# CatHealth / PawBase Food Guide — 首版前后端联调
 
-面向猫粮分析 Demo 的 Python 爬虫，支持：
+在原始 CatHealth 爬虫基础上增加可运行的猫粮指南。Python 3.10+，SQLite，原生 HTML/CSS/JavaScript；前后端同源，不需要 Node 构建、API 密钥或付费服务。交付包中没有交接文档提到的 React/Claude/病例库源码，因此首版新建轻量界面和数据层，保留原始爬虫及原始抓取数据。
 
-- https://www.zooplus.fi
-- https://www.petenkoiratarvike.com
+## 1. 最快启动
 
-默认抓取示例清单中的 **6 个商品组，每站3个**。一个商品组可以包含多个包装规格。网站同名商品不会自动合并，避免把不同市场、配方或规格误当成同一产品。
+解压后进入包含 `app.py` 的 CatHealth 目录：
 
-## 1. 安装和运行
+```bash
+python app.py --demo
+```
 
-需要 Python 3.10 或以上版本。在解压后的 `CatFoodCrawler` 目录运行：
+浏览器打开 **http://127.0.0.1:8000**。虚构演示数据独立写入 `data/demo.db`，含干粮、湿粮、幼猫、老年猫、缺失水分、异常标签和处方粮。处方粮默认隐藏。
+
+真实历史数据模式（先 Ctrl+C 停止演示服务）：
+
+```bash
+python app.py
+```
+
+启动时自动从 `data/bootstrap.json` 初始化 `data/pawbase.db`。这些是原代码包 2026-09-24 抓取结果及其缓存中提取的产品正文，**不是本次重新联网抓取的实时数据**。两种模式不混用数据库。
+
+如果端口已占用：`python app.py --demo --port 8002`。
+
+Windows 可将命令里的 `python` 换成 `py`。网页启动及历史数据导入只使用 Python 标准库；只有实时爬虫/旧 HTML 缓存迁移需要安装 `requirements.txt`。
+
+## 2. 已实现
+
+- 爬虫结果 → 声明精筛 → 单位规范化、数值校验 → SQLite → 确定性营养计算 → HTTP API → 前端。
+- 全价粮声明词表；补充粮、声明缺失和类型不明记录进入排除清单，不猜测归类。
+- 逗号小数、%、g/kg、g/100g、mg/kg；保留原文、单位和上下限证据。
+- 五项合计 >100%、冲突或区间异常进入复核，阻止分析。缺失值保持 null。
+- DM、干粮碳水估算、磷/钙/镁 DM、钙磷比；湿粮不显示碳水；牛磺酸声明仅表示提取文本中是否出现相关声明，不代表完整营养充足性。
+- 基准独立配置、幼猫蛋白最低值、阶段说明、中性分档、同类同阶段 p25–p75 分布带。没有总分、星级或排名。
+- 搜索、品牌/类型/生命阶段/无谷筛选，处方粮默认隐藏，分页、详情、2–3 个商品对比、关注镜头。
+- 查看标签原文、适用规格、抓取时产品正文快照、价格来源与日期。
+- 按 source + 产品 ID + 营养适用范围去重；配方变化自动重算，价格更新；相同范围不会重复入库。
+- 抓取成功率 <80% 或蛋白/水分/参考价 null 率上升 >20 个百分点，整批隔离、不修改主库；界面显示运行摘要、排除记录和复核清单。
+- 原爬虫增加 robots 规则指纹变更停止、随机 2–5 秒间隔、显式 PawBase 联系方式，以及 403/429/访问限制整轮停止。robots 更慢时遵守更慢间隔。原始商品导出仍可独立使用。
+
+## 3. 数据事实与首版边界
+
+原包只有 6 个商品组，不是交接说明中的 27 款完整分析结果。保守迁移结果为：
+
+- Zooplus 3 个商品组，3 条营养范围记录。其中 Sterilised 37 的纤维原文 6.2% 与表格 6.1% 冲突，进入复核；Applaws 缺水分，不计算 DM；Indoor 可计算 DM。
+- Peten Sterilised 的 4 个 SKU 分别保留，均缺水分，不计算 DM。
+- Peten Applaws 未检出配置中的全价粮声明；Peten Indoor 无法从已提取字段确认干/湿类型。两者进入排除清单，不能据此断言商品本身不是全价粮。
+- 共 7 条营养范围记录，来自 4 个商品组。页面计数为记录数，不是去重的配方总量。跨源/跨 SKU 尚未合并，同配方多个 SKU 会影响分布样本，因此目前仅供联调，不代表市场分布。
+- 价格条件不清晰时保留 null。当前 Zooplus JSON-LD 含促销/会员/单位价，首版不据此生成标准参考价；Peten 的无条件 Offer 可展示。
+- 网站没有用于外网部署的身份认证。默认只绑定本机；数据复核仅为只读本地工具。
+
+以下留待后续：全站全量与分页覆盖、Playwright 动态渲染采集、跨源人工合并、连续两轮缺失下架、定时调度、AI 蛋白来源/诱食剂结构分析、€150 AI 预算守卫、病例库、知识库、线上账号与部署。没有实现的功能不会显示成已完成。
+
+**基准边界按 PRD 实现，引用文献尚未独立核验。** `/methodology` 明确显示“待核验”，不伪造核查日期或链接；正式对外发布前由产品侧逐条确认。原文中“天然肉等估算比例”和疾病适用标签未实现。
+
+## 4. 采集、导入和复核
 
 ```bash
 python -m venv .venv
-# Linux / macOS
+# Linux/macOS
 source .venv/bin/activate
-# Windows PowerShell 使用：.venv\Scripts\Activate.ps1
-
+# Windows PowerShell: .venv\Scripts\Activate.ps1
 python -m pip install -r requirements.txt
-python crawler.py
+
+# 真实邮箱替换下面的占位符；执行前核对目标站点当前规则。
+python crawler.py --site zooplus --urls demo_urls.txt --limit 3 \
+  --cache-hours 0 --user-agent "PawBaseBot/0.1 (contact: YOUR_REAL_EMAIL)" \
+  --output data/new_run --database data/pawbase.db
 ```
 
-运行结束后查看 `data/`。请求日志会显示 `GET`、`CACHE`、`OK`、`SKIP` 或 `STOP`。
+`YOUR_REAL_EMAIL` 必须换成实际邮箱，否则程序拒绝运行。并发始终为 1。`--delay >5` 可要求更慢；2–5 范围内采用随机间隔。建议人工在 Europe/Helsinki 时区 22:00–06:00 运行；没有自动调度。
 
-## 2. 按自己的商品链接抓取（推荐）
+程序每轮重新读取 robots。第一次建立本地规则指纹；规则变化时中止，人工核对后删除相应 `.cache/robots_<host>.sha256` 才能建立新基线。遇到 403/429 不继续另一站，不重试。首次规则基线并不替代条款许可确认。
 
-编辑 `demo_urls.txt`，每行放一个商品详情页链接。也可新建 `my_urls.txt`：
-
-```text
-https://www.zooplus.fi/shop/kissat/kuivaruoka/royal_canin/erikoisravinto/142053
-https://www.petenkoiratarvike.com/tuote/royal-canin-sterilised-P012378
-```
+只导入旧爬虫导出的 JSON：
 
 ```bash
-python crawler.py --urls my_urls.txt --limit 10 --output my_data
+python manage.py import data/new_run/products.json --errors data/new_run/errors.json
+python manage.py review
+python manage.py export data/analyzed_export.json
 ```
 
-`--limit` 是**每个网站**的成功商品组数量上限。清单不够、商品下架或页面解析失败时，程序会记录数量不足，不会伪造记录。每个详情页URL按商品组去重，查询参数中的包装选择不会让同一商品重复抓取；报价在 `variants` 中保留各SKU。
-
-## 3. 自动发现商品链接
+如果输入是早期无正文的输出，有原始 HTML 缓存可用时：
 
 ```bash
-# Zooplus：猫粮干粮分类页，跟随页面中的“下一页”链接
-python crawler.py --discover --site zooplus --limit 10 --pages 2
-
-# Peten：分类页没有商品链接时，使用公开sitemap筛选候选商品
-python crawler.py --discover --site peten --limit 10 --candidates 50
-
-# 调整Peten的URL关键词筛选
-python crawler.py --discover --site peten --keyword "kissan|cat-|kitten|applaws|sterilised" --limit 10
+python manage.py import data/products.json --cache .cache
 ```
 
-自动发现是有上限的采样，**不是全站完整目录**。Peten回退sitemap后可能发现干粮和湿粮，不再局限于原干粮分类。商品URL不总是包含猫粮类别，关键词可能漏掉产品；抓到候选页面后仍会检查面包屑，未确认属于猫粮的页面跳过。精确采集优先使用商品链接清单。分类页结构变化时不会调用隐藏接口或绕过访问限制。
+没有正文或完整声明的旧记录会被排除，不能省略声明要求。原始完整 HTML 缓存不包含在新版交付包；已迁移的产品正文在 `bootstrap.json`。导入退出码 2 表示触发隔离。单源批次与混合源批次分别比较历史空值率；建议一直按站点分别运行，确保相同采样范围，避免小批次之间误报。
 
-## 4. 输出文件
+## 5. 配置与重分析
 
-| 文件 | 内容 |
+`config/benchmarks.json` 控制名称、边界、参考线、依据、情境提示。后端每次请求读取配置，**修改边界后刷新页面即生效**；前端无硬编码分档阈值。边界约定遵循 PRD：40% 蛋白仍属 moderate；1.4% 磷和30%碳水仍属 moderate。
+
+```bash
+python reanalyze.py --framework 2.1 --outdated-only
+# 指定库
+python reanalyze.py --db data/demo.db --framework 2.1
+```
+
+这是确定性计算重跑，无 Anthropic 调用，也不产生 API 花费。`--outdated-only` 重算版本与目标不同的记录。目标必须匹配当前配置版本。调整计算逻辑时必须升级版本；只调整展示边界无需重算数值。
+
+年度维护：每年 9–10 月检查 FEDIAF 新版，核对引用和边界，有变化则更新配置与 framework_version，执行重分析；争议添加说明，不擅自改成安全结论。
+
+## 6. API 与代码入口
+
+| 文件/接口 | 用途 |
 |---|---|
-| `products.json` | 主要数据文件：商品、SKU、报价、配料、营养原文及结构化观察值 |
-| `products.csv` | 每个商品组一行，可用Excel打开；复杂字段以JSON字符串保留 |
-| `offers.csv` | 每个规格的报价，保留币种、库存、会员/订阅价格条件 |
-| `nutrients.csv` | 每条显式百分比营养指标一行，包含适用范围和原文 |
-| `errors.json` | 跳过、阻塞、无法识别或无法访问的页面与原因 |
-| `run_summary.json` | 成功数量、请求数、数量不足及整体运行状态 |
+| `crawler.py` | 保留现有两站采样采集，增加访问约束与入库选项 |
+| `pipeline.py` | 原数据格式适配、声明筛选、规格隔离、参考价判定 |
+| `nutrition.py` | 单位转换、校验、营养换算、分档与情境提示 |
+| `database.py` | SQLite、原子入库、隔离、去重、分布统计 |
+| `app.py` | 本机 HTTP API 与静态文件服务 |
+| `web/` | 响应式暗色前端，无 CDN 依赖 |
+| `GET /api/products?q=&brand=&type=&stage=&prescription=true` | 搜索/筛选/分页 |
+| `GET /api/products/{id}` | 详情、原文、快照与参考价 |
+| `GET /api/compare?ids=id1,id2` | 2–3 个商品对比 |
+| `GET /api/benchmarks` | 当前配置 |
+| `GET /api/stats` | 同类型同阶段分布 |
+| `GET /api/review` | 只读复核、排除、隔离与导入日志 |
+| `GET /api/health` | 运行模式及记录数 |
 
-CSV使用UTF-8 BOM，并处理以公式符号开头的文本。JSON保留原始文本值。
+当前数据量小，统计由后端请求时聚合；尚未实现大规模物化缓存。前端不自行算分档或统计。全部写操作在 CLI，不提供无认证公网写入接口。
 
-关键字段：
-
-```text
-source_url / fetched_at        原始URL和实际下载时间（UTC）
-source_html_sha256             本地HTML快照校验值
-variants[].sku                包装规格SKU
-variants[].offers[]            结构化报价及价格条件
-ingredient_blocks[].raw       芬兰语配料原文
-nutrition_blocks[].raw        营养原文，不仅限于百分比字段
-nutrition_blocks[].scope      适用范围，必须和variant一起看
-nutrition_blocks[].variant    对应SKU或页面营养表的规格标签
-observations[].value_type     minimum / maximum / unspecified
-warnings                      不一致、缺失及范围提示
-review_status                 默认unreviewed，未人工审核
-```
-
-## 5. 数据使用方式
-
-- **配料原文保留芬兰语**，不自动翻译，不猜测肉含量，不生成健康评分。
-- **价格按SKU保留**。`priceSpecification` 可能包含划线价、会员价、订阅价或单位价；不能把页面结构化报价直接当成所有用户最终结算价。`AggregateOffer` 的最低/最高价不会转换为普通单价。
-- **Zooplus营养表只代表当前HTML显示的规格**。程序读取被选中的选项；没有 `selected` 属性时记录首个选项及说明。不会把这张表自动复制到所有SKU。若需要可靠的特定SKU营养信息，应人工核对页面及包装。
-- **Peten的配料和营养按SKU保存**，即使多个SKU的文本相同也不自动合并。
-- **百分比数值必须在原文明确带 `%`**。mg/kg、kcal等仍保留在原文，当前版本不自动换算；`protein=37` 这类缺少单位的属性也不会擅自认定为37%。
-- **上下限与实测值不混用**。明确的最低/最高限定词会保留；其余数值为 `unspecified`，不标成实测值。缺失水分不补成固定值，不自动算干物质或碳水。
-- 不同营养块或规格出现不同数值时，保留所有观察值并提示检查适用范围。不同规格本来就可能有不同配方，提示不等于证明数据错误。
-- `size_raw` 是网站结构化规格字段，可能是范围（如 `< 1,4 kg`）。同时查看SKU名称，不据此直接推算每公斤价格。
-- 商品图片仅保存URL，不批量下载图片。商用展示前确认所用资料和图片的许可范围。
-
-## 6. 请求和缓存
-
-默认同一网站请求间隔5秒，参数最低3秒；若robots要求更慢则使用更长间隔。单线程运行，没有代理轮换或浏览器指纹模拟。
-
-```bash
-python crawler.py --delay 8 --limit 3
-python crawler.py --site zooplus --cache-hours 0 --limit 1
-python crawler.py --user-agent "CatFoodDemoBot/1.0 (contact: your-email@example.com)"
-```
-
-请把示例邮箱换成你自己的真实联系方式。
-
-- 每次运行先检查 `robots.txt`，支持 `*` 通配符、末尾 `$` 和更具体的User-agent组。只抓取这两个零售商的HTTPS URL。
-- robots返回404视为没有公布规则；无法读取或返回异常页面时停止该网站。
-- HTTP 401/403/429 或验证页面会停止该网站，不自动反复重试。
-- 默认缓存24小时；缓存复用时保留原下载时间，不把旧价格标成今天的新价格。
-- 原始HTML缓存在 `.cache/`，用于本地排查。快照可能含有页面其他内容，不直接发布缓存目录。
-- `--max-requests` 默认80，包含robots、分类页、sitemap和商品请求。
-- 默认输出文件会覆盖同目录上一轮结果；要保留历史，请使用不同 `--output` 目录。
-- 退出码：0=达到目标且没有错误，2=部分成功，1=没有成功商品。详情看摘要和错误文件。
-
-## 7. 验证与维护
+## 7. 验证
 
 ```bash
 python -m unittest discover -s tests -v
 ```
 
-包含营养单位及上下限、商品规格、数据冲突、猫粮类别判断、链接去重、robots规则、缓存和CSV公式文本等验证。
+测试覆盖原有爬虫、单位/边界/缺失值、数据校验、重复入库、隔离原子性、版本重算、配置刷新、HTTP 搜索筛选与对比。
 
-网站适配主要在 `extract_zooplus()`、`schema_nodes()`、`parse_product()` 和 `discover()`。缺少结构化Product数据会明确报错，而不会生成“成功但内容为空”的商品。
+可选真实浏览器检查：
 
-适配依据：2026-09-24直接读取的公开HTML、JSON-LD、robots和sitemap。页面可能改变；本工具不承诺全站、全部规格或全部营养指标完整覆盖。真实运行结果和已验证范围见 `VALIDATION.md`。
+```bash
+npm install --no-save playwright
+npx playwright install chromium
+node tests/e2e.cjs
+```
+
+浏览器脚本启动临时演示服务、运行桌面/移动页面测试并生成 `docs/desktop.png` 与 `docs/mobile.png`。详细执行结果见 `docs/DELIVERY.md`。

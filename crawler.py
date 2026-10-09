@@ -12,6 +12,7 @@ import hashlib
 import json
 import logging
 import re
+import random
 import sys
 import time
 import xml.etree.ElementTree as ET
@@ -140,7 +141,7 @@ class Client:
     def __init__(self, cache, delay=5, timeout=30, ttl=86400, user_agent="CatFoodDemoBot/1.0", max_requests=80):
         self.cache = Path(cache)
         self.cache.mkdir(parents=True, exist_ok=True)
-        self.delay, self.timeout, self.ttl = max(3, delay), timeout, ttl
+        self.delay, self.timeout, self.ttl = max(2, delay), timeout, ttl
         self.ua, self.max_requests = user_agent, max_requests
         self.session = requests.Session()
         self.session.headers.update({"User-Agent": user_agent, "Accept-Language": "fi-FI,fi;q=0.9"})
@@ -159,7 +160,7 @@ class Client:
             raise CrawlError("已达到 --max-requests 请求上限")
         origin = urlsplit(url).netloc
         robots_delay = self.robots[origin].delay if origin in self.robots else 0
-        time.sleep(max(0, max(self.delay, robots_delay) - (time.monotonic() - self.last.get(site, 0))))
+        time.sleep(max(0, max(random.uniform(2, 5), self.delay if self.delay > 5 else 0, robots_delay) - (time.monotonic() - self.last.get(site, 0))))
         self.requests += 1
         self.last[site] = time.monotonic()
         try:
@@ -195,6 +196,11 @@ class Client:
             elif code != 200 or re.search(r"<html\b|<!doctype\s+html", body, re.I):
                 self.stop(url, f"无法确认 robots.txt（HTTP {code}），保守停止")
             rules = Robots(body, self.ua)
+            fingerprint = hashlib.sha256(json.dumps([rules.rules, rules.delay], sort_keys=True).encode()).hexdigest()
+            baseline = self.cache / ("robots_" + p.netloc + ".sha256")
+            if baseline.exists() and baseline.read_text().strip() != fingerprint:
+                self.stop(url, "robots.txt 规则变化，停止本轮；人工核对后删除对应 robots_*.sha256 以重新建基线")
+            baseline.write_text(fingerprint)
             self.robots[p.netloc] = rules
             return rules
         self.stop(url, "robots.txt 重定向过多")
@@ -323,10 +329,16 @@ def extract_offers(node):
             continue
         # Keep aggregate prices and membership conditions distinct from a price.
         kept = {k: offer[k] for k in ("@type", "url", "price", "priceCurrency", "availability",
-                "lowPrice", "highPrice", "offerCount", "priceValidUntil", "priceSpecification") if k in offer}
+                "lowPrice", "highPrice", "offerCount", "priceValidUntil", "priceSpecification", "validForMemberTier", "eligibleQuantity", "priceType") if k in offer}
         kept["price_source"] = "jsonld:offers; verify checkout conditions"
         results.append(kept)
     return results
+
+
+def product_text(soup, site, schema_description=""):
+    selectors = '#description, #feedingrecommendation, #ingredients' if site == 'zooplus' else '.html-reset'
+    sections = [node.get_text("\n", strip=True) for node in soup.select(selectors)]
+    return "\n".join([text_html(schema_description)] + sections)
 
 
 def parse_product(html, url, fetched_at=None):
@@ -405,7 +417,7 @@ def parse_product(html, url, fetched_at=None):
     imgs = [x.get("url") if isinstance(x, dict) else x for x in as_list(product.get("image"))]
     return {"schema_version": VERSION, "source_site": site_name(url), "source_url": url,
             "fetched_at": fetched_at or now(), "product_id": str(product.get("productGroupID") or product.get("sku") or target.split("/")[-1]),
-            "name": product.get("name"), "brand": brand, "images": [x for x in imgs if x],
+            "name": product.get("name"), "brand": brand, "product_description_raw": product_text(soup, site_name(url), product.get("description", "")), "page_text_snapshot": product_text(soup, site_name(url), product.get("description", "")), "images": [x for x in imgs if x],
             "breadcrumbs": crumbs, "variants": variants, "ingredient_blocks": ingredient_blocks,
             "nutrition_blocks": nutrition_blocks, "warnings": warnings,
             "review_status": "unreviewed", "market": "FI"}
@@ -537,10 +549,13 @@ def main(argv=None):
     p.add_argument("--timeout", type=float, default=30)
     p.add_argument("--max-requests", type=int, default=80)
     p.add_argument("--cache-hours", type=float, default=24, help="0表示重新下载页面，robots每次运行重新检查")
-    p.add_argument("--user-agent", default="CatFoodDemoBot/1.0", help="可添加你自己的联系邮箱")
+    p.add_argument("--user-agent", default="", help="必填 PawBase 爬虫标识和真实联系邮箱")
+    p.add_argument("--database", type=Path, help="通过质量门禁写入 Food Guide SQLite")
     p.add_argument("--output", type=Path, default=Path("data"))
     p.add_argument("--cache", type=Path, default=Path(".cache"))
     args = p.parse_args(argv)
+    if "PawBase" not in args.user_agent or not re.search(r"[^\s@]+@[^\s@]+\.[^\s@)]+", args.user_agent):
+        p.error("--user-agent 必须包含 PawBase 和真实联系邮箱")
     if min(args.limit, args.pages, args.candidates, args.max_requests) < 1 or args.timeout <= 0 or args.cache_hours < 0:
         p.error("数量、超时必须为正，缓存时间不能为负")
     if args.urls and args.discover:
@@ -595,19 +610,37 @@ def main(argv=None):
                     except (CrawlError, ValueError) as exc:
                         errors.append({"site": site, "url": url, "error": str(exc)})
                         LOG.warning("SKIP %s: %s", url, exc)
+            except HostStopped:
+                raise
             except (CrawlError, ValueError) as exc:
                 errors.append({"site": site, "error": str(exc)})
                 LOG.warning("STOP %s: %s", site, exc)
+    except HostStopped as exc:
+        errors.append({"error": str(exc), "fatal": True})
     except KeyboardInterrupt:
-        errors.append({"error": "用户中断；已保存完成的商品"})
+        errors.append({"error": "用户中断；已保存完成的商品", "fatal": True})
     finally:
         short = {s: {"requested": args.limit, "fetched": n} for s, n in counts.items() if n < args.limit}
         summary = {"started_at": started, "finished_at": now(), "counts": counts,
                    "requests": client.requests, "shortfall": short, "error_count": len(errors),
                    "status": "partial" if errors or short else "complete"}
         export(products, args.output, errors, summary)
+    if args.database:
+        from database import Database, now as db_now, encode
+        from pipeline import import_products
+        db = Database(args.database)
+        if any(e.get('fatal') for e in errors):
+            with db.connect() as conn:
+                conn.execute('INSERT INTO quarantine(created_at,source,reason,payload) VALUES(?,?,?,?)',
+                             (db_now(), args.site, encode(errors), encode(products)))
+            summary['ingest'] = {'status': 'quarantined', 'reason': '访问限制或 robots 变化，本轮不入主库'}
+        else:
+            summary['ingest'] = import_products(db, products, len(errors), errors)
+        (args.output / 'run_summary.json').write_text(json.dumps(summary, ensure_ascii=False, indent=2), encoding='utf-8')
     print(json.dumps(summary, ensure_ascii=False, indent=2))
-    return 0 if not errors and not short else (2 if products else 1)
+    ingest = summary.get('ingest', [])
+    quarantined = (isinstance(ingest, dict) and ingest.get('status') == 'quarantined') or (isinstance(ingest, list) and any(x.get('status') == 'quarantined' for x in ingest))
+    return 2 if quarantined else (0 if not errors and not short else (2 if products else 1))
 
 
 if __name__ == "__main__":

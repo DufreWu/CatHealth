@@ -1,0 +1,322 @@
+[
+  {
+    "source_site": "demo",
+    "product_id": "demo-adult",
+    "name": "示例配方 · 成猫鸡肉 · 干粮",
+    "brand": "PawBase 虚构样例",
+    "source_url": null,
+    "fetched_at": "2026-10-07T00:00:00+00:00",
+    "product_type": "dry",
+    "product_description_raw": "Complete food for adult cats. dry food. ",
+    "page_text_snapshot": "虚构测试记录\nComplete food for adult cats. dry food. \nprotein 36%; fat 16%; fiber 3%; ash 7%; moisture 8%; phosphorus 1.0%; calcium 1.2%; magnesium 0.08%",
+    "breadcrumbs": [],
+    "variants": [
+      {
+        "sku": "demo-adult-1",
+        "name": "单件 400 g",
+        "offers": [
+          {
+            "@type": "Offer",
+            "price": 9.9,
+            "priceCurrency": "EUR"
+          }
+        ]
+      }
+    ],
+    "ingredient_blocks": [
+      {
+        "scope": "page_description",
+        "variant": null,
+        "raw": "示例原料：鸡肉、米、矿物质；添加 taurine。"
+      }
+    ],
+    "nutrition_blocks": [
+      {
+        "scope": "page_description",
+        "variant": null,
+        "raw": "protein 36%; fat 16%; fiber 3%; ash 7%; moisture 8%; phosphorus 1.0%; calcium 1.2%; magnesium 0.08%"
+      }
+    ],
+    "warnings": []
+  },
+  {
+    "source_site": "demo",
+    "product_id": "dry-high",
+    "name": "示例配方 · 较高蛋白干粮",
+    "brand": "PawBase 虚构样例",
+    "source_url": null,
+    "fetched_at": "2026-10-07T00:00:00+00:00",
+    "product_type": "dry",
+    "product_description_raw": "Complete food for adult cats. dry food. ",
+    "page_text_snapshot": "虚构测试记录\nComplete food for adult cats. dry food. \nprotein 42%; fat 18%; fiber 2%; ash 8%; moisture 7%; phosphorus 1.3%; calcium 1.5%",
+    "breadcrumbs": [],
+    "variants": [
+      {
+        "sku": "dry-high-1",
+        "name": "单件 400 g",
+        "offers": [
+          {
+            "@type": "Offer",
+            "price": 9.9,
+            "priceCurrency": "EUR"
+          }
+        ]
+      }
+    ],
+    "ingredient_blocks": [
+      {
+        "scope": "page_description",
+        "variant": null,
+        "raw": "示例原料：鸡肉、米、矿物质；添加 taurine。"
+      }
+    ],
+    "nutrition_blocks": [
+      {
+        "scope": "page_description",
+        "variant": null,
+        "raw": "protein 42%; fat 18%; fiber 2%; ash 8%; moisture 7%; phosphorus 1.3%; calcium 1.5%"
+      }
+    ],
+    "warnings": []
+  },
+  {
+    "source_site": "demo",
+    "product_id": "wet",
+    "name": "示例配方 · 成猫鸡肉 · 湿粮",
+    "brand": "PawBase 虚构样例",
+    "source_url": null,
+    "fetched_at": "2026-10-07T00:00:00+00:00",
+    "product_type": "wet",
+    "product_description_raw": "Complete food for adult cats. wet food. ",
+    "page_text_snapshot": "虚构测试记录\nComplete food for adult cats. wet food. \nprotein 11%; fat 5%; fiber 0.5%; ash 2%; moisture 80%; phosphorus 0.2%; calcium 0.25%",
+    "breadcrumbs": [],
+    "variants": [
+      {
+        "sku": "wet-1",
+        "name": "单件 400 g",
+        "offers": [
+          {
+            "@type": "Offer",
+            "price": 9.9,
+            "priceCurrency": "EUR"
+          }
+        ]
+      }
+    ],
+    "ingredient_blocks": [
+      {
+        "scope": "page_description",
+        "variant": null,
+        "raw": "示例原料：鸡肉、米、矿物质；添加 taurine。"
+      }
+    ],
+    "nutrition_blocks": [
+      {
+        "scope": "page_description",
+        "variant": null,
+        "raw": "protein 11%; fat 5%; fiber 0.5%; ash 2%; moisture 80%; phosphorus 0.2%; calcium 0.25%"
+      }
+    ],
+    "warnings": []
+  },
+  {
+    "source_site": "demo",
+    "product_id": "kitten",
+    "name": "示例配方 · 幼猫成长 · 干粮",
+    "brand": "PawBase 虚构样例",
+    "source_url": null,
+    "fetched_at": "2026-10-07T00:00:00+00:00",
+    "product_type": "dry",
+    "product_description_raw": "Complete food for kitten cats. dry food. ",
+    "page_text_snapshot": "虚构测试记录\nComplete food for kitten cats. dry food. \nprotein 36%; fat 16%; fiber 3%; ash 7%; moisture 8%; phosphorus 1.0%; calcium 1.2%; magnesium 0.08%",
+    "breadcrumbs": [],
+    "variants": [
+      {
+        "sku": "kitten-1",
+        "name": "单件 400 g",
+        "offers": [
+          {
+            "@type": "Offer",
+            "price": 9.9,
+            "priceCurrency": "EUR"
+          }
+        ]
+      }
+    ],
+    "ingredient_blocks": [
+      {
+        "scope": "page_description",
+        "variant": null,
+        "raw": "示例原料：鸡肉、米、矿物质；添加 taurine。"
+      }
+    ],
+    "nutrition_blocks": [
+      {
+        "scope": "page_description",
+        "variant": null,
+        "raw": "protein 36%; fat 16%; fiber 3%; ash 7%; moisture 8%; phosphorus 1.0%; calcium 1.2%; magnesium 0.08%"
+      }
+    ],
+    "warnings": []
+  },
+  {
+    "source_site": "demo",
+    "product_id": "senior",
+    "name": "示例配方 · 老年猫 · 干粮",
+    "brand": "PawBase 虚构样例",
+    "source_url": null,
+    "fetched_at": "2026-10-07T00:00:00+00:00",
+    "product_type": "dry",
+    "product_description_raw": "Complete food for senior cats. dry food. ",
+    "page_text_snapshot": "虚构测试记录\nComplete food for senior cats. dry food. \nprotein 32%; fat 12%; fiber 3%; ash 6%; moisture 8%; phosphorus 0.7%; calcium 0.9%",
+    "breadcrumbs": [],
+    "variants": [
+      {
+        "sku": "senior-1",
+        "name": "单件 400 g",
+        "offers": [
+          {
+            "@type": "Offer",
+            "price": 9.9,
+            "priceCurrency": "EUR"
+          }
+        ]
+      }
+    ],
+    "ingredient_blocks": [
+      {
+        "scope": "page_description",
+        "variant": null,
+        "raw": "示例原料：鸡肉、米、矿物质；添加 taurine。"
+      }
+    ],
+    "nutrition_blocks": [
+      {
+        "scope": "page_description",
+        "variant": null,
+        "raw": "protein 32%; fat 12%; fiber 3%; ash 6%; moisture 8%; phosphorus 0.7%; calcium 0.9%"
+      }
+    ],
+    "warnings": []
+  },
+  {
+    "source_site": "demo",
+    "product_id": "missing",
+    "name": "示例配方 · 缺失水分",
+    "brand": "PawBase 虚构样例",
+    "source_url": null,
+    "fetched_at": "2026-10-07T00:00:00+00:00",
+    "product_type": "dry",
+    "product_description_raw": "Complete food for adult cats. dry food. ",
+    "page_text_snapshot": "虚构测试记录\nComplete food for adult cats. dry food. \nprotein 30%; fat 14%; fiber 2%; ash 7%",
+    "breadcrumbs": [],
+    "variants": [
+      {
+        "sku": "missing-1",
+        "name": "单件 400 g",
+        "offers": [
+          {
+            "@type": "Offer",
+            "price": 9.9,
+            "priceCurrency": "EUR"
+          }
+        ]
+      }
+    ],
+    "ingredient_blocks": [
+      {
+        "scope": "page_description",
+        "variant": null,
+        "raw": "示例原料：鸡肉、米、矿物质；添加 taurine。"
+      }
+    ],
+    "nutrition_blocks": [
+      {
+        "scope": "page_description",
+        "variant": null,
+        "raw": "protein 30%; fat 14%; fiber 2%; ash 7%"
+      }
+    ],
+    "warnings": []
+  },
+  {
+    "source_site": "demo",
+    "product_id": "prescription",
+    "name": "示例配方 · 处方测试",
+    "brand": "PawBase 虚构样例",
+    "source_url": null,
+    "fetched_at": "2026-10-07T00:00:00+00:00",
+    "product_type": "dry",
+    "product_description_raw": "Complete food for adult cats. dry food. Veterinary prescription diet. ",
+    "page_text_snapshot": "虚构测试记录\nComplete food for adult cats. dry food. Veterinary prescription diet. \nprotein 36%; fat 16%; fiber 3%; ash 7%; moisture 8%; phosphorus 1.0%; calcium 1.2%; magnesium 0.08%",
+    "breadcrumbs": [],
+    "variants": [
+      {
+        "sku": "prescription-1",
+        "name": "单件 400 g",
+        "offers": [
+          {
+            "@type": "Offer",
+            "price": 9.9,
+            "priceCurrency": "EUR"
+          }
+        ]
+      }
+    ],
+    "ingredient_blocks": [
+      {
+        "scope": "page_description",
+        "variant": null,
+        "raw": "示例原料：鸡肉、米、矿物质；添加 taurine。"
+      }
+    ],
+    "nutrition_blocks": [
+      {
+        "scope": "page_description",
+        "variant": null,
+        "raw": "protein 36%; fat 16%; fiber 3%; ash 7%; moisture 8%; phosphorus 1.0%; calcium 1.2%; magnesium 0.08%"
+      }
+    ],
+    "warnings": []
+  },
+  {
+    "source_site": "demo",
+    "product_id": "suspect",
+    "name": "示例配方 · 异常标签",
+    "brand": "PawBase 虚构样例",
+    "source_url": null,
+    "fetched_at": "2026-10-07T00:00:00+00:00",
+    "product_type": "dry",
+    "product_description_raw": "Complete food for adult cats. dry food. ",
+    "page_text_snapshot": "虚构测试记录\nComplete food for adult cats. dry food. \nprotein 50%; fat 30%; fiber 5%; ash 10%; moisture 10%",
+    "breadcrumbs": [],
+    "variants": [
+      {
+        "sku": "suspect-1",
+        "name": "单件 400 g",
+        "offers": [
+          {
+            "@type": "Offer",
+            "price": 9.9,
+            "priceCurrency": "EUR"
+          }
+        ]
+      }
+    ],
+    "ingredient_blocks": [
+      {
+        "scope": "page_description",
+        "variant": null,
+        "raw": "示例原料：鸡肉、米、矿物质；添加 taurine。"
+      }
+    ],
+    "nutrition_blocks": [
+      {
+        "scope": "page_description",
+        "variant": null,
+        "raw": "protein 50%; fat 30%; fiber 5%; ash 10%; moisture 10%"
+      }
+    ],
+    "warnings": []
+  }
+]

@@ -1,0 +1,5 @@
+{
+ "complete": ["täysravinto", "täysrehu", "complete feed", "complete food", "alleinfuttermittel", "helfoder"],
+ "complementary": ["täydennysravinto", "täydennysrehu", "complementary feed", "complementary food", "ergänzungsfuttermittel"],
+ "excluded_types": ["freeze-dried", "freeze dried", "pakastekuivattu", "raakaravinto", "raw food", "cat treat", "kissanherkku"]
+}
