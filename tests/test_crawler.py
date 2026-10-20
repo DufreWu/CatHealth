@@ -148,6 +148,32 @@ class AccessTests(unittest.TestCase):
                     client.get(P)
             self.assertEqual(list(Path(d).glob('*.html')), [])
 
+    def test_explicit_urls_do_not_create_shortfall_when_limit_exceeds_available(self):
+        with tempfile.TemporaryDirectory() as d:
+            root = Path(d)
+            urls = root / 'demo_urls.txt'
+            urls.write_text(f'{Z}\n{P}\n', encoding='utf-8')
+            out = root / 'out'
+            out.mkdir()
+
+            def fake_get(self, url):
+                return fixture(url), {'url': url, 'fetched_at': c.now(), 'sha256': 'hash'}
+
+            with patch.object(c.Client, 'get', autospec=True, side_effect=fake_get):
+                result = c.main([
+                    '--site', 'all',
+                    '--urls', str(urls),
+                    '--limit', '300',
+                    '--cache-hours', '0',
+                    '--user-agent', 'PawBaseBot/0.1 (contact: user@example.com)',
+                    '--output', str(out),
+                ])
+
+            self.assertEqual(result, 0)
+            summary = json.loads((out / 'run_summary.json').read_text())
+            self.assertEqual(summary['counts'], {'zooplus': 1, 'peten': 1})
+            self.assertEqual(summary['shortfall'], {})
+
 
 if __name__ == '__main__':
     unittest.main()

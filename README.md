@@ -63,14 +63,16 @@ source .venv/bin/activate
 python -m pip install -r requirements.txt
 
 # 真实邮箱替换下面的占位符；执行前核对目标站点当前规则。
-python crawler.py --site zooplus --urls demo_urls.txt --limit 3 \
+# --limit 是每站最多抓取数量上限，不是“必须抓到多少条”。
+# 若使用 --urls，实际可抓总量由输入文件中的 URL 数量决定。
+python crawler.py --site all --urls demo_urls.txt --limit 300 \
   --cache-hours 0 --user-agent "PawBaseBot/0.1 (contact: YOUR_REAL_EMAIL)" \
   --output data/new_run --database data/pawbase.db
 ```
 
-`YOUR_REAL_EMAIL` 必须换成实际邮箱，否则程序拒绝运行。并发始终为 1。`--delay >5` 可要求更慢；2–5 范围内采用随机间隔。建议人工在 Europe/Helsinki 时区 22:00–06:00 运行；没有自动调度。
+`YOUR_REAL_EMAIL` 必须换成实际邮箱，否则程序拒绝运行。`--limit` 是上限，不是保证值；当 `--urls` 指向有限列表时，最终抓取数等于实际可用 URL 数量，最多不超过该站点上限。并发始终为 1。`--delay >5` 可要求更慢；2–5 范围内采用随机间隔。建议人工在 Europe/Helsinki 时区 22:00–06:00 运行；没有自动调度。
 
-程序每轮重新读取 robots。第一次建立本地规则指纹；规则变化时中止，人工核对后删除相应 `.cache/robots_<host>.sha256` 才能建立新基线。遇到 403/429 不继续另一站，不重试。首次规则基线并不替代条款许可确认。
+程序每轮重新读取 robots。第一次建立本地规则指纹；规则变化时中止，人工核对后删除相应 `.cache/robots_<host>.sha256` 才能建立新基线。遇到 403/429 不继续另一站，不重试。首次规则基线并不替代条款许可确认。若 `--urls` 文件里只有 6 个 URL，即使写 `--limit 300`，最终也不会被伪造成 300 条；汇总中 `shortfall` 仅在“实际可抓取的上限未填满”时出现。
 
 只导入旧爬虫导出的 JSON：
 

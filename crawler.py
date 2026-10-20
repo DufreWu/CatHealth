@@ -570,6 +570,7 @@ def main(argv=None):
     products, errors = [], []
     counts = {site: 0 for site in sites}
     seeds = []
+    site_seeds = {site: [] for site in sites}
     if not args.discover:
         path = args.urls or Path(__file__).with_name("demo_urls.txt")
         try:
@@ -581,6 +582,7 @@ def main(argv=None):
                     raise ValueError(f"不是支持的商品URL: {url}")
                 if url not in seeds:
                     seeds.append(url)
+                    site_seeds.setdefault(site_name(url), []).append(url)
         except (OSError, ValueError) as exc:
             p.error(str(exc))
     started = now()
@@ -620,7 +622,8 @@ def main(argv=None):
     except KeyboardInterrupt:
         errors.append({"error": "用户中断；已保存完成的商品", "fatal": True})
     finally:
-        short = {s: {"requested": args.limit, "fetched": n} for s, n in counts.items() if n < args.limit}
+        effective_limits = {site: (min(args.limit, len(site_seeds.get(site, []))) if not args.discover else args.limit) for site in sites}
+        short = {s: {"requested": effective_limits[s], "fetched": n} for s, n in counts.items() if n < effective_limits[s]}
         summary = {"started_at": started, "finished_at": now(), "counts": counts,
                    "requests": client.requests, "shortfall": short, "error_count": len(errors),
                    "status": "partial" if errors or short else "complete"}
