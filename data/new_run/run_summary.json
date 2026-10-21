@@ -1,30 +1,25 @@
 {
-  "started_at": "2026-10-20T12:59:04+00:00",
-  "finished_at": "2026-10-20T13:05:19+00:00",
+  "started_at": "2026-10-21T14:27:22+00:00",
+  "finished_at": "2026-10-21T14:52:29+00:00",
   "counts": {
-    "zooplus": 56,
-    "peten": 47
+    "zooplus": 413
   },
-  "requests": 110,
+  "requests": 435,
   "shortfall": {
     "zooplus": {
-      "requested": 300,
-      "fetched": 56
-    },
-    "peten": {
-      "requested": 300,
-      "fetched": 47
+      "requested": 5000,
+      "fetched": 413
     }
   },
   "error_count": 1,
   "status": "partial",
   "ingest": [
     {
-      "attempted": 104,
+      "attempted": 414,
       "failed": 1,
-      "records": 43,
-      "excluded": 79,
-      "new": 43,
+      "records": 40,
+      "excluded": 373,
+      "new": 0,
       "recipe_changed": 0,
       "price_changed": 0,
       "unchanged": 0,
@@ -32,18 +27,23 @@
       "data_suspect": 0,
       "errors": [
         {
-          "site": "peten",
-          "url": "https://www.petenkoiratarvike.com/tuote/monster-grain-free-cat-red-meat-P218014",
+          "site": "zooplus",
+          "url": "https://www.zooplus.fi/shop/kissat/taydennys/kissanmaito/214825",
           "error": "未能确认是猫粮，跳过；请检查面包屑与商品类别"
         }
       ],
       "api_cost_eur": 0,
       "null_rates": {
-        "protein": 0.23255813953488372,
-        "moisture": 0.5813953488372093,
-        "price": 0.046511627906976744
+        "protein": 1.0,
+        "moisture": 1.0,
+        "price": 1.0
       },
-      "status": "committed"
+      "status": "quarantined",
+      "reasons": [
+        "protein 空值率上升超过 20 个百分点",
+        "moisture 空值率上升超过 20 个百分点",
+        "price 空值率上升超过 20 个百分点"
+      ]
     }
   ]
 }
