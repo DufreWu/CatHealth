@@ -1,13 +1,166 @@
-<!doctype html><html lang="zh-CN"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="color-scheme" content="dark"><title>PawBase · 猫粮成分指南</title><link rel="stylesheet" href="/style.css"><script src="/app.js" defer></script></head><body>
-<header><a class="brand" href="/">◈ <b>PawBase</b><span>猫的日常，有据可循</span></a><nav><a href="/" data-nav="/">猫粮指南</a><a href="/methodology" data-nav="/methodology">分析方法</a><a href="/review" data-nav="/review">数据复核</a></nav><span class="release">FOOD GUIDE / 0.1</span></header>
-<main><div id="status" role="status"></div><section id="guide">
-<div class="hero"><div><p class="eyebrow">PAWBASE / NUTRITION EXPLORER</p><h1>读懂标签，<br><span>从了解每一份猫粮开始。</span></h1><p class="intro">看成分、比数据、了解依据。用透明的营养参照，<br>为你和猫的下一次选择，多提供一点信息。</p></div><aside class="principles"><span>我们的原则</span><p>01 <b>提供参照，不做排名</b></p><p>02 <b>数据缺失，明确告知</b></p><p>03 <b>保留来源，方便核对</b></p></aside></div>
-<div id="mode-note" class="notice"></div>
-<section class="filters" aria-label="商品筛选"><div class="filter-row"><label class="search-label">搜索商品<input id="search" type="search" placeholder="搜索品牌或猫粮名称…"></label><label>品牌<select id="brand"><option value="">全部品牌</option></select></label><label>类型<select id="type"><option value="">全部类型</option><option value="dry">干粮</option><option value="wet">湿粮</option></select></label><label>生命阶段<select id="stage"><option value="">全部阶段</option><option value="kitten">幼猫</option><option value="adult">成猫</option><option value="senior">老年猫</option><option value="all">全阶段</option></select></label></div><div class="filter-bottom"><div><label><input type="checkbox" id="grain">仅看声明无谷</label><label><input type="checkbox" id="prescription">显示处方粮</label></div><button id="reset" class="text-button">重置筛选 ↺</button></div></section>
-<div class="lenses"><span>关注镜头</span><label><input type="checkbox" name="lens" value="senior">老年猫</label><label><input type="checkbox" name="lens" value="kidney">肾脏问题</label><label><input type="checkbox" name="lens" value="urinary">泌尿病史</label><label><input type="checkbox" name="lens" value="weight">体重管理</label><small>只调整阅读顺序，不改变数值与分档</small></div>
-<div class="results-heading"><h2>探索猫粮 <span id="count"></span></h2><span>按品牌与名称排列 · 无综合评分</span></div><div id="products" class="grid" aria-live="polite"></div><div class="pagination"><button id="prev">上一页</button><span id="page-label"></span><button id="next">下一页</button></div></section>
-<section id="methodology" hidden></section><section id="review" hidden></section>
-</main><footer id="footer"></footer>
-<div id="compare-tray" hidden><div><b id="selection-count"></b><span>最多 3 个 · 同一口径并排阅读</span></div><button id="compare" class="primary">开始对比 →</button><button id="clear-compare">清空</button></div>
-<dialog id="modal"><div class="modal-head"><span>PAWBASE / PRODUCT INSIGHT</span><button id="close-modal" aria-label="关闭弹窗">✕</button></div><div id="modal-content"></div></dialog>
-</body></html>
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <meta name="color-scheme" content="dark">
+    <title>PawBase · 猫粮成分指南</title>
+    <link rel="stylesheet" href="/style.css">
+    <script src="/app.js" defer></script>
+  </head>
+  <body>
+    <header>
+      <a class="brand" href="/">
+        ◈ <b>PawBase</b>
+        <span data-i18n="brandTag">猫的日常，有据可循</span>
+      </a>
+
+      <nav>
+        <a href="/" data-nav="/" data-i18n="navGuide">猫粮指南</a>
+        <a href="/methodology" data-nav="/methodology" data-i18n="navMethodology">分析方法</a>
+        <a href="/review" data-nav="/review" data-i18n="navReview">数据复核</a>
+      </nav>
+
+      <div class="header-actions">
+        <span class="release">FOOD GUIDE / 0.1</span>
+        <label class="settings-select" aria-label="Language settings">
+            <span class="language-icon" aria-hidden="true">🌐</span>
+            <select id="language-select" aria-label="Language">
+                <option value="EN">EN</option>
+                <option value="CN">CN</option>
+                <option value="FI">FI</option>
+            </select>
+        </label>
+      </div>
+    </header>
+
+    <main>
+      <div id="status" role="status"></div>
+
+      <section id="guide">
+        <div class="hero">
+          <div>
+            <p class="eyebrow">PAWBASE / NUTRITION EXPLORER</p>
+            <h1>
+              <span data-i18n="heroLead">读懂标签，</span><br>
+              <span data-i18n="heroAccent">从了解每一份猫粮开始。</span>
+            </h1>
+            <p class="intro" data-i18n="heroIntro">
+              看成分、比数据、了解依据。用透明的营养参照，<br>
+              为你和猫的下一次选择，多提供一点信息。
+            </p>
+          </div>
+
+          <aside class="principles">
+            <span data-i18n="principlesTitle">我们的原则</span>
+            <p>01 <b data-i18n="principle1">提供参照，不做排名</b></p>
+            <p>02 <b data-i18n="principle2">数据缺失，明确告知</b></p>
+            <p>03 <b data-i18n="principle3">保留来源，方便核对</b></p>
+          </aside>
+        </div>
+
+        <div id="mode-note" class="notice"></div>
+
+        <section class="filters" aria-label="商品筛选">
+          <div class="filter-row">
+            <label class="search-label">
+              <span data-i18n="searchLabel">搜索商品</span>
+              <input id="search" type="search" data-i18n-placeholder="searchPlaceholder" placeholder="搜索品牌或猫粮名称…">
+            </label>
+
+            <label>
+              <span data-i18n="brandLabel">品牌</span>
+              <select id="brand">
+                <option value="" data-i18n="brandAll">全部品牌</option>
+              </select>
+            </label>
+
+            <label>
+              <span data-i18n="typeLabel">类型</span>
+              <select id="type">
+                <option value="" data-i18n="typeAll">全部类型</option>
+                <option value="dry" data-i18n="typeDry">干粮</option>
+                <option value="wet" data-i18n="typeWet">湿粮</option>
+              </select>
+            </label>
+
+            <label>
+              <span data-i18n="stageLabel">生命阶段</span>
+              <select id="stage">
+                <option value="" data-i18n="stageAll">全部阶段</option>
+                <option value="kitten" data-i18n="stageKitten">幼猫</option>
+                <option value="adult" data-i18n="stageAdult">成猫</option>
+                <option value="senior" data-i18n="stageSenior">老年猫</option>
+                <option value="all" data-i18n="stageAllScope">全阶段</option>
+              </select>
+            </label>
+          </div>
+
+          <div class="filter-bottom">
+            <div>
+              <label>
+                <input type="checkbox" id="grain">
+                <span data-i18n="grainOnly">仅看声明无谷</span>
+              </label>
+
+              <label>
+                <input type="checkbox" id="prescription">
+                <span data-i18n="prescriptionOnly">显示处方粮</span>
+              </label>
+            </div>
+
+            <button id="reset" class="text-button" data-i18n="resetFilters">重置筛选 ↺</button>
+          </div>
+        </section>
+
+        <div class="lenses">
+          <span data-i18n="lensLabel">关注镜头</span>
+          <label><input type="checkbox" name="lens" value="senior"><span data-i18n="lensSenior">老年猫</span></label>
+          <label><input type="checkbox" name="lens" value="kidney"><span data-i18n="lensKidney">肾脏问题</span></label>
+          <label><input type="checkbox" name="lens" value="urinary"><span data-i18n="lensUrinary">泌尿病史</span></label>
+          <label><input type="checkbox" name="lens" value="lensWeight"><span data-i18n="lensWeight">体重管理</span></label>
+          <small data-i18n="lensHint">只调整阅读顺序，不改变数值与分档</small>
+        </div>
+
+        <div class="results-heading">
+          <h2>
+            <span data-i18n="exploreTitle">探索猫粮</span>
+            <span id="count"></span>
+          </h2>
+          <span data-i18n="resultsMeta">按品牌与名称排列 · 无综合评分</span>
+        </div>
+
+        <div id="products" class="grid" aria-live="polite"></div>
+
+        <div class="pagination">
+          <button id="prev" data-i18n="prev">上一页</button>
+          <span id="page-label"></span>
+          <button id="next" data-i18n="next">下一页</button>
+        </div>
+      </section>
+
+      <section id="methodology" hidden></section>
+      <section id="review" hidden></section>
+    </main>
+
+    <footer id="footer"></footer>
+
+    <div id="compare-tray" hidden>
+      <div>
+        <b id="selection-count"></b>
+        <span data-i18n="compareLimit">最多 3 个 · 同一口径并排阅读</span>
+      </div>
+      <button id="compare" class="primary" data-i18n="compareButton">开始对比 →</button>
+      <button id="clear-compare" data-i18n="clearCompare">清空</button>
+    </div>
+
+    <dialog id="modal">
+      <div class="modal-head">
+        <span>PAWBASE / PRODUCT INSIGHT</span>
+        <button id="close-modal" aria-label="关闭弹窗">✕</button>
+      </div>
+      <div id="modal-content"></div>
+    </dialog>
+  </body>
+</html>
+
