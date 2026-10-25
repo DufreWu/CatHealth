@@ -600,7 +600,7 @@ def main(argv=None):
     logging.basicConfig(level=logging.INFO, format="%(levelname)s %(message)s")
     sites = ["zooplus", "peten"] if args.site == "all" else [args.site]
     client = Client(args.cache, args.delay, args.timeout, args.cache_hours * 3600, args.user_agent, args.max_requests)
-    products, errors, existing = [], [], []
+    products, errors, existing, unavailable = [], [], [], []
     if args.resume and (args.output / "products.json").exists():
         try:
             existing = json.loads((args.output / "products.json").read_text(encoding="utf-8"))
@@ -645,6 +645,11 @@ def main(argv=None):
                     try:
                         html, meta = client.get(url)
                         key = group_url(meta["url"])
+                        if not is_product_url(key):
+                            # 商品页重定向到分类/品牌页：通常已下架，不算抓取失败。
+                            unavailable.append({"site": site, "url": url, "final_url": meta["url"]})
+                            LOG.info("GONE %s -> %s", url, meta["url"])
+                            continue
                         if key in seen or key in done:
                             continue
                         seen.add(key)
@@ -673,10 +678,13 @@ def main(argv=None):
     finally:
         effective_limits = {site: (min(args.limit, len(site_seeds.get(site, []))) if args.limit and (args.resume or not args.discover)
                                    else args.limit or len(site_seeds.get(site, []))) for site in sites}
-        short = {s: {"requested": effective_limits[s], "fetched": n} for s, n in counts.items() if n < effective_limits[s]}
+        gone = {s: sum(u["site"] == s for u in unavailable) for s in sites}
+        short = {s: {"requested": effective_limits[s] - gone[s], "fetched": n} for s, n in counts.items() if n < effective_limits[s] - gone[s]}
         summary = {"started_at": started, "finished_at": now(), "counts": counts,
                    "requests": client.requests, "shortfall": short, "error_count": len(errors),
                    "status": "partial" if errors or short else "complete"}
+        if unavailable:
+            summary["unavailable"] = unavailable
         if args.resume:
             summary["resumed_existing"] = len(existing)
         if discovery:

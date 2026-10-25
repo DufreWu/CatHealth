@@ -115,6 +115,20 @@ class ParserTests(unittest.TestCase):
             summary = json.loads((out / 'run_summary.json').read_text())
             self.assertEqual((summary['counts'], summary['resumed_existing'], summary['shortfall']), ({'zooplus': 1}, 1, {}))
 
+    def test_redirect_to_listing_is_unavailable_not_error(self):
+        brand = 'https://www.zooplus.fi/shop/kissat/kuivaruoka/brand'
+        with tempfile.TemporaryDirectory() as d:
+            urls = Path(d) / 'urls.txt'
+            urls.write_text(Z + '\n', encoding='utf-8')
+            out = Path(d) / 'out'
+            with patch.object(c.Client, 'get', autospec=True,
+                              return_value=('<h1>Brand</h1>', {'url': brand, 'fetched_at': c.now(), 'sha256': 'h'})):
+                result = c.main(['--site', 'zooplus', '--urls', str(urls), '--limit', '0',
+                                 '--user-agent', 'PawBaseBot/0.1 (contact: user@example.com)', '--output', str(out)])
+            summary = json.loads((out / 'run_summary.json').read_text())
+            self.assertEqual((result, summary['error_count'], summary['shortfall']), (0, 0, {}))
+            self.assertEqual(summary['unavailable'], [{'site': 'zooplus', 'url': Z, 'final_url': brand}])
+
     def test_listing_dedupe_and_pagination(self):
         html = '<a href="' + Z + '?activeVariant=1">a</a><a href="' + Z + '">b</a>'
         html += '<a href="/shop/kissat/kuivaruoka/4vets">brand</a><a rel="next" href="?p=2">next</a>'
