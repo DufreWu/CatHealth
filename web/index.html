@@ -6,6 +6,7 @@
     <meta name="color-scheme" content="dark">
     <title>PawBase · 猫粮成分指南</title>
     <link rel="stylesheet" href="/style.css">
+    <script src="/i18n.js" defer></script>
     <script src="/app.js" defer></script>
   </head>
   <body>
@@ -23,9 +24,9 @@
 
       <div class="header-actions">
         <span class="release">FOOD GUIDE / 0.1</span>
-        <label class="settings-select" aria-label="Language settings">
+        <label class="settings-select">
             <span class="language-icon" aria-hidden="true">🌐</span>
-            <select id="language-select" aria-label="Language">
+            <select id="language-select" data-i18n-aria="languageLabel" aria-label="界面语言">
                 <option value="EN">EN</option>
                 <option value="CN">CN</option>
                 <option value="FI">FI</option>
@@ -45,7 +46,7 @@
               <span data-i18n="heroLead">读懂标签，</span><br>
               <span data-i18n="heroAccent">从了解每一份猫粮开始。</span>
             </h1>
-            <p class="intro" data-i18n="heroIntro">
+            <p class="intro" data-i18n-html="heroIntro">
               看成分、比数据、了解依据。用透明的营养参照，<br>
               为你和猫的下一次选择，多提供一点信息。
             </p>
@@ -61,7 +62,7 @@
 
         <div id="mode-note" class="notice"></div>
 
-        <section class="filters" aria-label="商品筛选">
+        <section class="filters" data-i18n-aria="filterAria" aria-label="商品筛选">
           <div class="filter-row">
             <label class="search-label">
               <span data-i18n="searchLabel">搜索商品</span>
@@ -118,7 +119,7 @@
           <label><input type="checkbox" name="lens" value="senior"><span data-i18n="lensSenior">老年猫</span></label>
           <label><input type="checkbox" name="lens" value="kidney"><span data-i18n="lensKidney">肾脏问题</span></label>
           <label><input type="checkbox" name="lens" value="urinary"><span data-i18n="lensUrinary">泌尿病史</span></label>
-          <label><input type="checkbox" name="lens" value="lensWeight"><span data-i18n="lensWeight">体重管理</span></label>
+          <label><input type="checkbox" name="lens" value="weight"><span data-i18n="lensWeight">体重管理</span></label>
           <small data-i18n="lensHint">只调整阅读顺序，不改变数值与分档</small>
         </div>
 
@@ -157,7 +158,7 @@
     <dialog id="modal">
       <div class="modal-head">
         <span>PAWBASE / PRODUCT INSIGHT</span>
-        <button id="close-modal" aria-label="关闭弹窗">✕</button>
+        <button id="close-modal" data-i18n-aria="closeModal" aria-label="关闭弹窗">✕</button>
       </div>
       <div id="modal-content"></div>
     </dialog>

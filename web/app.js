@@ -1,61 +1,71 @@
 'use strict';
 const $=s=>document.querySelector(s);
 const esc=v=>String(v??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
-const fmt=v=>v==null?'标签未提供':Number(v).toFixed(2).replace(/\.00$/,'');
-const translations={
-  CN:{
-    brandTag:'猫的日常，有据可循',navGuide:'猫粮指南',navMethodology:'分析方法',navReview:'数据复核',searchLabel:'搜索商品',searchPlaceholder:'搜索品牌或猫粮名称…',brandLabel:'品牌',brandAll:'全部品牌',typeLabel:'类型',typeAll:'全部类型',typeDry:'干粮',typeWet:'湿粮',stageLabel:'生命阶段',stageAll:'全部阶段',stageAllScope:'全阶段',stageKitten:'幼猫',stageAdult:'成猫',stageSenior:'老年猫',grainOnly:'仅看声明无谷',prescriptionOnly:'显示处方粮',resetFilters:'重置筛选 ↺',lensLabel:'关注镜头',lensSenior:'老年猫',lensKidney:'肾脏问题',lensUrinary:'泌尿病史',lensWeight:'体重管理',lensHint:'只调整阅读顺序，不改变数值与分档',exploreTitle:'探索猫粮',resultsMeta:'按品牌与名称排列 · 无综合评分',pageLabel:'第',prev:'上一页',next:'下一页',compareLimit:'最多 3 个 · 同一口径并排阅读',compareButton:'开始对比 →',clearCompare:'清空',compareSelected:'已加入对比 ✓',compareAdd:'＋ 加入对比',selected:'已选',items:'个商品',demo:'虚构演示',wet:'湿粮',dry:'干粮',prescription:'处方粮',needsReview:'待复核',scope:'营养适用范围',stageUnknown:'阶段未提供',loadingProducts:'正在读取商品…',loadingDetails:'正在读取详情…',loadingCompare:'正在读取对比数据…',modeDemo:'演示模式 · 全部商品、品牌和价格均为虚构测试样例，仅用于功能联调。',modeHistory:'历史数据模式 · 来源于代码包内 2026-09-24 抓取快照，非实时商店数据。部分商品缺少水分或存在冲突。',heroLead:'读懂标签，',heroAccent:'从了解每一份猫粮开始。',heroIntro:'看成分、比数据、了解依据。用透明的营养参照，<br>为你和猫的下一次选择，多提供一点信息。',principlesTitle:'我们的原则',principle1:'提供参照，不做排名',principle2:'数据缺失，明确告知',principle3:'保留来源，方便核对',filterAria:'商品筛选'
-  },
-  FI:{
-    brandTag:'Kissan arki, perustuu tietoihin',navGuide:'Kissanruokaopas',navMethodology:'Analyysimenetelmä',navReview:'Tietojen tarkistus',searchLabel:'Etsi tuotteita',searchPlaceholder:'Hae tuotemerkin tai ruoan nimellä…',brandLabel:'Tuotemerkki',brandAll:'Kaikki merkit',typeLabel:'Tyyppi',typeAll:'Kaikki tyypit',typeDry:'Kuiva',typeWet:'Märkä',stageLabel:'Elämänvaihe',stageAll:'Kaikki vaiheet',stageAllScope:'Kaikki vaiheet',stageKitten:'Pennu',stageAdult:'Aikuinen',stageSenior:'Seniori',grainOnly:'Näytä vain gluteeniton ilmoitus',prescriptionOnly:'Näytä reseptiruoka',resetFilters:'Tyhjennä suodattimet ↺',lensLabel:'Keskittymiskohdat',lensSenior:'Seniori',lensKidney:'Munuaissairaus',lensUrinary:'Virtsatieongelma',lensWeight:'Painonhallinta',lensHint:'Vain lukujärjestys muuttuu, arvoja ei muokata',exploreTitle:'Selaa ruokaa',resultsMeta:'Lajiteltu tuotemerkin ja nimen mukaan · Ei yhteispistettä',pageLabel:'Sivu',prev:'Edellinen',next:'Seuraava',compareLimit:'Enintään 3 tuotetta · vertailu samalla tasolla',compareButton:'Aloita vertailu →',clearCompare:'Tyhjennä',compareSelected:'Lisätty vertailuun ✓',compareAdd:'＋ Lisää vertailuun',selected:'Valittu',items:'tuotetta',demo:'Kuvitteellinen demo',wet:'Märkä',dry:'Kuiva',prescription:'Reseptiruoka',needsReview:'Tarkistettava',scope:'Ravintotavoite',stageUnknown:'Vaihe puuttuu',loadingProducts:'Ladataan tuotteita…',loadingDetails:'Ladataan tietoja…',loadingCompare:'Ladataan vertailua…',modeDemo:'Demo-tila · Kaikki tuotteet, merkit ja hinnat ovat kuvitteellisia testiskenaarioita.',modeHistory:'Historia-tila · Lähde on koodipaketin kaappaus 24.9.2026, ei reaaliaikaa. Joillakin tuotteilla puuttuu kosteuspitoisuus tai tiedot ovat ristiriitaisia.',heroLead:'Lue etiketit,',heroAccent:'aloita jokaisen kissanruoan ymmärtämisestä.',heroIntro:'Vertaa ainesosia, tarkista tiedot ja ymmärrä perusteet.<br>Lisää läpinäkyvyyttä kissan seuraavaan valintaan.',principlesTitle:'Periaatteemme',principle1:'Tarjoa vertailua, älä sijoita',principle2:'Puuttuvat tiedot merkitään selvästi',principle3:'Lähteet säilytetään, jotta niitä voidaan tarkistaa',filterAria:'Tuotesuodattimet'
-  },
-  EN:{
-    brandTag:'A daily routine for cats, backed by data',navGuide:'Cat food guide',navMethodology:'Method',navReview:'Data review',searchLabel:'Search products',searchPlaceholder:'Search brand or food name…',brandLabel:'Brand',brandAll:'All brands',typeLabel:'Type',typeAll:'All types',typeDry:'Dry',typeWet:'Wet',stageLabel:'Life stage',stageAll:'All stages',stageAllScope:'All stages',stageKitten:'Kitten',stageAdult:'Adult',stageSenior:'Senior',grainOnly:'Only show grain-free claims',prescriptionOnly:'Show prescription foods',resetFilters:'Reset filters ↺',lensLabel:'Focus lenses',lensSenior:'Senior',lensKidney:'Kidney concerns',lensUrinary:'Urinary history',lensWeight:'Weight management',lensHint:'Only changes reading order; numbers and bands stay the same',exploreTitle:'Explore cat food',resultsMeta:'Sorted by brand and name · no overall score',pageLabel:'Page',prev:'Previous',next:'Next',compareLimit:'Up to 3 products · compare on the same basis',compareButton:'Start comparison →',clearCompare:'Clear',compareSelected:'Added to compare ✓',compareAdd:'＋ Add to compare',selected:'Selected',items:'items',demo:'Demo record',wet:'Wet',dry:'Dry',prescription:'Prescription',needsReview:'Needs review',scope:'Nutritional scope',stageUnknown:'Stage not provided',loadingProducts:'Loading products…',loadingDetails:'Loading details…',loadingCompare:'Loading comparison…',modeDemo:'Demo mode · all products, brands, and prices are fictional test examples for local debugging only.',modeHistory:'Historical mode · source is the packaged capture from 2026-09-24; not live-store data. Some items are missing moisture or have conflicting values.',heroLead:'Read the label,',heroAccent:'start by understanding each cat food.',heroIntro:'Compare ingredients, review the data, and understand the basis.<br>Give your next choice a little more clarity.',principlesTitle:'Our principles',principle1:'Provide reference points, not rankings',principle2:'Mark missing data clearly',principle3:'Keep sources visible for checking',filterAria:'Product filters'
-  }
-};
-const stages={adult:'成猫',kitten:'幼猫',senior:'老年猫',all:'全阶段'};
-const state={items:[],page:1,total:0,limit:12,selection:new Map(),lenses:new Set(),stats:{},cfg:null,request:0,lang:'CN'};
-function t(key){return translations[state.lang]?.[key] ?? translations.CN[key] ?? key;}
-function stageName(key){const map={adult:{CN:'成猫',FI:'Aikuinen',EN:'Adult'},kitten:{CN:'幼猫',FI:'Pennu',EN:'Kitten'},senior:{CN:'老年猫',FI:'Seniori',EN:'Senior'},all:{CN:'全阶段',FI:'Kaikki vaiheet',EN:'All stages'}};return map[key]?.[state.lang] ?? key;}
+const fmt=v=>v==null?t('missingValue'):Number(v).toFixed(2).replace(/\.00$/,'');
+const LANGS=['CN','EN','FI'],LANG_KEY='pawbase.lang';
+const stageKeys={adult:'stageAdult',kitten:'stageKitten',senior:'stageSenior',all:'stageAllScope'};
+const state={items:[],page:1,total:0,limit:12,selection:new Map(),lenses:new Set(),stats:{},cfg:null,mode:null,route:'/',reviewData:null,modalView:null,request:0,lang:initialLang()};
+function initialLang(){try{const v=localStorage.getItem(LANG_KEY);if(LANGS.includes(v))return v;}catch{}return 'CN';}
+function t(key,vars){let s=translations[state.lang]?.[key]??translations.CN[key]??key;if(vars)for(const[k,v]of Object.entries(vars))s=s.replaceAll(`{${k}}`,v);return s;}
+// 后端中文文本的显示翻译；无对应译文时原样显示。
+function tx(text){if(text==null||state.lang==='CN')return text;const table=serverText[state.lang]||{};if(Object.hasOwn(table,text))return table[text];for(const[re,fn]of serverPatterns[state.lang]||[]){const m=String(text).match(re);if(m)return fn(tx,...m.slice(1));}return text;}
+function stageName(key){return stageKeys[key]?t(stageKeys[key]):null;}
 function applyTranslations(){
-  const lang = state.lang === 'FI' ? 'fi' : state.lang === 'EN' ? 'en' : 'zh-CN';
-  document.documentElement.lang = lang;
-  const languageSelect = $('#language-select') || $('#language');
+  document.documentElement.lang = state.lang === 'FI' ? 'fi' : state.lang === 'EN' ? 'en' : 'zh-CN';
+  document.title = t('title');
+  const languageSelect = $('#language-select');
   if (languageSelect) languageSelect.value = state.lang;
-  document.querySelectorAll('[data-i18n]').forEach(el => {
-    const key = el.dataset.i18n;
-    const value = t(key);
-    if (value && el.tagName !== 'INPUT' && el.tagName !== 'TEXTAREA') el.textContent = value;
-  });
-  document.querySelectorAll('[data-i18n-placeholder]').forEach(el => {
-    const key = el.dataset.i18nPlaceholder;
-    el.placeholder = t(key);
-  });
+  document.querySelectorAll('[data-i18n]').forEach(el => { el.textContent = t(el.dataset.i18n); });
+  document.querySelectorAll('[data-i18n-html]').forEach(el => { el.innerHTML = t(el.dataset.i18nHtml); });
+  document.querySelectorAll('[data-i18n-placeholder]').forEach(el => { el.placeholder = t(el.dataset.i18nPlaceholder); });
+  document.querySelectorAll('[data-i18n-aria]').forEach(el => { el.setAttribute('aria-label', t(el.dataset.i18nAria)); });
+  const modeNote = $('#mode-note');
+  if (modeNote && state.mode) modeNote.textContent = state.mode === 'demo' ? t('modeDemo') : t('modeHistory');
+  const footerEl = $('#footer');
+  if (footerEl && state.cfg) footerEl.textContent = t('footer', {version: state.cfg.framework_version, source: tx(state.cfg.source), reviewed: state.cfg.last_reviewed || t('pendingVerify')});
 }
-async function api(path){const r=await fetch(path);let data;try{data=await r.json();}catch{throw Error('服务器返回了无法读取的数据');}if(!r.ok)throw Error(data.error||'请求失败');return data;}
+async function api(path){const r=await fetch(path);let data;try{data=await r.json();}catch{throw Error(t('badResponse'));}if(!r.ok)throw Error(tx(data.error)||t('requestFailed'));return data;}
 function status(message=''){const statusEl=$('#status'); if(statusEl) statusEl.textContent=message;}
 function safeLink(url){try{const u=new URL(url);return u.protocol==='https:'?esc(u.href):'#';}catch{return '#';}}
 function order(){const base=['protein_dm_pct','phosphorus_dm_pct','carbs_est_dm_pct','ca_p_ratio'];if(['kidney','senior','urinary'].some(k=>state.lenses.has(k)))return ['phosphorus_dm_pct','ca_p_ratio','protein_dm_pct','carbs_est_dm_pct'];if(state.lenses.has('weight'))return ['carbs_est_dm_pct','protein_dm_pct','phosphorus_dm_pct','ca_p_ratio'];return base;}
-function metric(p,key){const d=p.benchmark_dimensions[key],v=p.analysis[key],band=p.bands[key];
- if(key==='carbs_est_dm_pct'&&p.product_type==='wet')return `<div class="metric"><div class="metric-title">${esc(d.name)}</div><p class="missing">${esc(d.wet_note)}</p><a class="small-note" href="/methodology#carbs_est_dm_pct">了解误差来源 ↗</a></div>`;
- const reason=p.data_suspect||p.needs_review?'标签待复核，暂不分析':p.as_fed.moisture==null&&key!=='ca_p_ratio'?'水分未提供，无法换算 DM':'标签未提供此数据';
- if(v==null)return `<div class="metric"><div class="metric-title">${esc(d.name)} <small>${esc(d.unit)}</small></div><p class="missing">${reason}</p></div>`;
+function metric(p,key){const d=p.benchmark_dimensions[key],v=p.analysis[key],band=p.bands[key],name=tx(d.name);
+ if(key==='carbs_est_dm_pct'&&p.product_type==='wet')return `<div class="metric"><div class="metric-title">${esc(name)}</div><p class="missing">${esc(tx(d.wet_note))}</p><a class="small-note" href="/methodology#carbs_est_dm_pct">${t('carbsError')}</a></div>`;
+ const reason=p.data_suspect||p.needs_review?t('reasonReview'):p.as_fed.moisture==null&&key!=='ca_p_ratio'?t('reasonMoisture'):t('reasonMissing');
+ if(v==null)return `<div class="metric"><div class="metric-title">${esc(name)} <small>${esc(d.unit)}</small></div><p class="missing">${esc(reason)}</p></div>`;
  const cohort=p.product_type+':'+(p.life_stage||'unknown'),stats=state.stats[cohort]?.[key];
  const lo=Math.min(d.domain[0],v,stats?.min??v),hi=Math.max(d.domain[1],v,stats?.max??v,...d.fediaf_lines.map(l=>l.value));
  const pos=n=>(n-lo)/(hi-lo||1)*100;
- const range=stats&&stats.count>=2?`<span class="range" style="left:${pos(stats.p25)}%;width:${pos(stats.p75)-pos(stats.p25)}%" title="同组 p25–p75：${fmt(stats.p25)}–${fmt(stats.p75)}；n=${stats.count}"></span>`:'';
- const ticks=d.fediaf_lines.map(l=>`<span class="tick" style="left:${pos(l.value)}%" title="${esc(l.label+' · '+l.basis)}"><span>${fmt(l.value)}</span></span>`).join('');
- return `<div class="metric"><div class="metric-title"><span>${esc(d.name)}</span><b>${fmt(v)} <small>${esc(d.unit)}</small></b></div><div class="scale" role="img" aria-label="${esc(d.name)} ${fmt(v)} ${esc(d.unit)}，${esc(band?.name)}">${range}${ticks}<span class="point" style="left:${pos(v)}%" title="本品 ${v}"></span></div><div class="scale-legend"><span>${fmt(lo)}</span><span>${stats?.count>=2?'浅色带：同组 p25–p75 · n='+stats.count:'同组样本不足，暂不展示分布带'}</span><span>${fmt(hi)}</span></div><details><summary><span class="pill">${esc(band?.name||'参照值')}</span> 查看依据</summary><p>${esc(d.basis)}</p><p>${esc(d.authority)}</p></details>${key==='carbs_est_dm_pct'?`<p class="basis-note">${esc(d.basis)}</p>`:''}</div>`;
+ const range=stats&&stats.count>=2?`<span class="range" style="left:${pos(stats.p25)}%;width:${pos(stats.p75)-pos(stats.p25)}%" title="${esc(t('cohortRange',{lo:fmt(stats.p25),hi:fmt(stats.p75),n:stats.count}))}"></span>`:'';
+ const ticks=d.fediaf_lines.map(l=>`<span class="tick" style="left:${pos(l.value)}%" title="${esc(tx(l.label)+' · '+tx(l.basis))}"><span>${fmt(l.value)}</span></span>`).join('');
+ const bandName=tx(band?.name);
+ return `<div class="metric"><div class="metric-title"><span>${esc(name)}</span><b>${fmt(v)} <small>${esc(d.unit)}</small></b></div><div class="scale" role="img" aria-label="${esc(name)} ${fmt(v)} ${esc(d.unit)}, ${esc(bandName)}">${range}${ticks}<span class="point" style="left:${pos(v)}%" title="${esc(t('thisProduct',{v}))}"></span></div><div class="scale-legend"><span>${fmt(lo)}</span><span>${esc(stats?.count>=2?t('cohortBand',{n:stats.count}):t('cohortSmall'))}</span><span>${fmt(hi)}</span></div><details><summary><span class="pill">${esc(bandName||t('referenceValue'))}</span> ${t('viewBasis')}</summary><p>${esc(tx(d.basis))}</p><p>${esc(tx(d.authority))}</p></details>${key==='carbs_est_dm_pct'?`<p class="basis-note">${esc(tx(d.basis))}</p>`:''}</div>`;
 }
-function card(p,actions=true){const scope=p.nutrition_scope.variant;return `<article class="card" data-id="${esc(p.id)}"><div class="card-top"><span>${esc(p.brand||'品牌未提供')}</span><span>${p.is_demo?t('demo'):esc(p.source.toUpperCase())}</span></div><div class="food-icon" aria-hidden="true">${p.product_type==='wet'?'◒':'◈'}</div><h3>${esc(p.name)}</h3><div class="tags"><span class="pill">${p.product_type==='wet'?t('wet'):t('dry')}</span><span class="pill">${stageName(p.life_stage)||t('stageUnknown')}</span>${p.is_prescription?`<span class="pill">${t('prescription')}</span>`:''}${p.is_grain_free?'<span class="pill">声明无谷</span>':''}${p.needs_review?`<span class="pill">${t('needsReview')}</span>`:''}</div><p class="scope">${t('scope')}：${esc(scope||'页面声明')} · ${p.is_demo?t('demo'):esc((p.fetched_at||'').slice(0,10))}</p>${order().map(k=>metric(p,k)).join('')}<p class="small-note">${esc(p.stage_note)}</p>${p.context_notes.length?`<details class="context" ${state.lenses.size||p.life_stage==='senior'?'open':''}><summary>情境提示 · ${p.context_notes.length}</summary>${p.context_notes.map(n=>`<p>${esc(n)}</p>`).join('')}</details>`:''}${actions?`<div class="card-actions"><button data-action="detail">查看详情 ↗</button><button data-action="select" class="${state.selection.has(p.id)?'selected':''}" aria-pressed="${state.selection.has(p.id)}">${state.selection.has(p.id)?t('compareSelected'):t('compareAdd')}</button></div>`:''}</article>`;}
-function render(){ $('#products').innerHTML=state.items.length?state.items.map(p=>card(p)).join(''):'<div class="empty">没有匹配商品。试试放宽筛选条件，或前往数据复核查看未纳入的记录。</div>';$('#count').textContent=`${state.total}`;$('#page-label').textContent=`${t('pageLabel')||'第'} ${state.page} / ${Math.max(1,Math.ceil(state.total/state.limit))}`;$('#prev').textContent=t('prev');$('#next').textContent=t('next');$('#prev').disabled=state.page<=1;$('#next').disabled=state.page*state.limit>=state.total;}
-async function load(){const req=++state.request;status('正在读取商品…');const params=new URLSearchParams({q:$('#search').value,brand:$('#brand').value,type:$('#type').value,stage:$('#stage').value,prescription:$('#prescription').checked,grain_free:$('#grain').checked,page:state.page,limit:state.limit});try{const data=await api('/api/products?'+params);if(req!==state.request)return;state.items=data.items;state.total=data.total;const selected=$('#brand').value;$('#brand').innerHTML='<option value="">全部品牌</option>'+data.brands.map(b=>`<option value="${esc(b)}">${esc(b)}</option>`).join('');$('#brand').value=selected;render();status();}catch(e){if(req===state.request){$('#products').innerHTML='<div class="empty">加载失败，请检查服务后重试。<br><button id="retry">重新加载</button></div>';$('#retry').onclick=load;status(e.message);}}}
-function tray(){const n=state.selection.size;$('#compare-tray').hidden=!n;$('#selection-count').textContent=`${t('selected')} ${n} ${t('items')}`;$('#compare').disabled=n<2;}
+function card(p,actions=true){const scope=p.nutrition_scope.variant;return `<article class="card" data-id="${esc(p.id)}"><div class="card-top"><span>${esc(p.brand||t('brandMissing'))}</span><span>${p.is_demo?t('demo'):esc(p.source.toUpperCase())}</span></div><div class="food-icon" aria-hidden="true">${p.product_type==='wet'?'◒':'◈'}</div><h3>${esc(p.name)}</h3><div class="tags"><span class="pill">${p.product_type==='wet'?t('wet'):t('dry')}</span><span class="pill">${stageName(p.life_stage)||t('stageUnknown')}</span>${p.is_prescription?`<span class="pill">${t('prescription')}</span>`:''}${p.is_grain_free?`<span class="pill">${t('grainFreeTag')}</span>`:''}${p.needs_review?`<span class="pill">${t('needsReview')}</span>`:''}</div><p class="scope">${t('scope')}: ${esc(scope||t('scopeDefault'))} · ${p.is_demo?t('demo'):esc((p.fetched_at||'').slice(0,10))}</p>${order().map(k=>metric(p,k)).join('')}<p class="small-note">${esc(tx(p.stage_note))}</p>${p.context_notes.length?`<details class="context" ${state.lenses.size||p.life_stage==='senior'?'open':''}><summary>${t('contextNotes')} · ${p.context_notes.length}</summary>${p.context_notes.map(n=>`<p>${esc(tx(n))}</p>`).join('')}</details>`:''}${actions?`<div class="card-actions"><button data-action="detail">${t('viewDetail')}</button><button data-action="select" class="${state.selection.has(p.id)?'selected':''}" aria-pressed="${state.selection.has(p.id)}">${state.selection.has(p.id)?t('compareSelected'):t('compareAdd')}</button></div>`:''}</article>`;}
+function render(){ $('#products').innerHTML=state.items.length?state.items.map(p=>card(p)).join(''):`<div class="empty">${t('emptyResults')}</div>`;$('#count').textContent=`${state.total} ${t('countUnit')}`;$('#page-label').textContent=t('pageLabel',{page:state.page,pages:Math.max(1,Math.ceil(state.total/state.limit))});$('#prev').disabled=state.page<=1;$('#next').disabled=state.page*state.limit>=state.total;}
+async function load(){const req=++state.request;status(t('loadingProducts'));const params=new URLSearchParams({q:$('#search').value,brand:$('#brand').value,type:$('#type').value,stage:$('#stage').value,prescription:$('#prescription').checked,grain_free:$('#grain').checked,page:state.page,limit:state.limit});try{const data=await api('/api/products?'+params);if(req!==state.request)return;state.items=data.items;state.total=data.total;const selected=$('#brand').value;$('#brand').innerHTML=`<option value="" data-i18n="brandAll">${esc(t('brandAll'))}</option>`+data.brands.map(b=>`<option value="${esc(b)}">${esc(b)}</option>`).join('');$('#brand').value=selected;render();status();}catch(e){if(req===state.request){$('#products').innerHTML=`<div class="empty">${t('loadFailed')}<br><button id="retry">${t('retry')}</button></div>`;$('#retry').onclick=load;status(e.message);}}}
+function tray(){const n=state.selection.size;$('#compare-tray').hidden=!n;$('#selection-count').textContent=t('selectedCount',{n});$('#compare').disabled=n<2;}
 function modal(html){$('#modal-content').innerHTML=html;if(!$('#modal').open)$('#modal').showModal();}
-async function detail(id){modal('<p>正在读取详情…</p>');try{const p=await api('/api/products/'+encodeURIComponent(id));modal(`<h2>${esc(p.name)}</h2><p class="small-note">分析框架 v${esc(p.framework_version)} · ${p.analyzed_at?'分析时间 '+esc(p.analyzed_at):'待复核，尚未分析'} · 抓取时间 ${esc(p.fetched_at||'未提供')}</p><div class="detail-grid"><div>${card(p,false)}</div><div><h3>标签原值 · as-fed %</h3><table><thead><tr><th>成分</th><th>标签值</th></tr></thead><tbody>${Object.entries(p.as_fed).map(([k,v])=>`<tr><td>${esc(({protein:'蛋白质',fat:'脂肪',fiber:'纤维',ash:'灰分',moisture:'水分',calcium:'钙',phosphorus:'磷',magnesium:'镁',taurine:'牛磺酸'})[k])}</td><td>${fmt(v)}</td></tr>`).join('')}</tbody></table><p class="small-note">牛磺酸声明：${p.taurine_declared===null?'文本未提供':p.taurine_declared?'提取文本中见声明':'提取文本中未见声明'}</p>${p.review_reasons.length?`<div class="context">${p.review_reasons.map(r=>`<p>${esc(r)}</p>`).join('')}</div>`:''}<h3>规格与参考价</h3><p class="small-note">价格为抓取时参考价，实际以商店为准。营养表仅适用于标注的范围，不自动代表所有规格。</p><table><tbody>${p.offers.map(o=>`<tr><td>${esc(o.size||o.sku)}</td><td>${o.reference_price==null?esc(o.note):'€ '+fmt(o.reference_price)}</td></tr>`).join('')}</tbody></table>${p.source_url?`<p><a href="${safeLink(p.source_url)}" target="_blank" rel="noopener noreferrer">前往 ${esc(p.source)} 核对原始产品 ↗</a></p>`:''}</div></div><details><summary>全价粮声明原文</summary><pre>${esc(p.declaration_raw)}</pre></details><details><summary>配料原文</summary><pre>${esc(p.ingredients_raw||'未提供')}</pre></details><details><summary>营养标签原文</summary><pre>${esc(p.nutrition_raw||'未提供')}</pre></details><details><summary>抓取时产品正文快照</summary><pre>${esc(p.snapshot_text||'旧记录没有正文快照，需要重新采集')}</pre></details>`);}catch(e){modal(`<p>${esc(e.message)}</p>`);}}
-async function compare(){modal('<p>正在读取对比数据…</p>');try{const data=await api('/api/compare?'+new URLSearchParams({ids:[...state.selection.keys()].join(',')}));modal(`<h2>把信息并排看</h2><p class="small-note">按各商品生命阶段显示参照。不同阶段的分档不可直接等同；不提供总分或排名。</p><div class="compare-grid" style="--columns:${data.items.length}">${data.items.map(p=>card(p,false)).join('')}</div>`);}catch(e){modal(`<p>${esc(e.message)}</p>`);}}
-function methodology(){const c=state.cfg;$('#methodology').innerHTML=`<p class="eyebrow">METHOD / TRANSPARENCY</p><h1>每个参照，都应有解释。</h1><p class="notice">${esc(c.verification_note)}</p><article><h2>数值怎样得到？</h2><p>DM 值 = 标签值 ÷ (100 − 水分) × 100。缺少水分时不进行 DM 换算；缺少原始值不以 0 填充。五项合计超过 100% 或存在冲突时，进入复核。</p><p>干粮碳水用标签减法估算。湿粮干物质比例较低，累积误差可能大于信号，因此不展示碳水数值与分档。</p><p>每条营养记录保留适用规格。分布仅包括同类型、同生命阶段的有效非处方记录，当前样本少，不代表市场总体。</p></article>${Object.entries(c.dimensions).map(([k,d])=>`<article id="${k}"><h2>${esc(d.name)}</h2><p>${esc(d.basis)}</p><p class="small-note">依据类别：${esc(d.authority)}</p><pre>${esc(JSON.stringify(d.bands||d.normal_range,null,2))}</pre></article>`).join('')}<article><h2>生命阶段与关注镜头</h2>${Object.entries(c.life_stage_groups).map(([k,v])=>`<p>${esc(stages[k]||'未知阶段')}：${esc(v.note)}</p>`).join('')}<p>关注镜头仅改变展示顺序和提示展开状态，不改变数值与分档。没有疾病适用性判定。</p></article><p class="small-note">基准来源：${esc(c.source)} · 最后文献核查：${esc(c.last_reviewed||'待核验')} · 本版本不展示未经核验的文献引用链接。</p>`;}
-async function review(){const el=$('#review');el.innerHTML='<p>正在读取复核清单…</p>';try{const d=await api('/api/review');el.innerHTML=`<p class="eyebrow">DATA / QUALITY</p><h1>把不确定性留下来。</h1><p class="intro">供本地开发与人工检查使用。待复核记录不进入营养分析。</p><article><h2>需要复核 · ${d.needs_review.length}</h2>${d.needs_review.length?`<table><tbody>${d.needs_review.map(p=>`<tr><td>${esc(p.name)}</td><td>${p.review_reasons.map(esc).join('<br>')}</td><td><button data-detail="${esc(p.id)}">查看原文</button></td></tr>`).join('')}</tbody></table>`:'<p>当前没有待复核商品。</p>'}</article><article><h2>未纳入记录 · ${d.excluded.length}</h2><table><thead><tr><th>名称</th><th>原因</th><th>来源</th></tr></thead><tbody>${d.excluded.map(p=>`<tr><td>${esc(p.name)}</td><td>${esc(({complementary:'补充粮',declaration_not_found:'未找到全价粮声明',type_not_found:'无法确认干粮/湿粮',excluded_type:'不在本期品类范围'})[p.reason]||p.reason)}</td><td>${esc(p.source)}</td></tr>`).join('')}</tbody></table></article><article><h2>隔离轮次 · ${d.quarantine.length}</h2>${d.quarantine.map(r=>`<pre>${esc(JSON.stringify(r,null,2))}</pre>`).join('')||'<p>暂无隔离数据。</p>'}</article><article><h2>最近导入</h2>${d.runs.map(r=>`<details><summary>${esc(r.created_at)} · ${esc(r.source)} · ${r.summary.records} 条</summary><pre>${esc(JSON.stringify(r.summary,null,2))}</pre></details>`).join('')}</article>`;}catch(e){el.textContent=e.message;}}
+function detailHtml(p){return `<h2>${esc(p.name)}</h2><p class="small-note">${esc(t('frameworkVersion',{version:p.framework_version}))} · ${esc(p.analyzed_at?t('analyzedAt',{at:p.analyzed_at}):t('notAnalyzed'))} · ${esc(t('fetchedAt',{at:p.fetched_at||t('notProvided')}))}</p><div class="detail-grid"><div>${card(p,false)}</div><div><h3>${t('asFedTitle')}</h3><table><thead><tr><th>${t('nutrient')}</th><th>${t('labelValue')}</th></tr></thead><tbody>${Object.entries(p.as_fed).map(([k,v])=>`<tr><td>${esc(t('n_'+k))}</td><td>${fmt(v)}</td></tr>`).join('')}</tbody></table><p class="small-note">${t('taurineDeclared')}${p.taurine_declared===null?t('taurineNone'):p.taurine_declared?t('taurineYes'):t('taurineNo')}</p>${p.review_reasons.length?`<div class="context">${p.review_reasons.map(r=>`<p>${esc(tx(r))}</p>`).join('')}</div>`:''}<h3>${t('offersTitle')}</h3><p class="small-note">${t('offersNote')}</p><table><tbody>${p.offers.map(o=>`<tr><td>${esc(o.size||o.sku)}</td><td>${o.reference_price==null?esc(tx(o.note)):'€ '+fmt(o.reference_price)}</td></tr>`).join('')}</tbody></table>${p.source_url?`<p><a href="${safeLink(p.source_url)}" target="_blank" rel="noopener noreferrer">${esc(t('goToSource',{source:p.source}))}</a></p>`:''}</div></div><details><summary>${t('declarationRaw')}</summary><pre>${esc(p.declaration_raw)}</pre></details><details><summary>${t('ingredientsRaw')}</summary><pre>${esc(p.ingredients_raw||t('notProvided'))}</pre></details><details><summary>${t('nutritionRaw')}</summary><pre>${esc(p.nutrition_raw||t('notProvided'))}</pre></details><details><summary>${t('snapshotRaw')}</summary><pre>${esc(p.snapshot_text||t('noSnapshot'))}</pre></details>`;}
+function compareHtml(data){return `<h2>${t('compareTitle')}</h2><p class="small-note">${t('compareNote')}</p><div class="compare-grid" style="--columns:${data.items.length}">${data.items.map(p=>card(p,false)).join('')}</div>`;}
+// modalView 保存已取回的数据，切换语言时只重绘、不重新请求。
+function showModalView(view){state.modalView=view;modal(view.render(view.data));}
+async function detail(id){state.modalView=null;modal(`<p>${t('loadingDetails')}</p>`);try{showModalView({render:detailHtml,data:await api('/api/products/'+encodeURIComponent(id))});}catch(e){modal(`<p>${esc(e.message)}</p>`);}}
+async function compare(){state.modalView=null;modal(`<p>${t('loadingCompare')}</p>`);try{showModalView({render:compareHtml,data:await api('/api/compare?'+new URLSearchParams({ids:[...state.selection.keys()].join(',')}))});}catch(e){modal(`<p>${esc(e.message)}</p>`);}}
+function bandsForDisplay(d){if(d.bands)return d.bands.map(b=>({...b,name:tx(b.name)}));return d.normal_range;}
+function methodology(){const c=state.cfg;$('#methodology').innerHTML=`<p class="eyebrow">METHOD / TRANSPARENCY</p><h1>${t('methodTitle')}</h1><p class="notice">${esc(tx(c.verification_note))}</p><article><h2>${t('methodQuestion')}</h2><p>${t('methodP1')}</p><p>${t('methodP2')}</p><p>${t('methodP3')}</p></article>${Object.entries(c.dimensions).map(([k,d])=>`<article id="${k}"><h2>${esc(tx(d.name))}</h2><p>${esc(tx(d.basis))}</p><p class="small-note">${esc(t('authorityLabel',{v:tx(d.authority)}))}</p><pre>${esc(JSON.stringify(bandsForDisplay(d),null,2))}</pre></article>`).join('')}<article><h2>${t('stagesTitle')}</h2>${Object.entries(c.life_stage_groups).map(([k,v])=>`<p>${esc(stageName(k)||t('unknownStage'))}: ${esc(tx(v.note))}</p>`).join('')}<p>${t('lensNote')}</p></article><p class="small-note">${esc(t('methodSource',{source:tx(c.source),reviewed:c.last_reviewed||t('pendingVerify')}))}</p>`;}
+function renderReview(){const d=state.reviewData,el=$('#review');el.innerHTML=`<p class="eyebrow">DATA / QUALITY</p><h1>${t('reviewTitle')}</h1><p class="intro">${t('reviewIntro')}</p><article><h2>${t('needsReviewTitle')} · ${d.needs_review.length}</h2>${d.needs_review.length?`<table><tbody>${d.needs_review.map(p=>`<tr><td>${esc(p.name)}</td><td>${p.review_reasons.map(r=>esc(tx(r))).join('<br>')}</td><td><button data-detail="${esc(p.id)}">${t('viewRaw')}</button></td></tr>`).join('')}</tbody></table>`:`<p>${t('noReview')}</p>`}</article><article><h2>${t('excludedTitle')} · ${d.excluded.length}</h2><table><thead><tr><th>${t('colName')}</th><th>${t('colReason')}</th><th>${t('colSource')}</th></tr></thead><tbody>${d.excluded.map(p=>`<tr><td>${esc(p.name)}</td><td>${esc(translations.CN['ex_'+p.reason]?t('ex_'+p.reason):p.reason)}</td><td>${esc(p.source)}</td></tr>`).join('')}</tbody></table></article><article><h2>${t('quarantineTitle')} · ${d.quarantine.length}</h2>${d.quarantine.map(r=>`<pre>${esc(JSON.stringify(r,null,2))}</pre>`).join('')||`<p>${t('noQuarantine')}</p>`}</article><article><h2>${t('recentRuns')}</h2>${d.runs.map(r=>`<details><summary>${esc(r.created_at)} · ${esc(r.source)} · ${esc(t('runRecords',{n:r.summary.records}))}</summary><pre>${esc(JSON.stringify(r.summary,null,2))}</pre></details>`).join('')}</article>`;}
+async function review(){const el=$('#review');el.innerHTML=`<p>${t('loadingReview')}</p>`;try{state.reviewData=await api('/api/review');renderReview();}catch(e){el.textContent=e.message;}}
+function setLanguage(lang){
+  if (!LANGS.includes(lang)) return;
+  state.lang = lang;
+  try { localStorage.setItem(LANG_KEY, lang); } catch {}
+  applyTranslations();
+  tray();
+  if (state.route === '/methodology' && state.cfg) methodology();
+  else if (state.route === '/review' && state.reviewData) renderReview();
+  else render();
+  if ($('#modal')?.open && state.modalView) modal(state.modalView.render(state.modalView.data));
+}
 const productsEl = $('#products');
 if (productsEl) {
   productsEl.addEventListener('click', e => {
@@ -66,7 +76,7 @@ if (productsEl) {
     if (state.selection.has(id)) state.selection.delete(id);
     else {
       if (state.selection.size === 3) {
-        status('最多对比 3 个商品，请先移除一个。');
+        status(t('compareMax'));
         return;
       }
       state.selection.set(id, true);
@@ -98,14 +108,8 @@ const compareBtn = $('#compare');
 if (compareBtn) compareBtn.onclick = compare;
 const clearCompareBtn = $('#clear-compare');
 if (clearCompareBtn) clearCompareBtn.onclick = () => { state.selection.clear(); tray(); render(); };
-const languageSelect = $('#language-select') || $('#language');
-if (languageSelect) {
-  languageSelect.onchange = () => {
-    state.lang = languageSelect.value;
-    applyTranslations();
-    render();
-  };
-}
+const languageSelect = $('#language-select');
+if (languageSelect) languageSelect.onchange = () => setLanguage(languageSelect.value);
 
 let timer;
 const searchEl = $('#search');
@@ -151,19 +155,19 @@ document.querySelectorAll('[name=lens]').forEach(el => {
   };
 });
 
+applyTranslations();
+
 (async () => {
   try {
     const [health, cfg, stats] = await Promise.all([api('/api/health'), api('/api/benchmarks'), api('/api/stats')]);
     state.cfg = cfg;
     state.stats = stats.cohorts;
-    const modeNote = $('#mode-note');
-    if (modeNote) modeNote.textContent = health.mode === 'demo' ? t('modeDemo') : t('modeHistory');
-    const footerEl = $('#footer');
-    if (footerEl) footerEl.textContent = `分析框架 v${cfg.framework_version} · ${cfg.source} · 文献核查：${cfg.last_reviewed || '待核验'} · 不构成医疗建议`;
+    state.mode = health.mode;
 
     const route = ['/methodology', '/review'].includes(location.pathname) ? location.pathname : '/';
     const activeNav = document.querySelector(`[data-nav="${route}"]`);
     if (activeNav) activeNav.classList.add('active');
+    state.route = route;
 
     const guideEl = $('#guide');
     const methodologyEl = $('#methodology');
@@ -177,6 +181,6 @@ document.querySelectorAll('[name=lens]').forEach(el => {
     else if (route === '/review') await review();
     else await load();
   } catch (e) {
-    status('无法连接后端：' + e.message);
+    status(t('backendError') + e.message);
   }
 })();

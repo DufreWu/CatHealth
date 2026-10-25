@@ -27,8 +27,10 @@ from bs4 import BeautifulSoup
 LOG = logging.getLogger("catfood")
 VERSION = "1.0.0"
 HOSTS = {"www.zooplus.fi", "zooplus.fi", "www.petenkoiratarvike.com", "petenkoiratarvike.com"}
-CATEGORIES = {"zooplus": "https://www.zooplus.fi/shop/kissat/kuivaruoka",
-              "peten": "https://www.petenkoiratarvike.com/kategoria/kissat/kissanruoka/kissan-kuivaruoka-211"}
+# 每站按顺序遍历的分类页；Zooplus 干粮与湿粮是两个独立分类。
+CATEGORIES = {"zooplus": ["https://www.zooplus.fi/shop/kissat/kuivaruoka",
+                          "https://www.zooplus.fi/shop/kissat/markaruoka"],
+              "peten": ["https://www.petenkoiratarvike.com/kategoria/kissat/kissanruoka/kissan-kuivaruoka-211"]}
 CORE = {
     "protein": r"raakaproteiini|raakavalkuainen|crude protein",
     "fat": r"raakarasva|rasvapitoisuus|crude fat",
@@ -290,7 +292,8 @@ def make_block(scope, raw, location, variant=None, source="page"):
 
 
 def extract_zooplus(soup):
-    section = soup.find(id="ingredients")
+    # 2026-10 起 Zooplus 将 #ingredients 改为 #ingredients-panel；两者都接受。
+    section = soup.find(id="ingredients") or soup.find(id="ingredients-panel")
     if not section:
         return [], []
     # The prose and the currently rendered variant table are separate evidence.
@@ -336,7 +339,8 @@ def extract_offers(node):
 
 
 def product_text(soup, site, schema_description=""):
-    selectors = '#description, #feedingrecommendation, #ingredients' if site == 'zooplus' else '.html-reset'
+    selectors = ('#description, #feedingrecommendation, #ingredients, #description-panel, '
+                 '#feedingrecommendation-panel, #ingredients-panel') if site == 'zooplus' else '.html-reset'
     sections = [node.get_text("\n", strip=True) for node in soup.select(selectors)]
     return "\n".join([text_html(schema_description)] + sections)
 
@@ -446,24 +450,52 @@ def listing_links(html, url):
     return links, next_url
 
 
-def discover(client, site, pages, candidate_limit, keyword):
-    """Bounded discovery. Peten sitemap candidates are filtered again by breadcrumb."""
-    found, visited = [], set()
-    url = CATEGORIES[site]
-    for _ in range(pages):
-        if not url or url in visited:
-            break
-        visited.add(url)
-        body, meta = client.get(url)
-        links, url = listing_links(body, meta["url"])
-        found.extend(x for x in links if x not in found)
-        if len(found) >= candidate_limit:
-            return found[:candidate_limit]
+def listing_total(html):
+    """Zooplus 分类页自报总数，如 "1 - 48 (Yht. 2466)"；仅用于覆盖率核对。"""
+    m = re.search(r"\(Yht\.\s*([\d\s\u00a0]+)\)", html)
+    return int(re.sub(r"\D", "", m.group(1))) if m else None
+
+
+def discover(client, site, pages, candidate_limit, keyword, report=None):
+    """Bounded discovery. pages/candidate_limit 为 0 表示不设上限（仍受 --max-requests 约束）。
+
+    Peten sitemap candidates are filtered again by breadcrumb. report 记录每个分类的
+    页数、链接数与网站自报总数，写入 run_summary 供核对覆盖率。
+    """
+    found, seen_links = [], set()
+    full = lambda: candidate_limit and len(found) >= candidate_limit
+    for category in CATEGORIES[site]:
+        url, visited = category, set()
+        info = {"pages": 0, "links": 0, "reported_total": None, "complete": False}
+        if report is not None:
+            report[category] = info
+        while url and url not in visited:
+            if pages and info["pages"] >= pages:
+                break
+            visited.add(url)
+            body, meta = client.get(url)
+            info["pages"] += 1
+            if info["reported_total"] is None:
+                info["reported_total"] = listing_total(body)
+            links, url = listing_links(body, meta["url"])
+            if site == "zooplus":
+                # 分类页上的推荐位会带入零食/补充剂链接；只保留本分类路径下的商品。
+                links = [x for x in links if urlsplit(x).path.startswith(urlsplit(category).path + "/")]
+            new = [x for x in links if x not in seen_links]
+            seen_links.update(new)
+            found.extend(new)
+            info["links"] += len(new)
+            if full():
+                return found[:candidate_limit]
+        info["complete"] = not url
+        if info["reported_total"] and info["links"] < info["reported_total"]:
+            LOG.warning("%s 只发现 %d / %d 个商品链接（%d 页）；如需全量请提高 --pages 或设为 0",
+                        category, info["links"], info["reported_total"], info["pages"])
     if site == "peten" and not found:
         LOG.info("Peten 分类页无商品链接，使用公开 sitemap（关键词筛选，不保证完整覆盖）")
         queue = deque(["https://www.petenkoiratarvike.com/sitemap_index.xml"])
         seen = set()
-        while queue and len(seen) < 6 and len(found) < candidate_limit:
+        while queue and len(seen) < 6 and not full():
             sm_url = queue.popleft()
             if sm_url in seen:
                 continue
@@ -490,9 +522,9 @@ def discover(client, site, pages, candidate_limit, keyword):
                     target = group_url(target)
                     if target not in found:
                         found.append(target)
-                    if len(found) >= candidate_limit:
+                    if full():
                         break
-    return found[:candidate_limit]
+    return found[:candidate_limit] if candidate_limit else found
 
 
 def csv_safe(value):
@@ -541,9 +573,9 @@ def main(argv=None):
     p.add_argument("--site", choices=["all", "zooplus", "peten"], default="all")
     p.add_argument("--urls", type=Path, help="每行一个商品URL；默认读取demo_urls.txt")
     p.add_argument("--discover", action="store_true", help="从分类页/sitemap发现URL")
-    p.add_argument("--limit", type=int, default=3, help="每个网站最多成功抓取的商品组数，默认3")
-    p.add_argument("--pages", type=int, default=2, help="每个网站最多分类页数")
-    p.add_argument("--candidates", type=int, default=30, help="每站最多尝试的候选商品页数")
+    p.add_argument("--limit", type=int, default=3, help="每个网站最多成功抓取的商品组数，默认3；0 表示不限")
+    p.add_argument("--pages", type=int, default=2, help="每个分类最多翻页数；0 表示翻到最后一页")
+    p.add_argument("--candidates", type=int, default=30, help="每站最多尝试的候选商品页数；0 表示不限")
     p.add_argument("--keyword", default=r"kissan|cat-|kitten|sterilised|applaws", help="Peten sitemap URL筛选正则")
     p.add_argument("--delay", type=float, default=5, help="同一网站请求间隔秒数，最少3秒")
     p.add_argument("--timeout", type=float, default=30)
@@ -553,11 +585,12 @@ def main(argv=None):
     p.add_argument("--database", type=Path, help="通过质量门禁写入 Food Guide SQLite")
     p.add_argument("--output", type=Path, default=Path("data"))
     p.add_argument("--cache", type=Path, default=Path(".cache"))
+    p.add_argument("--resume", action="store_true", help="保留 --output 中已有的 products.json，只抓取其中没有的商品；新旧结果合并写回并整体导入数据库（已有记录幂等更新）")
     args = p.parse_args(argv)
     if "PawBase" not in args.user_agent or not re.search(r"[^\s@]+@[^\s@]+\.[^\s@)]+", args.user_agent):
         p.error("--user-agent 必须包含 PawBase 和真实联系邮箱")
-    if min(args.limit, args.pages, args.candidates, args.max_requests) < 1 or args.timeout <= 0 or args.cache_hours < 0:
-        p.error("数量、超时必须为正，缓存时间不能为负")
+    if min(args.limit, args.pages, args.candidates) < 0 or args.max_requests < 1 or args.timeout <= 0 or args.cache_hours < 0:
+        p.error("数量不能为负（0 表示不限），--max-requests 与超时必须为正，缓存时间不能为负")
     if args.urls and args.discover:
         p.error("--urls 与 --discover 二选一")
     try:
@@ -567,7 +600,15 @@ def main(argv=None):
     logging.basicConfig(level=logging.INFO, format="%(levelname)s %(message)s")
     sites = ["zooplus", "peten"] if args.site == "all" else [args.site]
     client = Client(args.cache, args.delay, args.timeout, args.cache_hours * 3600, args.user_agent, args.max_requests)
-    products, errors = [], []
+    products, errors, existing = [], [], []
+    if args.resume and (args.output / "products.json").exists():
+        try:
+            existing = json.loads((args.output / "products.json").read_text(encoding="utf-8"))
+            done = {group_url(x["source_url"]) for x in existing}
+        except (OSError, ValueError, KeyError, TypeError) as exc:
+            p.error(f"--resume 无法读取已有 products.json: {exc}")
+    else:
+        done = set()
     counts = {site: 0 for site in sites}
     seeds = []
     site_seeds = {site: [] for site in sites}
@@ -586,20 +627,25 @@ def main(argv=None):
         except (OSError, ValueError) as exc:
             p.error(str(exc))
     started = now()
+    discovery = {}
     try:
         for site in sites:
             try:
-                candidates = discover(client, site, args.pages, args.candidates, args.keyword) if args.discover else [u for u in seeds if site_name(u) == site][:args.candidates]
+                candidates = (discover(client, site, args.pages, args.candidates, args.keyword, discovery.setdefault(site, {}))
+                              if args.discover else site_seeds[site][:args.candidates or None])
+                candidates = [u for u in candidates if u not in done]
+                site_seeds[site] = candidates
                 if not candidates:
                     errors.append({"site": site, "error": "没有找到商品URL，请使用 --urls 指定链接"})
                 seen = set()
                 for url in candidates:
-                    if counts[site] >= args.limit:
+                    if args.limit and counts[site] >= args.limit:
                         break
+                    meta = None
                     try:
                         html, meta = client.get(url)
                         key = group_url(meta["url"])
-                        if key in seen:
+                        if key in seen or key in done:
                             continue
                         seen.add(key)
                         item = parse_product(html, meta["url"], meta["fetched_at"])
@@ -610,7 +656,10 @@ def main(argv=None):
                     except HostStopped:
                         raise
                     except (CrawlError, ValueError) as exc:
-                        errors.append({"site": site, "url": url, "error": str(exc)})
+                        error = {"site": site, "url": url, "error": str(exc)}
+                        if meta and meta["url"] != url:
+                            error["final_url"] = meta["url"]  # 重定向后的实际页面，便于排查
+                        errors.append(error)
                         LOG.warning("SKIP %s: %s", url, exc)
             except HostStopped:
                 raise
@@ -622,12 +671,17 @@ def main(argv=None):
     except KeyboardInterrupt:
         errors.append({"error": "用户中断；已保存完成的商品", "fatal": True})
     finally:
-        effective_limits = {site: (min(args.limit, len(site_seeds.get(site, []))) if not args.discover else args.limit) for site in sites}
+        effective_limits = {site: (min(args.limit, len(site_seeds.get(site, []))) if args.limit and (args.resume or not args.discover)
+                                   else args.limit or len(site_seeds.get(site, []))) for site in sites}
         short = {s: {"requested": effective_limits[s], "fetched": n} for s, n in counts.items() if n < effective_limits[s]}
         summary = {"started_at": started, "finished_at": now(), "counts": counts,
                    "requests": client.requests, "shortfall": short, "error_count": len(errors),
                    "status": "partial" if errors or short else "complete"}
-        export(products, args.output, errors, summary)
+        if args.resume:
+            summary["resumed_existing"] = len(existing)
+        if discovery:
+            summary["discovery"] = discovery
+        export(existing + products, args.output, errors, summary)
     if args.database:
         from database import Database, now as db_now, encode
         from pipeline import import_products
@@ -638,7 +692,7 @@ def main(argv=None):
                              (db_now(), args.site, encode(errors), encode(products)))
             summary['ingest'] = {'status': 'quarantined', 'reason': '访问限制或 robots 变化，本轮不入主库'}
         else:
-            summary['ingest'] = import_products(db, products, len(errors), errors)
+            summary['ingest'] = import_products(db, existing + products, len(errors), errors)
         (args.output / 'run_summary.json').write_text(json.dumps(summary, ensure_ascii=False, indent=2), encoding='utf-8')
     print(json.dumps(summary, ensure_ascii=False, indent=2))
     ingest = summary.get('ingest', [])

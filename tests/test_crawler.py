@@ -54,10 +54,71 @@ class ParserTests(unittest.TestCase):
         self.assertEqual(table['variant'], '400 g')
         self.assertNotIn('zinc', p['ingredient_blocks'][0]['raw'])
 
+    def test_zooplus_panel_layout(self):
+        # 2026-10 Zooplus 布局：#ingredients-panel，无“Analyyttiset ainesosat”文字段
+        section = '''<div id="description-panel">Täysravinto aikuisille kissoille.</div>
+        <div id="ingredients-panel"><div data-zta="productIngredients" class="anchors_anchorsHTML___x">
+        <b>Koostumus</b><br>Kana 40 %<br><b>Lisäaineet</b><br>zinc</div>
+        <select data-zta="constituentsSelect"><option value="2 kg">2 kg</option></select>
+        <table data-zta="constituentsTable"><tr><td>raakaproteiini</td><td>36.0 %</td></tr></table></div>'''
+        p = c.parse_product(fixture() + section, Z)
+        self.assertEqual(p['ingredient_blocks'][0]['raw'], 'Kana 40 %')
+        table = next(b for b in p['nutrition_blocks'] if b['scope'] == 'rendered_table_variant')
+        self.assertEqual((table['variant'], table['observations'][0]['value']), ('2 kg', 36))
+        self.assertIn('Täysravinto', p['page_text_snapshot'])
+
+    def test_discover_all_categories_until_last_page(self):
+        z2 = Z.replace('12345', '67890')
+        wet = 'https://www.zooplus.fi/shop/kissat/markaruoka/brand/adult/11111'
+        pages = {c.CATEGORIES['zooplus'][0]: f'(Yht. 2)<a href="{Z}">a</a><a rel="next" href="?p=2">n</a>',
+                 c.CATEGORIES['zooplus'][0] + '?p=2': f'<a href="{z2}">b</a><a href="{Z}">dup</a>',
+                 c.CATEGORIES['zooplus'][1]: f'(Yht. 1)<a href="{wet}">w</a>'}
+        client = MagicMock()
+        client.get.side_effect = lambda url: (pages[url], {'url': url})
+        report = {}
+        self.assertEqual(c.discover(client, 'zooplus', 0, 0, '', report), [Z, z2, wet])
+        dry = report[c.CATEGORIES['zooplus'][0]]
+        self.assertEqual((dry['pages'], dry['links'], dry['reported_total'], dry['complete']), (2, 2, 2, True))
+        self.assertEqual(c.discover(client, 'zooplus', 1, 0, '', {}), [Z, wet])
+        self.assertEqual(c.discover(client, 'zooplus', 0, 2, ''), [Z, z2])
+
+    def test_discover_drops_links_outside_category(self):
+        treat = 'https://www.zooplus.fi/shop/kissat/herkut/brand/12345'
+        client = MagicMock()
+        client.get.side_effect = lambda url: (f'<a href="{treat}">t</a><a href="{Z}">z</a>', {'url': url})
+        self.assertEqual(c.discover(client, 'zooplus', 1, 0, ''), [Z])
+
+    def test_resume_keeps_existing_and_fetches_only_missing(self):
+        z2 = Z.replace('12345', '67890')
+        with tempfile.TemporaryDirectory() as d:
+            root = Path(d)
+            urls = root / 'urls.txt'
+            urls.write_text(f'{Z}\n{z2}\n', encoding='utf-8')
+            out = root / 'out'
+            out.mkdir()
+            old = c.parse_product(fixture(Z), Z, '2026-10-01T00:00:00+00:00')
+            (out / 'products.json').write_text(json.dumps([old]), encoding='utf-8')
+            fetched = []
+
+            def fake_get(self, url):
+                fetched.append(url)
+                return fixture(url), {'url': url, 'fetched_at': c.now(), 'sha256': 'hash'}
+
+            with patch.object(c.Client, 'get', autospec=True, side_effect=fake_get):
+                result = c.main(['--site', 'zooplus', '--urls', str(urls), '--limit', '0', '--resume',
+                                 '--user-agent', 'PawBaseBot/0.1 (contact: user@example.com)', '--output', str(out)])
+            self.assertEqual(result, 0)
+            self.assertEqual(fetched, [z2])
+            merged = json.loads((out / 'products.json').read_text())
+            self.assertEqual([p['source_url'] for p in merged], [Z, z2])
+            self.assertEqual(merged[0]['fetched_at'], '2026-10-01T00:00:00+00:00')
+            summary = json.loads((out / 'run_summary.json').read_text())
+            self.assertEqual((summary['counts'], summary['resumed_existing'], summary['shortfall']), ({'zooplus': 1}, 1, {}))
+
     def test_listing_dedupe_and_pagination(self):
         html = '<a href="' + Z + '?activeVariant=1">a</a><a href="' + Z + '">b</a>'
         html += '<a href="/shop/kissat/kuivaruoka/4vets">brand</a><a rel="next" href="?p=2">next</a>'
-        links, nxt = c.listing_links(html, c.CATEGORIES['zooplus'])
+        links, nxt = c.listing_links(html, c.CATEGORIES['zooplus'][0])
         self.assertEqual(links, [Z])
         self.assertTrue(nxt.endswith('?p=2'))
 

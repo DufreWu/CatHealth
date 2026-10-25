@@ -63,7 +63,7 @@ def handler_for(db, demo=False):
                 # Snapshot/long label text is fetched only on detail and comparison.
                 small=[{k:v for k,v in p.items() if k not in ('snapshot_text','ingredients_raw','nutrition_raw','nutrient_evidence')} for p in items]
                 return self.respond(200,{'items':small,'total':total,'page':page,'limit':limit,'brands':brands})
-            mapping={'/':'index.html','/methodology':'index.html','/review':'index.html','/app.js':'app.js','/style.css':'style.css'}
+            mapping={'/':'index.html','/methodology':'index.html','/review':'index.html','/app.js':'app.js','/i18n.js':'i18n.js','/style.css':'style.css'}
             if path not in mapping:return self.respond(404,{'error':'页面不存在'})
             f=ROOT/'web'/mapping[path]
             return self.respond(200,f.read_bytes(),(mimetypes.guess_type(str(f))[0] or 'text/plain')+'; charset=utf-8')

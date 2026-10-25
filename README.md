@@ -65,10 +65,20 @@ python -m pip install -r requirements.txt
 # 真实邮箱替换下面的占位符；执行前核对目标站点当前规则。
 # --limit 是每站最多抓取数量上限，不是“必须抓到多少条”。
 # 若使用 --urls，实际可抓总量由输入文件中的 URL 数量决定。
-python crawler.py --site all --urls demo_urls.txt --limit 300 \
-  --cache-hours 0 --user-agent "PawBaseBot/0.1 (contact: YOUR_REAL_EMAIL)" \
-  --output data/new_run --database data/pawbase.db
+python crawler.py --site zooplus --discover --pages 0 --candidates 0 --limit 0 \
+  --max-requests 8000 --cache-hours 0 \
+  --user-agent "PawBaseBot/0.1 (contact: YOUR_REAL_EMAIL)" \
+  --output data/run_zooplus --database data/pawbase.db
+
+python crawler.py --site peten --discover --candidates 0 --limit 0 \
+  --max-requests 3000 --cache-hours 0 \
+  --user-agent "PawBaseBot/0.1 (contact: YOUR_REAL_EMAIL)" \
+  --output data/run_peten --database data/pawbase.db
 ```
+
+`--pages/--candidates/--limit` 为 0 表示不设上限；`--max-requests` 仍是硬上限，需大于分类页数 + 商品数（约每请求 2–5 秒，数千商品需数小时，建议夜间按站点分别运行）。中断或有失败时，加 `--resume` 和 `--cache-hours 24` 重跑同一命令：保留 `--output` 中已有的 `products.json`，只抓取缺失的商品，合并后整体导入数据库（已有记录幂等更新）。
+
+`run_summary.json` 的 `discovery` 记录每个分类的翻页数、发现链接数、网站自报总数（`reported_total`）和是否翻到最后一页（`complete`），用于核对覆盖率。
 
 `YOUR_REAL_EMAIL` 必须换成实际邮箱，否则程序拒绝运行。`--limit` 是上限，不是保证值；当 `--urls` 指向有限列表时，最终抓取数等于实际可用 URL 数量，最多不超过该站点上限。并发始终为 1。`--delay >5` 可要求更慢；2–5 范围内采用随机间隔。建议人工在 Europe/Helsinki 时区 22:00–06:00 运行；没有自动调度。
 

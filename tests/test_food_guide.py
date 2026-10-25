@@ -84,6 +84,14 @@ class DatabaseTests(unittest.TestCase):
         self.assertEqual(outcome['status'],'quarantined')
         self.assertEqual(self.db.count(),1)
 
+    def test_failures_with_site_keep_source_baseline(self):
+        items=[product(str(i)) for i in range(5)]
+        outcome=import_products(self.db,items,failed=1,errors=[{'site':'demo','url':'u','error':'HTTP 503'}])
+        self.assertEqual((outcome[0]['status'],outcome[0]['failed']),('committed',1))
+        import_products(self.db,items,failed=1,errors=[{'url':'u','error':'unknown'}])
+        with self.db.connect() as c:
+            self.assertEqual([r[0] for r in c.execute('SELECT source FROM runs ORDER BY id')],['demo','mixed'])
+
     def test_bad_data_never_analyzed(self):
         p=product(nutrition='protein 50%; fat 30%; fiber 5%; ash 10%; moisture 10%')
         import_products(self.db,[p]);r=self.db.products()[0]

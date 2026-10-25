@@ -94,21 +94,27 @@ def normalize(p):
 
 
 def import_products(db, products, failed=0, errors=None, source_label=None):
+    errors=errors or []
     grouped={}
     for p in products:
         grouped.setdefault(p['source_site'],[]).append(p)
-    summaries=[]
     # Failed URLs must be supplied per source; unknown failures guard the whole import.
-    if failed:
+    # 每条失败都标明 site 时按来源归属，单源批次只与该来源自己的历史比较。
+    attributed=len(errors)==failed and all(e.get('site') in ('zooplus','peten','demo') for e in errors)
+    if failed and not attributed:
         records,excluded=[],[]
         for p in products:
             a,b=normalize(p);records+=a;excluded+=b
         return [db.import_batch(records,excluded,source_label or 'mixed',failed,errors)]
+    for e in errors if failed else []:
+        grouped.setdefault(e['site'],[])
+    summaries=[]
     for source,items in grouped.items():
         records,excluded=[],[]
         for p in items:
             a,b=normalize(p);records+=a;excluded+=b
-        summaries.append(db.import_batch(records,excluded,source_label or source,0,errors))
+        site_errors=[e for e in errors if e['site']==source] if failed else errors
+        summaries.append(db.import_batch(records,excluded,source_label or source,len(site_errors) if failed else 0,site_errors))
     return summaries
 
 
