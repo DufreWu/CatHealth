@@ -1,6 +1,6 @@
 {
-  "started_at": "2026-09-24T13:28:31+00:00",
-  "finished_at": "2026-09-24T13:29:03+00:00",
+  "started_at": "2026-10-25T12:42:58+00:00",
+  "finished_at": "2026-10-25T12:43:22+00:00",
   "counts": {
     "zooplus": 3,
     "peten": 3
@@ -8,5 +8,47 @@
   "requests": 8,
   "shortfall": {},
   "error_count": 0,
-  "status": "complete"
+  "status": "complete",
+  "ingest": [
+    {
+      "attempted": 3,
+      "failed": 0,
+      "records": 3,
+      "excluded": 0,
+      "new": 3,
+      "recipe_changed": 0,
+      "price_changed": 0,
+      "unchanged": 0,
+      "needs_review": 1,
+      "data_suspect": 0,
+      "errors": [],
+      "api_cost_eur": 0,
+      "null_rates": {
+        "protein": 0.0,
+        "moisture": 0.3333333333333333,
+        "price": 1.0
+      },
+      "status": "committed"
+    },
+    {
+      "attempted": 3,
+      "failed": 0,
+      "records": 4,
+      "excluded": 2,
+      "new": 0,
+      "recipe_changed": 0,
+      "price_changed": 4,
+      "unchanged": 4,
+      "needs_review": 0,
+      "data_suspect": 0,
+      "errors": [],
+      "api_cost_eur": 0,
+      "null_rates": {
+        "protein": 0.0,
+        "moisture": 1.0,
+        "price": 0.0
+      },
+      "status": "committed"
+    }
+  ]
 }

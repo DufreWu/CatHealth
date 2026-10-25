@@ -1,0 +1,32 @@
+{
+  "started_at": "2026-10-25T17:48:42+00:00",
+  "finished_at": "2026-10-25T18:49:53+00:00",
+  "counts": {
+    "peten": 1000
+  },
+  "requests": 1031,
+  "shortfall": {
+    "peten": {
+      "requested": 1011,
+      "fetched": 1000
+    }
+  },
+  "error_count": 11,
+  "status": "partial",
+  "discovery": {
+    "peten": {
+      "https://www.petenkoiratarvike.com/kategoria/kissat/kissanruoka/kissan-kuivaruoka-211": {
+        "pages": 13,
+        "links": 307,
+        "reported_total": 307,
+        "complete": false
+      },
+      "https://www.petenkoiratarvike.com/kategoria/kissat/kissanruoka/kissan-markaruoka-212": {
+        "pages": 30,
+        "links": 704,
+        "reported_total": 705,
+        "complete": false
+      }
+    }
+  }
+}

@@ -8,7 +8,7 @@ from pathlib import Path
 ROOT = Path(__file__).resolve().parent
 CORE = ('protein', 'fat', 'fiber', 'ash', 'moisture')
 LABELS = {
- 'protein':r'raakaproteiini|raakavalkuainen|proteiini|crude protein|protein',
+ 'protein':r'raakaproteiini|raakavalkuainen|valkuainen|proteiini|crude protein|protein',
  'fat':r'raakarasva|rasvapitoisuus|crude fat|fat',
  'fiber':r'raakakuitu|crude fib(?:er|re)|fib(?:er|re)',
  'ash':r'raakatuhka|tuhka|crude ash|ash',

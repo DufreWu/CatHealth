@@ -22,6 +22,10 @@ class NutritionTests(unittest.TestCase):
         self.assertAlmostEqual(v['magnesium'],.08)
         self.assertIsNone(v['ash'])
         self.assertFalse(issues)
+        # Peten 标签常写 “valkuainen”；带前缀的 raakavalkuainen 不应被重复计数
+        self.assertEqual(parse_nutrients('RAVINTOAINEET: valkuainen 43 %, raakarasva 23,5 %')[0]['protein'],43)
+        v,issues,_=parse_nutrients('Raakavalkuainen 34,5%')
+        self.assertEqual((v['protein'],issues),(34.5,[]))
         v,issues,_=parse_nutrients('protein >= 30%; moisture 8%')
         self.assertIsNone(v['protein']);self.assertTrue(issues)
 

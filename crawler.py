@@ -30,7 +30,8 @@ HOSTS = {"www.zooplus.fi", "zooplus.fi", "www.petenkoiratarvike.com", "petenkoir
 # 每站按顺序遍历的分类页；Zooplus 干粮与湿粮是两个独立分类。
 CATEGORIES = {"zooplus": ["https://www.zooplus.fi/shop/kissat/kuivaruoka",
                           "https://www.zooplus.fi/shop/kissat/markaruoka"],
-              "peten": ["https://www.petenkoiratarvike.com/kategoria/kissat/kissanruoka/kissan-kuivaruoka-211"]}
+              "peten": ["https://www.petenkoiratarvike.com/kategoria/kissat/kissanruoka/kissan-kuivaruoka-211",
+                        "https://www.petenkoiratarvike.com/kategoria/kissat/kissanruoka/kissan-markaruoka-212"]}
 CORE = {
     "protein": r"raakaproteiini|raakavalkuainen|crude protein",
     "fat": r"raakarasva|rasvapitoisuus|crude fat",
@@ -439,6 +440,8 @@ def listing_links(html, url):
             continue
     next_url = None
     for a in soup.find_all("a", href=True):
+        if a.get("aria-disabled") == "true":
+            continue  # Peten 最后一页保留禁用的“Seuraava”，指向当前页
         if "next" in as_list(a.get("rel")) or re.fullmatch(r"seuraava|next", clean(a.get_text()), re.I):
             try:
                 target = checked_url(urljoin(url, a["href"]))
@@ -451,8 +454,12 @@ def listing_links(html, url):
 
 
 def listing_total(html):
-    """Zooplus 分类页自报总数，如 "1 - 48 (Yht. 2466)"；仅用于覆盖率核对。"""
-    m = re.search(r"\(Yht\.\s*([\d\s\u00a0]+)\)", html)
+    """分类页自报总数，仅用于覆盖率核对。
+
+    Zooplus: "1 - 48 (Yht. 2466)"；Peten: "Näytetään 1 - 24 / 307 tuotetta"。
+    """
+    m = (re.search(r"\(Yht\.\s*([\d\s\u00a0]+)\)", html)
+         or re.search(r"Näytetään\s*\d+\s*-\s*\d+\s*/\s*([\d\s\u00a0]+?)\s*tuotetta", html))
     return int(re.sub(r"\D", "", m.group(1))) if m else None
 
 

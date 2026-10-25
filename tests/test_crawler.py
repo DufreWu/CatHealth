@@ -82,6 +82,11 @@ class ParserTests(unittest.TestCase):
         self.assertEqual(c.discover(client, 'zooplus', 1, 0, '', {}), [Z, wet])
         self.assertEqual(c.discover(client, 'zooplus', 0, 2, ''), [Z, z2])
 
+    def test_listing_total_formats(self):
+        self.assertEqual(c.listing_total('<strong>1 - 48 (Yht. 2466)</strong>'), 2466)
+        self.assertEqual(c.listing_total('<p>Näytetään 1 - 24 / 307 tuotetta</p>'), 307)
+        self.assertIsNone(c.listing_total('<p>Yli 10 000 tuotetta lemmikeille</p>'))
+
     def test_discover_drops_links_outside_category(self):
         treat = 'https://www.zooplus.fi/shop/kissat/herkut/brand/12345'
         client = MagicMock()
@@ -135,6 +140,8 @@ class ParserTests(unittest.TestCase):
         links, nxt = c.listing_links(html, c.CATEGORIES['zooplus'][0])
         self.assertEqual(links, [Z])
         self.assertTrue(nxt.endswith('?p=2'))
+        last = '<a aria-disabled="true" href="?offset=288">Seuraava</a>'
+        self.assertIsNone(c.listing_links(last, c.CATEGORIES['peten'][0] + '?offset=288')[1])
 
     def test_url_boundaries(self):
         for u in ['http://www.zooplus.fi/', 'https://www.zooplus.fi.evil.org/', 'https://user@www.zooplus.fi/', 'https://www.zooplus.fi:8443/']:

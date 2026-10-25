@@ -1,0 +1,62 @@
+{
+  "started_at": "2026-10-25T16:28:24+00:00",
+  "finished_at": "2026-10-25T16:28:48+00:00",
+  "counts": {
+    "zooplus": 0
+  },
+  "requests": 3,
+  "shortfall": {
+    "zooplus": {
+      "requested": 1,
+      "fetched": 0
+    }
+  },
+  "error_count": 1,
+  "status": "partial",
+  "resumed_existing": 2305,
+  "discovery": {
+    "zooplus": {
+      "https://www.zooplus.fi/shop/kissat/kuivaruoka": {
+        "pages": 52,
+        "links": 790,
+        "reported_total": 2495,
+        "complete": true
+      },
+      "https://www.zooplus.fi/shop/kissat/markaruoka": {
+        "pages": 124,
+        "links": 1512,
+        "reported_total": 5928,
+        "complete": true
+      }
+    }
+  },
+  "ingest": [
+    {
+      "attempted": 2306,
+      "failed": 1,
+      "records": 1660,
+      "excluded": 645,
+      "new": 0,
+      "recipe_changed": 0,
+      "price_changed": 0,
+      "unchanged": 1660,
+      "needs_review": 176,
+      "data_suspect": 29,
+      "errors": [
+        {
+          "site": "zooplus",
+          "url": "https://www.zooplus.fi/shop/kissat/kuivaruoka/specific/specific/872235",
+          "error": "无法将结构化产品与当前页面匹配",
+          "final_url": "https://www.zooplus.fi/shop/kissat/kuivaruoka/specific"
+        }
+      ],
+      "api_cost_eur": 0,
+      "null_rates": {
+        "protein": 0.08734939759036145,
+        "moisture": 0.36987951807228914,
+        "price": 1.0
+      },
+      "status": "committed"
+    }
+  ]
+}
