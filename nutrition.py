@@ -13,7 +13,9 @@ LABELS = {
  'fiber':r'raakakuitu|crude fib(?:er|re)|fib(?:er|re)',
  'ash':r'raakatuhka|tuhka|crude ash|ash',
  'moisture':r'kosteus|moisture', 'calcium':r'kalsium|calcium',
- 'phosphorus':r'fosfori|phosphorus', 'magnesium':r'magnesium', 'taurine':r'tauriini|taurine'}
+ 'phosphorus':r'fosfori|phosphorus', 'magnesium':r'magnesium', 'sodium':r'natrium|sodium',
+ 'taurine':r'tauriini|taurine'}
+PER_1000KCAL = ('protein', 'phosphorus', 'calcium', 'sodium')
 
 
 def config():
@@ -67,10 +69,23 @@ def validate(values, food_type, issues=()):
     return suspect, bool(reasons), reasons
 
 
+def metabolisable_energy(v):
+    """NRC 2006 cat equation as given in FEDIAF 2025; kcal per 100 g as fed."""
+    if any(v.get(k) is None for k in CORE) or v['moisture'] >= 100:
+        return None
+    protein, fat, fiber, ash, moisture = (v[k] for k in CORE)
+    nfe = 100 - protein - fat - fiber - ash - moisture
+    gross = 5.7*protein + 9.4*fat + 4.1*(nfe+fiber)
+    digestibility = 87.9 - 0.88*fiber/(100-moisture)*100
+    me = gross*digestibility/100 - 0.77*protein
+    return me if me > 0 else None
+
+
 def analyze(record, cfg=None):
     cfg = cfg or config()
     v = record['as_fed']
-    out = {k:None for k in ('protein_dm_pct','fat_dm_pct','fiber_dm_pct','ash_dm_pct','phosphorus_dm_pct','calcium_dm_pct','magnesium_dm_pct','carbs_est_dm_pct','ca_p_ratio')}
+    out = {k:None for k in ('protein_dm_pct','fat_dm_pct','fiber_dm_pct','ash_dm_pct','phosphorus_dm_pct','calcium_dm_pct','magnesium_dm_pct','carbs_est_dm_pct','ca_p_ratio','me_kcal_per_100g')}
+    out.update({k+'_g_per_1000kcal':None for k in PER_1000KCAL})
     if record['data_suspect'] or record['needs_review']:
         return out
     moisture = v.get('moisture')
@@ -78,8 +93,15 @@ def analyze(record, cfg=None):
         for nutrient in ('protein','fat','fiber','ash','phosphorus','calcium','magnesium'):
             if v.get(nutrient) is not None:
                 out[nutrient+'_dm_pct'] = round(v[nutrient]/(100-moisture)*100, 6)
+        # Carbohydrate stays internal (ME input only) and is not displayed.
         if record['product_type']=='dry' and all(v.get(k) is not None for k in CORE):
             out['carbs_est_dm_pct'] = round((100-sum(v[k] for k in CORE))/(100-moisture)*100, 6)
+    me = metabolisable_energy(v)
+    if me is not None:
+        out['me_kcal_per_100g'] = round(me, 6)
+        for nutrient in PER_1000KCAL:
+            if v.get(nutrient) is not None:
+                out[nutrient+'_g_per_1000kcal'] = round(v[nutrient]/me*1000, 6)
     if v.get('calcium') is not None and v.get('phosphorus') is not None and v['phosphorus'] > 0:
         out['ca_p_ratio'] = round(v['calcium']/v['phosphorus'], 6)
     return out
@@ -99,11 +121,36 @@ def band_for(value, dim):
         return None
     if 'normal_range' in dim:
         r = dim['normal_range']
-        return {'label':'within' if r['min']<=value<=r['max'] else 'outside', 'name':'常见区间内' if r['min']<=value<=r['max'] else '常见区间外'}
+        within = value >= r['min'] and (r.get('max') is None or value <= r['max'])
+        return {'label':'within' if within else 'outside', 'name':'常见区间内' if within else '常见区间外'}
     for band in dim.get('bands', []):
         if 'max' not in band or value < band['max'] or (band.get('inclusive') and value == band['max']):
             return band
     return None
+
+
+def verdicts(record, cfg):
+    """Four-level label on unrounded values; warnings never change it."""
+    levels = cfg['verdict_levels']
+    stage = 'kitten' if record['life_stage'] == 'kitten' else 'adult'
+    result = {}
+    for field, rule in cfg['verdicts'].items():
+        ref = rule['stages'].get(stage)
+        value = record['analysis'].get(field)
+        if ref is None or value is None:
+            level = 'not_assessed'
+        elif ref.get('legal_max') is not None and value > ref['legal_max']:
+            level = 'above_legal_max'
+        elif ref.get('nutritional_max') is not None and value > ref['nutritional_max']:
+            level = 'above_nutritional_max'
+        elif ref.get('min') is None:
+            level = 'not_assessed'
+        elif value < ref['min']:
+            level = 'below_recommended'
+        else:
+            level = 'meets_minimum'
+        result[field] = {'level':level, **levels[level], 'reference':ref}
+    return result
 
 
 def context_notes(record, cfg):
@@ -113,7 +160,9 @@ def context_notes(record, cfg):
         if value is None:
             continue
         op = rule['op']
-        hit = (op=='eq' and value==rule['value']) or (op=='gt' and value>rule['value']) or (op=='outside' and not rule['min']<=value<=rule['max'])
+        hit = ((op=='eq' and value==rule['value'])
+               or (op=='lt' and value<rule['value'])
+               or (op=='gt' and value>rule['value'] and (rule.get('max') is None or value<=rule['max'])))
         if hit:
-            notes.append(rule['text'])
+            notes.append({'text':rule['text'], 'level':rule.get('level','info')})
     return notes

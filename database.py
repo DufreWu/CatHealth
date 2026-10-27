@@ -4,7 +4,7 @@ import json
 import sqlite3
 from datetime import datetime, timezone
 from pathlib import Path
-from nutrition import config, analyze, dimension_config, band_for, context_notes
+from nutrition import config, analyze, dimension_config, band_for, context_notes, verdicts
 
 
 def now():
@@ -105,6 +105,7 @@ class Database:
             p['benchmark_dimensions']=dimension_config(cfg,p['life_stage'])
             p['bands']={k:band_for(p['analysis'].get(k),dim) for k,dim in p['benchmark_dimensions'].items()}
             p['context_notes']=context_notes(p,cfg)
+            p['verdicts']=verdicts(p,cfg)
             p['stage_note']=cfg['life_stage_groups'][p['life_stage'] or 'unknown']['note']
             result.append(p)
         return result

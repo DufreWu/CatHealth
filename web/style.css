@@ -10,6 +10,16 @@
     --shadow: rgba(19, 29, 24, 0.08);
     --badge-bg: #edf5f0;
     --badge-text: #32573f;
+    --verdict-red-bg: #fbe4e2;
+    --verdict-red-text: #9b2a20;
+    --verdict-orange-bg: #fdebd8;
+    --verdict-orange-text: #8f4a0c;
+    --verdict-yellow-bg: #fbf3cf;
+    --verdict-yellow-text: #6e5a00;
+    --verdict-green-bg: #e2f2e6;
+    --verdict-green-text: #22613a;
+    --verdict-gray-bg: #eef0ef;
+    --verdict-gray-text: #5b6662;
 
     color-scheme: light;
 }
@@ -487,10 +497,24 @@ details p {
   margin: 8px 0;
 }
 
-.metric .basis-note {
-  font-size: 10px;
-  color: var(--muted);
+.verdict {
   margin-top: 6px;
+}
+
+.verdict-red { background: var(--verdict-red-bg); color: var(--verdict-red-text); }
+.verdict-orange { background: var(--verdict-orange-bg); color: var(--verdict-orange-text); }
+.verdict-yellow { background: var(--verdict-yellow-bg); color: var(--verdict-yellow-text); }
+.verdict-green { background: var(--verdict-green-bg); color: var(--verdict-green-text); }
+.verdict-gray { background: var(--verdict-gray-bg); color: var(--verdict-gray-text); }
+
+.note-warning {
+  border-left: 3px solid var(--verdict-orange-text);
+  padding-left: 8px;
+}
+
+.note-info {
+  border-left: 3px solid var(--line);
+  padding-left: 8px;
 }
 
 .card-actions {
