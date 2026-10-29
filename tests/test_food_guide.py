@@ -8,7 +8,7 @@ from urllib.request import urlopen
 from urllib.error import HTTPError
 from http.server import ThreadingHTTPServer
 from unittest.mock import patch
-from nutrition import parse_nutrients, validate, config, band_for, dimension_config, analyze, verdicts, context_notes
+from nutrition import parse_nutrients, validate, config, band_for, dimension_config, analyze, verdicts, context_notes, convert_reference, legal_max
 from pipeline import normalize, import_products
 from database import Database, stats
 from app import handler_for
@@ -104,6 +104,65 @@ class NutritionTests(unittest.TestCase):
     def test_reference_price_conditions(self):
         p=product();p['variants'][0]['offers'][0]['validForMemberTier']={'name':'member'}
         self.assertIsNone(normalize(p)[0][0]['offers'][0]['reference_price'])
+
+class ReferenceUnitTests(unittest.TestCase):
+    """FEDIAF 2025 Table III-2 系数与维生素 D 法定上限单位（2026-10-26 更正项）。"""
+    def setUp(self):
+        self.cfg=config()
+
+    def test_conversion_factors_match_energy_basis(self):
+        uc=self.cfg['unit_conversion']
+        self.assertEqual((uc['kcal_me_per_kg_dm'],uc['kcal_per_mj']),(4000,239))
+        kcal_per_100g_dm=uc['kcal_me_per_kg_dm']/10
+        mj_per_100g_dm=kcal_per_100g_dm/uc['kcal_per_mj']
+        expected={
+            'per_100g_dm->per_1000kcal':1000/kcal_per_100g_dm,
+            'per_1000kcal->per_100g_dm':kcal_per_100g_dm/1000,
+            'per_100g_dm->per_mj':1/mj_per_100g_dm,
+            'per_mj->per_100g_dm':mj_per_100g_dm,
+            'per_1000kcal->per_mj':uc['kcal_per_mj']/1000,
+            'per_mj->per_1000kcal':1000/uc['kcal_per_mj']}
+        self.assertEqual(set(uc['factors']),set(expected))
+        for key,value in expected.items():
+            self.assertAlmostEqual(uc['factors'][key],value,delta=value*0.002,msg=key)
+
+    def test_corrected_rows_not_swapped(self):
+        f=self.cfg['unit_conversion']['factors']
+        # 旧表错误：0.598/0.239 互换，1.6736 方向写成每 MJ → 每 1000 kcal
+        self.assertEqual(f['per_1000kcal->per_mj'],0.239)
+        self.assertEqual(f['per_100g_dm->per_mj'],0.598)
+        self.assertEqual(f['per_mj->per_100g_dm'],1.6736)
+        self.assertEqual(f['per_mj->per_1000kcal'],4.184)
+
+    def test_round_trips_and_validation(self):
+        for a in ('per_100g_dm','per_1000kcal','per_mj'):
+            for b in ('per_100g_dm','per_1000kcal','per_mj'):
+                back=convert_reference(convert_reference(10,a,b,self.cfg),b,a,self.cfg)
+                self.assertAlmostEqual(back,10,delta=0.01,msg=f'{a}->{b}')
+        # 锌示例（E5）：10.00 mg/100 g DM = 25 mg/1000 kcal
+        self.assertAlmostEqual(convert_reference(10.0,'per_100g_dm','per_1000kcal',self.cfg),25.0)
+        self.assertIsNone(convert_reference(None,'per_mj','per_100g_dm',self.cfg))
+        with self.assertRaises(ValueError):
+            convert_reference(1,'per_kg_as_fed','per_mj',self.cfg)
+
+    def test_vitamin_d_legal_max_is_per_100g_dm(self):
+        vd=self.cfg['legal_limits']['vitamin_d']
+        self.assertEqual((vd['max'],vd['unit'],vd['basis']),(227,'IU','per_100g_dm'))
+        self.assertNotIn('legal_max_iu_per_kg_as_fed',json.dumps(self.cfg))
+        self.assertEqual(legal_max('vitamin_d','per_100g_dm',cfg=self.cfg),227)
+        self.assertEqual(legal_max('vitamin_d','per_kg_dm',cfg=self.cfg),2270)
+        # 含水 12% 时应回到 EU 原值约 2000 IU/kg 原样
+        self.assertAlmostEqual(legal_max('vitamin_d','per_kg_as_fed',12,self.cfg),2000,delta=5)
+        # 湿粮 80% 水分：约 454 IU/kg 原样，绝不是 227
+        self.assertAlmostEqual(legal_max('vitamin_d','per_kg_as_fed',80,self.cfg),454,delta=1)
+
+    def test_vitamin_d_as_fed_needs_declared_moisture(self):
+        self.assertIsNone(legal_max('vitamin_d','per_kg_as_fed',None,self.cfg))
+        for bad in ('per_kg','iu_per_kg_as_fed',None):
+            with self.assertRaises(ValueError):
+                legal_max('vitamin_d',bad,cfg=self.cfg)
+        with self.assertRaises(ValueError):
+            legal_max('vitamin_d','per_kg_as_fed',100,self.cfg)
 
 class DatabaseTests(unittest.TestCase):
     def setUp(self):

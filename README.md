@@ -106,6 +106,8 @@ python manage.py import data/products.json --cache .cache
 
 `config/benchmarks.json` 控制名称、边界、参考线、依据、情境提示。后端每次请求读取配置，**修改边界后刷新页面即生效**；前端无硬编码分档阈值。边界约定遵循 PRD：40% 蛋白仍属 moderate；1.4% 磷和30%碳水仍属 moderate。
 
+`unit_conversion` 存 FEDIAF 2025 Table III-2 换算系数（4000 kcal ME/kg DM，1 MJ = 239 kcal），只用于换算 FEDIAF 参照值，通过 `nutrition.convert_reference(value, from_basis, to_basis)` 调用。`legal_limits` 存法定上限及其单位基准；维生素 D 227 为 IU/100 g DM，与产品比较请用 `nutrition.legal_max(nutrient, basis, moisture_pct)` 显式指定单位，缺水分时返回 null。两者暂未参与判定，`ReferenceUnitTests` 防止单位回退。
+
 ```bash
 python reanalyze.py --framework 2.1 --outdated-only
 # 指定库

@@ -22,6 +22,46 @@ def config():
     return json.loads((ROOT/'config/benchmarks.json').read_text(encoding='utf-8'))
 
 
+REFERENCE_BASES = ('per_100g_dm', 'per_1000kcal', 'per_mj')
+
+
+def convert_reference(value, from_basis, to_basis, cfg=None):
+    """Convert a FEDIAF table reference value between bases (Table III-2).
+
+    Only for reference values; product values use the product's own ME."""
+    for basis in (from_basis, to_basis):
+        if basis not in REFERENCE_BASES:
+            raise ValueError(f'unknown basis {basis!r}; expected one of {REFERENCE_BASES}')
+    if value is None:
+        return None
+    if from_basis == to_basis:
+        return value
+    factors = (cfg or config())['unit_conversion']['factors']
+    return value*factors[f'{from_basis}->{to_basis}']
+
+
+def legal_max(nutrient, basis, moisture_pct=None, cfg=None):
+    """EU legal maximum in an explicitly requested basis.
+
+    basis: 'per_100g_dm', 'per_kg_dm' or 'per_kg_as_fed'. As-fed conversion needs
+    the product's declared moisture; missing moisture returns None (never estimated)."""
+    limit = (cfg or config())['legal_limits'][nutrient]
+    if limit['basis'] != 'per_100g_dm':
+        raise ValueError(f'unsupported stored basis {limit["basis"]!r}')
+    per_100g_dm = limit['max']
+    if basis == 'per_100g_dm':
+        return per_100g_dm
+    if basis == 'per_kg_dm':
+        return per_100g_dm*10
+    if basis == 'per_kg_as_fed':
+        if moisture_pct is None:
+            return None
+        if not 0 <= moisture_pct < 100:
+            raise ValueError('moisture_pct must be in [0, 100)')
+        return per_100g_dm*10*(100-moisture_pct)/100
+    raise ValueError(f'unknown basis {basis!r}; expected per_100g_dm, per_kg_dm or per_kg_as_fed')
+
+
 def parse_nutrients(text):
     values, issues, evidence = {}, [], []
     for key, label in LABELS.items():

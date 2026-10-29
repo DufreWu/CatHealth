@@ -14,6 +14,31 @@
     "me_method": "FEDIAF 2025 引用的 NRC 2006 猫粮预测方程：GE = 5.7×蛋白 + 9.4×脂肪 + 4.1×(NFE + 纤维)；能量消化率 % = 87.9 − 0.88×纤维 % DM；ME = GE×消化率 − 0.77×蛋白。需要五项声明值齐全，缺失时为 null；NFE 仅用于 ME，不展示。",
     "digestibility": "一律假设产品满足 FEDIAF 消化率假设"
   },
+  "unit_conversion": {
+    "reference": "FEDIAF 2025 Table III-2（第 13 页）",
+    "kcal_me_per_kg_dm": 4000,
+    "kcal_per_mj": 239,
+    "note": "仅用于换算 FEDIAF 表中的参照值（按 4000 kcal ME/kg DM 的假设能量密度）。产品自身的每 1000 kcal 数值用该产品计算出的 ME，不用这些固定系数。键名为“源单位->目标单位”。",
+    "factors": {
+      "per_100g_dm->per_1000kcal": 2.5,
+      "per_1000kcal->per_100g_dm": 0.4,
+      "per_100g_dm->per_mj": 0.598,
+      "per_mj->per_100g_dm": 1.6736,
+      "per_1000kcal->per_mj": 0.239,
+      "per_mj->per_1000kcal": 4.184
+    }
+  },
+  "legal_limits": {
+    "vitamin_d": {
+      "name": "维生素 D",
+      "max": 227,
+      "unit": "IU",
+      "basis": "per_100g_dm",
+      "reference": "FEDIAF 2025 Table III-4a（第 18 页，标注 L）",
+      "origin": "EU 法定上限 2000 IU/kg 全价饲料（含水 12%）：2000 ÷ 0.88 ≈ 2273 IU/kg DM ≈ 227 IU/100 g DM。EU 法规条文待核对。",
+      "note": "227 是每 100 g 干物质，不是每 kg 原样。与产品比较前必须先把产品值换算到干物质，或用 legal_max() 按产品水分换算成原样值。"
+    }
+  },
   "life_stage_groups": {
     "adult": {"note": "成猫参照"},
     "kitten": {"protein_minimum": 28.0, "note": "蛋白采用幼猫最低参照；其余对照标准为成猫，幼猫需求更高"},
